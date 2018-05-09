@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreport_datasetGrafico" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="723fd634-b0cb-4c93-8f81-11c685fdc4d5">
+	<property name="zoom.factor" value="50.0"/>
+	<property name="DATASOURCE" value="jdbc/main"/>
+	<property name="REPORT_DATASET" value="[{&quot;name&quot;:&quot;DATASETGRAFICO&quot;,&quot;j4CDataset&quot;:{&quot;datasetType&quot;:&quot;DATASOURCE&quot;,&quot;freeQuery&quot;:true,&quot;jndiConnection&quot;:&quot;jdbc/main&quot;,&quot;sql&quot;:&quot;SELECT SUM(\&quot;VENDA\&quot;.quantidade) quantidade,\n    \&quot;VENDA\&quot;.fk_produto ,\n    \&quot;VENDA\&quot;.valor ,\n    \&quot;PRODUTO\&quot;.nome ,\n    \&quot;PRODUTO\&quot;.id \nFROM\n    \&quot;VENDA\&quot; ,\n    \&quot;PRODUTO\&quot; \nWHERE\n    \&quot;PRODUTO\&quot;.id \u003d \&quot;VENDA\&quot;.fk_produto\nGROUP BY \&quot;PRODUTO\&quot;.nome&quot;,&quot;recordLimit&quot;:10,&quot;tables&quot;:[],&quot;joins&quot;:[],&quot;columns&quot;:[],&quot;wheres&quot;:[],&quot;persistenceUnitName&quot;:&quot;app&quot;},&quot;main&quot;:true}]"/>
+	<queryString>
+		<![CDATA[SELECT SUM("VENDA".quantidade) quantidade,
+    "VENDA".fk_produto ,
+    "VENDA".valor ,
+    "PRODUTO".nome ,
+    "PRODUTO".id 
+FROM
+    "VENDA" ,
+    "PRODUTO" 
+WHERE
+    "PRODUTO".id = "VENDA".fk_produto
+GROUP BY "PRODUTO".nome]]>
+	</queryString>
+	<field name="fk_produto" class="java.lang.String">
+		<fieldDescription><![CDATA[fk_produto]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.lang.String">
+		<fieldDescription><![CDATA[valor]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.Long">
+		<fieldDescription><![CDATA[quantidade]]></fieldDescription>
+	</field>
+	<title>
+		<band height="159">
+			<pie3DChart>
+				<chart evaluationTime="Report">
+					<reportElement mode="Transparent" x="19" y="19" width="412" height="137" forecolor="#000000" backcolor="#FFFFFF" uuid="15fb57a1-e94d-4d86-b916-d66e9c2b3a02"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nome}]]></keyExpression>
+					<valueExpression><![CDATA[$F{quantidade}]]></valueExpression>
+					<labelExpression><![CDATA[$F{quantidade}.toString()]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot isShowLabels="true" isCircular="true">
+					<plot backcolor="#FFFFFF"/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+			<textField>
+				<reportElement x="188" y="-1" width="100" height="20" uuid="880ff010-13e9-4534-bac4-01def4de9b06"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Vendas Totais"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>
