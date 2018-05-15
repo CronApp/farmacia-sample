@@ -1,15 +1,23 @@
-<ion-view cache-view="false" view-title="Venda" hide-back-button="true">
+<ion-view cache-view="false" view-title="" hide-back-button="true">
   <ion-nav-buttons side="right"> 
     <button class="button button-stable" ng-hide="Venda.inserting || Venda.editing" ng-click="Venda.startInserting()"> <i class="icon ion-plus-round"></i> </button>
     
   </ion-nav-buttons>
   <ion-nav-buttons side="left">
-      <button class="button button-icon button-clear ion-navicon" ng-hide="Venda.inserting || Venda.editing" menu-toggle="left"> </button>
+      <button class="button button-icon button-clear btn-menu" ng-hide="Venda.inserting || Venda.editing" menu-toggle="left"> <i class="fas fa-bars"></i></button>
   </ion-nav-buttons>
   <ion-content>
+      
+    <div class="row">
+        <div class="title-pages">
+            <span><img src="img/pharma-manager-prototype-vendas-color.png" data-component="crn-image" id="carrinho-imagem"></span><h3>Vendas</h3>
+        </div>              
+    </div>
+      <div class="container">
+          <div class="col-xs-12">
     <div ng-hide="Venda.inserting || Venda.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class="">
       <label class="item item-input" id="cloud-search1">
-        <i class="icon ion-search placeholder-icon"></i>
+       
         <input type="text" ng-model="vars.search" cronapp-filter="data;" cronapp-filter-operator="" cronapp-filter-autopost="true" crn-datasource="Venda" value="" placeholder="{{'template.crud.search' | translate}}">
       </label>
     </div>   
@@ -41,7 +49,10 @@
           </ion-option-button>
         </ion-item>
       </ion-list>
-    </div>
+    </div>              
+          </div>
+      </div>
+
     
   </ion-content>
 </ion-view>
