@@ -1,4 +1,4 @@
-package blockly;
+package blockly.pedidos;
 
 import cronapi.*;
 import cronapi.rest.security.CronappSecurity;

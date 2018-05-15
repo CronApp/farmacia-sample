@@ -1,4 +1,4 @@
-package blockly;
+package blockly.chat;
 
 import cronapi.*;
 import cronapi.rest.security.CronappSecurity;

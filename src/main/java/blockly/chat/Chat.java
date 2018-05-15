@@ -1,4 +1,4 @@
-package blockly;
+package blockly.chat;
 
 import cronapi.*;
 import cronapi.rest.security.CronappSecurity;
@@ -20,7 +20,7 @@ public class Chat {
 		new Callable<Var>() {
 
 			public Var call() throws Exception {
-				blockly.AddItemPedido.adicionar(context, watsonMsg);
+				blockly.pedidos.AddItemPedido.adicionar(context, watsonMsg);
 				return Var.VAR_NULL;
 			}
 		}.call();
@@ -35,7 +35,7 @@ public class Chat {
 		new Callable<Var>() {
 
 			public Var call() throws Exception {
-				blockly.CriarPedido.criar(context);
+				blockly.pedidos.CriarPedido.criar(context);
 				return Var.VAR_NULL;
 			}
 		}.call();
@@ -52,7 +52,7 @@ public class Chat {
 		new Callable<Var>() {
 
 			public Var call() throws Exception {
-				blockly.Remedios.remedios(entities, intents, context);
+				blockly.chat.Remedios.remedios(entities, intents, context);
 				return Var.VAR_NULL;
 			}
 		}.call();
