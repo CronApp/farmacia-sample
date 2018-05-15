@@ -66,10 +66,10 @@ public class Venda implements Serializable {
   /**
   * @generated
   */
-  @OneToOne
-  @JoinColumn(name="fk_estoque", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+  @ManyToOne
+  @JoinColumn(name="fk_pedido", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
   
-  private Estoque estoque;
+  private Pedido pedido;
 
   /**
    * Construtor
@@ -180,22 +180,22 @@ public class Venda implements Serializable {
   }
 
   /**
-   * Obtém estoque
-   * return estoque
+   * Obtém pedido
+   * return pedido
    * @generated
    */
   
-  public Estoque getEstoque(){
-    return this.estoque;
+  public Pedido getPedido(){
+    return this.pedido;
   }
 
   /**
-   * Define estoque
-   * @param estoque estoque
+   * Define pedido
+   * @param pedido pedido
    * @generated
    */
-  public Venda setEstoque(Estoque estoque){
-    this.estoque = estoque;
+  public Venda setPedido(Pedido pedido){
+    this.pedido = pedido;
     return this;
   }
 

@@ -62,6 +62,11 @@
             <name>repository-cronapi-watson-conversation</name>
             <url>https://artifactory.cronapp.io/libs-release</url>
         </repository>
+        <repository>
+            <id>repository-mabilis</id>
+            <name>repository-mabilis-boleto-cronapp</name>
+            <url>https://repo.mabilis.com.br/repository/maven-releases</url>
+        </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -179,6 +184,11 @@
             <groupId>io.cronapp</groupId>
             <artifactId>cronapi-java</artifactId>
             <version>0.0.162-d-s-b</version>
+        </dependency>
+        <dependency>
+            <groupId>mabilis</groupId>
+            <artifactId>mabilis-boleto-cronapp</artifactId>
+            <version>1.0.3.2</version>
         </dependency>
     </dependencies>
     <properties>

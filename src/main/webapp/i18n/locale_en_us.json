@@ -106,5 +106,8 @@
   "Fornecedor": "Supplier",
   "Vendas": "Sales",
   "Estoque": "Stock",
-  "CadastroBase": "Registration Base"
+  "CadastroBase": "Registration Base",
+  "Pedidos": "Sales",
+  "Chat": "Chat",
+  "AssistentePessoal": "Personal Assistant"
 }

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><blockly formTarget="" resourceType="JAVA" ruleDescription="Remedios" ruleName="Remedios" ruleSynchronous="false" ruleTimeout="" ruleType="I">
+  <metadata scale="1" scrollx="846.0000000000025" scrolly="-306.5000000000001" target="bXwBKnmFXNZS0TAQRX3L"/>
+  <block colour="#995ba5" id="bXwBKnmFXNZS0TAQRX3L" origintype="procedures_defnoreturn" output="false" tooltip="Cria uma função que não tem retorno." type="procedures_defnoreturn" x="-742" y="503">
+    <mutation>
+      <arg name="entities"/>
+      <arg name="intents"/>
+      <arg name="context"/>
+    </mutation>
+    <field name="NAME">remedios</field>
+    <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
+    <statement name="STACK">
+      <block colour="#a55b80" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="{XJ6vUW]Q1n{8^=0U=(#" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+        <field name="VAR">remedios</field>
+        <value name="VALUE">
+          <block colour="#db802b" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="4Hw4IMy9lM8uUr5$^zQ^" multilayer="false" namespace="cronapi.database.Operations.query" origintype="procedures_sql_callreturn" output="true" returntype="ObjectType.DATASET" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EAbrir%20consulta%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20realizar%20consultas%20no%20banco%20de%20dados%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Entidade%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Consulta%20SQL%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Par%C3%A2metros%20para%20consulta%20:%20Lista%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Tabela%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_sql_callreturn">
+            <mutation data="%7B%22queryBuilderJson%22:%7B%22isValid%22:true,%22isEmpty%22:false,%22operationType%22:%22object%22,%22type%22:%22select%22,%22rulesEntity%22:%5B%7B%22entity%22:%22Produto%22,%22namespace%22:%22app.entity.Produto%22,%22alias%22:%22p%22%7D%5D,%22rulesSelect%22:%5B%7B%22func%22:%22get%22,%22field%22:%22p.nome%22,%22type%22:%22string%22%7D%5D,%22rulesGroupBy%22:%5B%5D,%22rulesHaving%22:%5B%5D,%22rulesOrderBy%22:%5B%5D,%22rules%22:%7B%22condition%22:%22AND%22,%22rules%22:%5B%5D,%22not%22:false,%22valid%22:true%7D,%22isRawSql%22:false,%22multiTenant%22:true,%22paginatorAutomatic%22:false%7D,%22entity%22:%22Produto%22,%22entityFullName%22:%22app.entity.Produto%22,%22filter%22:%22select%20p.nome%20from%20Produto%20p%22,%22params%22:%22%5B%5D%22%7D" name="{{cronapi.database.Operations.query}}"/>
+          </block>
+        </value>
+        <next>
+          <block colour="#5ba58c" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="U;u`(N;aoo6BojS#B]V[" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
+            <value name="TEXT">
+              <shadow colour="#5ba593" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="~KZ}iy/!VpPUG{#CM}ZV" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+              <block colour="#5ba58c" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="e)|q7FkQ!folM+#uR+Bq" origintype="text_getSubstring" output="true" tooltip="Retorna o trecho de texto especificado." type="text_getSubstring">
+                <mutation at1="true" at2="true"/>
+                <field name="WHERE1">FROM_START</field>
+                <field name="WHERE2">FROM_START</field>
+                <value name="STRING">
+                  <block colour="#a55b80" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="_Tc4K_PjbZ4|C3uF:e}6" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                    <field name="VAR">remedios</field>
+                  </block>
+                </value>
+                <value name="AT1">
+                  <block colour="#5b67a5" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="Xb-$f}F=7,)ikO}Yz9}B" origintype="math_number" output="true" tooltip="function () { [native code] }" type="math_number">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <value name="AT2">
+                  <block colour="#5b6da5" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="u]nj38~}E9z(qR)*VZ|h" origintype="math_arithmetic" output="true" tooltip="function () { [native code] }" type="math_arithmetic">
+                    <mutation items="2"/>
+                    <field name="OP1">MINUS</field>
+                    <value name="ARG0">
+                      <block colour="#5ba58c" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="NP;g@mKVxFcp{8eDCU}u" origintype="text_length" output="true" tooltip="Retorna o número de letras (incluindo espaços) no texto fornecido." type="text_length">
+                        <value name="VALUE">
+                          <shadow colour="#5ba593" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="N+EH9~igVlCT{=${8|!s" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">abc</field>
+                          </shadow>
+                          <block colour="#a55b80" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="9WNd`R{77nV#hg/+!)Mb" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                            <field name="VAR">remedios</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block colour="#5b67a5" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="C0Bv,7euW;|]^%TSInBu" origintype="math_number" output="true" tooltip="function () { [native code] }" type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block colour="#4f7ba8" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="kjRz[~HBo(J^.9@^FCRA" multilayer="false" namespace="cronapi.json.Operations.setJsonOrMapField" origintype="procedures_callnoreturn" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EDefinir%20valor%20no%20Json%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20definir%20valor%20no%20Json%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Json%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Caminho%20a%20percorrer%20:%20Texto%3C/span%3E%3Cdiv%3E%20Exemplo:%20estado%5B3%5D.uf%3C/div%3E%3Cspan%3E%20-%20Valor%20a%20ser%20definido%20no%20objeto%20:%20Objeto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.json.Operations.setJsonOrMapField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.json.Operations.setJsonOrMapField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callnoreturn">
+                <mutation name="{{cronapi.json.Operations.setJsonOrMapField}}" return-raw-type="void">
+                  <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.OBJECT" name="Json"/>
+                  <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Caminho a percorrer"/>
+                  <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.OBJECT" name="Valor a ser definido no objeto"/>
+                </mutation>
+                <value name="ARG0">
+                  <block colour="#a55b80" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="gEESW8ru)K~ed#FN?G$v" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                    <field name="VAR">context</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <shadow colour="#5ba593" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="N#5w3wj;SN7~,IfBxv+{" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                    <field name="TEXT"/>
+                  </shadow>
+                  <block colour="#5ba593" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="l;Q%M.KGu]cmttr9b-P~" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                    <field name="TEXT">remedios</field>
+                  </block>
+                </value>
+                <value name="ARG2">
+                  <block colour="#5ba58c" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="8k;b~].Q`p66V2j?7tPn" origintype="text_getSubstring" output="true" tooltip="Retorna o trecho de texto especificado." type="text_getSubstring">
+                    <mutation at1="true" at2="true"/>
+                    <field name="WHERE1">FROM_START</field>
+                    <field name="WHERE2">FROM_START</field>
+                    <value name="STRING">
+                      <block colour="#a55b80" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="HgEDd9VxA7.9PtWqodpJ" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                        <field name="VAR">remedios</field>
+                      </block>
+                    </value>
+                    <value name="AT1">
+                      <block colour="#5b67a5" dependencyby="bXwBKnmFXNZS0TAQRX3L" id=")bgoP#9v_.^Z|g4oD@3Y" origintype="math_number" output="true" tooltip="function () { [native code] }" type="math_number">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <value name="AT2">
+                      <block colour="#5b6da5" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="gHU3wT5`k=tLQlk7d{#~" origintype="math_arithmetic" output="true" tooltip="function () { [native code] }" type="math_arithmetic">
+                        <mutation items="2"/>
+                        <field name="OP1">MINUS</field>
+                        <value name="ARG0">
+                          <block colour="#5ba58c" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="oABd@eINhyf1Uy9Y~V1-" origintype="text_length" output="true" tooltip="Retorna o número de letras (incluindo espaços) no texto fornecido." type="text_length">
+                            <value name="VALUE">
+                              <shadow colour="#5ba593" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="N+EH9~igVlCT{=${8|!s" origintype="text" output="true" tooltip="function () { [native code] }" type="text" xmlns="">
+                                <field name="TEXT">abc</field>
+                              </shadow>
+                              <block colour="#a55b80" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="1h8]E]f;f}?C/rwQ_iE1" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                <field name="VAR">remedios</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="ARG1">
+                          <block colour="#5b67a5" dependencyby="bXwBKnmFXNZS0TAQRX3L" id="iC{9C4[ZJKGL!ph18j-R" origintype="math_number" output="true" tooltip="function () { [native code] }" type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</blockly>

@@ -80,18 +80,10 @@ public class Estoque implements Serializable {
   /**
   * @generated
   */
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name="fk_produto", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
   
   private Produto produto;
-
-  /**
-  * @generated
-  */
-  @ManyToOne
-  @JoinColumn(name="fk_fornecedor", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
-  
-  private Fornecedor fornecedor;
 
   /**
    * Construtor
@@ -258,26 +250,6 @@ public class Estoque implements Serializable {
    */
   public Estoque setProduto(Produto produto){
     this.produto = produto;
-    return this;
-  }
-
-  /**
-   * Obtém fornecedor
-   * return fornecedor
-   * @generated
-   */
-  
-  public Fornecedor getFornecedor(){
-    return this.fornecedor;
-  }
-
-  /**
-   * Define fornecedor
-   * @param fornecedor fornecedor
-   * @generated
-   */
-  public Estoque setFornecedor(Fornecedor fornecedor){
-    this.fornecedor = fornecedor;
     return this;
   }
 

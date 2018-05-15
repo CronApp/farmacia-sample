@@ -10,9 +10,11 @@ window.blockly.js.blockly.OperacoesVariavelEscopo = window.blockly.js.blockly.Op
 window.blockly.js.blockly.OperacoesVariavelEscopo.inserir = function(produto,
 		quantidade) {
 
-	var itensLinha, produto, quantidade;
+	var item, itensLinha, produto, quantidade, i;
 	itensLinha = this.cronapi.object
-			.createObjectFromString('{\"quantidade\":0, \"produto\":{\"nome\":\"\",\"valor_venda\":0}}');
+			.createObjectFromString('{\"pedido\":\"\",\"quantidade\":0, \"produto\":{\"nome\":\"\",\"valor_venda\":0}}');
+	this.cronapi.object.setProperty(itensLinha, 'pedido', this.cronapi.screen
+			.getScopeVariable('Pedido'));
 	this.cronapi.object.setProperty(itensLinha, 'quantidade', quantidade);
 	this.cronapi.object.setProperty(itensLinha, 'produto', produto);
 	this.cronapi.screen.getScopeVariable('Lista').push(itensLinha);
@@ -25,6 +27,8 @@ window.blockly.js.blockly.OperacoesVariavelEscopo.inserir = function(produto,
  */
 window.blockly.js.blockly.OperacoesVariavelEscopo.criar = function() {
 
-	var itensLinha, produto, quantidade;
+	var item, itensLinha, produto, quantidade, i;
+	this.cronapi.screen.createScopeVariable('Pedido', this.cronapi.util
+			.callServerBlockly('blockly.CriarPedido:idPedido'));
 	this.cronapi.screen.createScopeVariable('Lista', []);
 }

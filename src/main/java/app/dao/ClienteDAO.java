@@ -45,4 +45,11 @@ public interface ClienteDAO extends JpaRepository<Cliente, java.lang.String> {
 
 
 
+  /**
+   * OneToMany Relation
+   * @generated
+   */
+  @Query("SELECT entity FROM Pedido entity WHERE entity.cliente.id = :id")
+  public Page<Pedido> findPedido(@Param(value="id") java.lang.String id, Pageable pageable);
+
 }

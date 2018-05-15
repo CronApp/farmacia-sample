@@ -45,25 +45,4 @@ public interface FornecedorDAO extends JpaRepository<Fornecedor, java.lang.Strin
 
 
 
-  /**
-   * OneToMany Relation
-   * @generated
-   */
-  @Query("SELECT entity FROM Estoque entity WHERE entity.fornecedor.id = :id")
-  public Page<Estoque> findEstoque(@Param(value="id") java.lang.String id, Pageable pageable);
-  /**
-   * ManyToOne Relation
-   * @generated
-   */
-  @Query("SELECT entity.produto FROM Estoque entity WHERE entity.fornecedor.id = :id")
-  public Page<Produto> listProduto(@Param(value="id") java.lang.String id, Pageable pageable);
-
-  /**
-   * ManyToOne Relation Delete
-   * @generated
-   */
-  @Modifying
-  @Query("DELETE FROM Estoque entity WHERE entity.fornecedor.id = :instanceId AND entity.produto.id = :relationId")
-  public int deleteProduto(@Param(value="instanceId") java.lang.String instanceId, @Param(value="relationId") java.lang.String relationId);
-
 }

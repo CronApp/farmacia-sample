@@ -52,4 +52,11 @@ public interface VendaDAO extends JpaRepository<Venda, java.lang.String> {
   @Query("SELECT entity FROM Venda entity WHERE entity.produto.id = :id")
   public Page<Venda> findVendasByProduto(@Param(value="id") java.lang.String id, Pageable pageable);
 
+  /**
+   * Foreign Key pedido
+   * @generated
+   */
+  @Query("SELECT entity FROM Venda entity WHERE entity.pedido.id = :id")
+  public Page<Venda> findVendasByPedido(@Param(value="id") java.lang.String id, Pageable pageable);
+
 }

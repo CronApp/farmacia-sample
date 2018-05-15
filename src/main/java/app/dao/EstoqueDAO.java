@@ -46,10 +46,10 @@ public interface EstoqueDAO extends JpaRepository<Estoque, java.lang.String> {
 
 
   /**
-   * Foreign Key fornecedor
+   * Foreign Key produto
    * @generated
    */
-  @Query("SELECT entity FROM Estoque entity WHERE entity.fornecedor.id = :id")
-  public Page<Estoque> findEstoquesByFornecedor(@Param(value="id") java.lang.String id, Pageable pageable);
+  @Query("SELECT entity FROM Estoque entity WHERE entity.produto.id = :id")
+  public Page<Estoque> findEstoquesByProduto(@Param(value="id") java.lang.String id, Pageable pageable);
 
 }

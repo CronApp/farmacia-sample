@@ -63,6 +63,7 @@ window.blockly.js.Chat.enviar_mensagem = function() {
 			this.cronapi.screen.changeValueOfField("vars.chatMessages", msg);
 		}
 	}
+	this.cronapi.screen.changeValueOfField("vars.message", '');
 }
 
 /**
