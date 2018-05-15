@@ -583,5 +583,411 @@
 			"foreignKey": null
 		},
 		"serviceUrl": "api/cronapi/query/1jifl0g3b6drn/"
+	},
+	"rkxcax5np8he": {
+		"customId": "rkxcax5np8he",
+		"queryName": "consultaComUpdateEntity",
+		"screen": "src/main/webapp/views/logged/produto.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Produto",
+		"entityFullName": "app.entity.Produto",
+		"query": {
+			"isValid": true,
+			"rulesEntity": [
+				{
+					"entity": "Produto",
+					"alias": "p",
+					"namespace": "app.entity.Produto"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "p"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"not": false,
+				"valid": true,
+				"rules": []
+			}
+		},
+		"queryParamsValues": [],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": {
+				"blocklyClass": "blockly.UpdateEntity",
+				"blocklyMethod": "updateRemedio",
+				"blocklyLanguage": "java",
+				"blocklyJson": {
+					"namespace": "blockly.UpdateEntity",
+					"classNameNew": "UpdateEntity",
+					"classNameOld": "updateEntity",
+					"sourcePath": "src/main/java/blockly/updateEntity.blockly",
+					"language": "java",
+					"class": "blockly.UpdateEntity",
+					"methods": [
+						{
+							"name": "updateRemedio",
+							"hasReturn": "false",
+							"params": []
+						}
+					]
+				},
+				"blocklyFunctionCall": "cronapi.util.makeCallServerBlocklyAsync('blockly.UpdateEntity:updateRemedio', null, null)"
+			},
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"nome": null,
+			"codigo_produto": null,
+			"categoria": null,
+			"marca": null,
+			"preco_custo": null,
+			"preco_venda": null,
+			"fornecedor": null
+		},
+		"security": {
+			"id": null,
+			"nome": null,
+			"codigo_produto": null,
+			"categoria": null,
+			"marca": null,
+			"preco_custo": null,
+			"preco_venda": null,
+			"fornecedor": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/rkxcax5np8he/"
+	},
+	"rhdbvvb2o6k6": {
+		"customId": "rhdbvvb2o6k6",
+		"queryName": "pedidos",
+		"screen": "src/main/webapp/views/logged/venda.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Pedido",
+		"entityFullName": "app.entity.Pedido",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Venda",
+					"namespace": "app.entity.Venda",
+					"alias": "v"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "v.data",
+					"type": "date"
+				},
+				{
+					"func": "sum",
+					"field": "(v.produto.preco_venda * v.quantidade)",
+					"type": "string"
+				},
+				{
+					"func": "get",
+					"field": "v.pedido.id",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [
+				{
+					"field": "v.pedido.id"
+				}
+			],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"data": null,
+			"quantidade": null,
+			"valor": null
+		},
+		"security": {
+			"id": null,
+			"data": null,
+			"quantidade": null,
+			"valor": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/rhdbvvb2o6k6/"
+	},
+	"qxiaiu07hgkw": {
+		"customId": "qxiaiu07hgkw",
+		"queryName": "venda",
+		"screen": "src/main/webapp/views/logged/venda.view.html",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Venda",
+		"entityFullName": "app.entity.Venda",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Venda",
+					"namespace": "app.entity.Venda",
+					"alias": "v"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "v",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [
+					{
+						"id": "v.pedido.id",
+						"field": "v.pedido.id",
+						"type": "string",
+						"input": "text",
+						"operator": "equal",
+						"value": ":pedidoId",
+						"valueIsField": false
+					}
+				],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [
+			{
+				"fieldName": "pedidoId",
+				"fieldValue": ""
+			}
+		],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"valor_venda": null,
+			"data": null,
+			"produto": null,
+			"quantidade": null,
+			"estoque": null,
+			"pedido": null
+		},
+		"security": {
+			"id": null,
+			"valor_venda": null,
+			"data": null,
+			"produto": null,
+			"quantidade": null,
+			"estoque": null,
+			"pedido": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/qxiaiu07hgkw/"
+	},
+	"1ib8qn0k2em2a": {
+		"customId": "1ib8qn0k2em2a",
+		"queryName": "obterListaProdutos",
+		"screen": "",
+		"sourceType": "entityFullName",
+		"blockly": null,
+		"entitySimpleName": "Produto",
+		"entityFullName": "app.entity.Produto",
+		"query": {
+			"isValid": true,
+			"isEmpty": false,
+			"operationType": "object",
+			"type": "select",
+			"rulesEntity": [
+				{
+					"entity": "Produto",
+					"namespace": "app.entity.Produto",
+					"alias": "p"
+				}
+			],
+			"rulesSelect": [
+				{
+					"func": "get",
+					"field": "p.nome",
+					"type": "string"
+				},
+				{
+					"func": "get",
+					"field": "p.preco_venda",
+					"type": "double"
+				},
+				{
+					"func": "get",
+					"field": "p.id",
+					"type": "string"
+				}
+			],
+			"rulesGroupBy": [],
+			"rulesHaving": [],
+			"rulesOrderBy": [],
+			"rules": {
+				"condition": "AND",
+				"rules": [],
+				"not": false,
+				"valid": true
+			},
+			"isRawSql": false,
+			"multiTenant": true,
+			"paginatorAutomatic": false
+		},
+		"queryParamsValues": [],
+		"verbs": {
+			"GET": true,
+			"GETAuthorities": null,
+			"POST": true,
+			"POSTAuthorities": null,
+			"PUT": true,
+			"PUTAuthorities": null,
+			"DELETE": true,
+			"DELETEAuthorities": null,
+			"FILTER": true,
+			"FILTERAuthorities": null
+		},
+		"events": {
+			"beforeInsert": null,
+			"beforeUpdate": null,
+			"beforeDelete": null,
+			"afterInsert": null,
+			"afterUpdate": null,
+			"afterDelete": null,
+			"onNavigate": null,
+			"onGetData": null
+		},
+		"defaultValues": {
+			"id": null,
+			"nome": null,
+			"codigo_produto": null,
+			"categoria": null,
+			"marca": null,
+			"preco_custo": null,
+			"preco_venda": null,
+			"fornecedor": null
+		},
+		"security": {
+			"id": null,
+			"nome": null,
+			"codigo_produto": null,
+			"categoria": null,
+			"marca": null,
+			"preco_custo": null,
+			"preco_venda": null,
+			"fornecedor": null
+		},
+		"calcFields": {},
+		"calcFieldsSecurity": {},
+		"errorHandles": {
+			"primaryKey": null,
+			"foreignKey": null
+		},
+		"serviceUrl": "api/cronapi/query/1ib8qn0k2em2a/"
 	}
 }

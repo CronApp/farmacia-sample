@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/webapp/views/logged/pedido.view.html" resourceType="JAVA" ruleDescription="gerarBoleto" ruleName="gerarBoleto" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
+  <metadata scale="1" scrollx="244.9999999999992" scrolly="-290.9999999999962" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-203" y="269">
+    <mutation>
+      <arg name="pedidoId"/>
+    </mutation>
+    <field name="NAME">gerar</field>
+    <comment h="80" pinned="false" w="160">gerarBoleto</comment>
+    <statement name="STACK">
+      <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="/T%,*7@)Jp[ckxN2C$:3" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
+        <value name="TEXT">
+          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="TEf9s[xHxGf?Yf8a]Jkk" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="u0kz2EuQ$,gxGzh+qKqQ" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+            <field name="VAR">pedidoId</field>
+          </block>
+        </value>
+        <next>
+          <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="9u+*jhM}msk80iC8?9lh" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+            <field name="VAR">consultaDB</field>
+            <value name="VALUE">
+              <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="!L4*jXLg)(PwaMOlNdYM" multilayer="false" namespace="cronapi.database.Operations.query" origintype="procedures_sql_callreturn" output="true" returntype="ObjectType.DATASET" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EAbrir%20consulta%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20realizar%20consultas%20no%20banco%20de%20dados%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Entidade%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Consulta%20SQL%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Par%C3%A2metros%20para%20consulta%20:%20Lista%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Tabela%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_sql_callreturn">
+                <mutation data="%7B%22queryBuilderJson%22:%7B%22isValid%22:true,%22isEmpty%22:false,%22operationType%22:%22object%22,%22type%22:%22select%22,%22rulesEntity%22:%5B%7B%22entity%22:%22Venda%22,%22namespace%22:%22app.entity.Venda%22,%22alias%22:%22v%22%7D%5D,%22rulesSelect%22:%5B%7B%22func%22:%22get%22,%22field%22:%22v.data%22,%22type%22:%22date%22%7D,%7B%22func%22:%22get%22,%22field%22:%22v.pedido.id%22,%22type%22:%22string%22%7D,%7B%22func%22:%22sum%22,%22field%22:%22v.quantidade%22,%22type%22:%22integer%22%7D,%7B%22func%22:%22sum%22,%22field%22:%22v.produto.preco_venda%22,%22type%22:%22double%22%7D%5D,%22rulesGroupBy%22:%5B%7B%22field%22:%22v.pedido.id%22%7D%5D,%22rulesHaving%22:%5B%5D,%22rulesOrderBy%22:%5B%5D,%22rules%22:%7B%22condition%22:%22AND%22,%22rules%22:%5B%7B%22id%22:%22v.pedido.id%22,%22field%22:%22v.pedido.id%22,%22type%22:%22string%22,%22input%22:%22text%22,%22operator%22:%22equal%22,%22value%22:%22:pedidoId%22,%22valueIsField%22:false%7D%5D,%22not%22:false,%22valid%22:true%7D,%22isRawSql%22:false,%22multiTenant%22:true,%22paginatorAutomatic%22:false%7D,%22entity%22:%22Venda%22,%22entityFullName%22:%22app.entity.Venda%22,%22filter%22:%22select%20v.data,%20v.pedido.id,%20SUM(v.quantidade),%20SUM(v.produto.preco_venda)%20from%20Venda%20v%20where%20v.pedido.id%20=%20:pedidoId%20group%20by%20v.pedido.id%22,%22params%22:%22%5B%5C%22pedidoId%5C%22%5D%22%7D" name="{{cronapi.database.Operations.query}}">
+                  <arg name="pedidoId"/>
+                </mutation>
+                <value name="ARG0">
+                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="0Ys+zZoOrDHwr~-fL!)!" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                    <field name="VAR">pedidoId</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="4{]fe^f~~9:O`;xDUkL$" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                <field name="VAR">jsonBoletos</field>
+                <value name="VALUE">
+                  <block colour="#E6C8F2" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="#)l(GRh8)pF2,u3f}jCN" multilayer="false" namespace="br.com.mabilis.cronapi.boleto.Operations.criarBoleto" origintype="procedures_callreturn" output="true" returntype="ObjectType.STRING" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3ECriar%20Objeto%20Boleto%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20cria%20corpo%20do%20boleto%20para%20gera%C3%A7%C3%A3o%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Aceite%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Carteira%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Seu%20n%C3%BAmero%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20N%C3%BAmero%20do%20documento%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Data%20de%20emiss%C3%A3o%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Esp%C3%A9cie%20de%20documento%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Data%20vencimento%20:%20Texto%3C/span%3E%3Cdiv%3E%20Data%20de%20vencimento%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Nosso%20N%C3%BAmero%20:%20Texto%3C/span%3E%3Cdiv%3E%20N%C3%BAmero%20de%20identifica%C3%A7%C3%A3o%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Mensagem%20:%20Texto%3C/span%3E%3Cdiv%3E%20Mensagem%20informativa%20impressa%20no%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20boleto%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20cobran%C3%A7a%20do%20boleto%20gerado%3C/div%3E%3Cspan%3E%20-%20Ocorr%C3%AAncia%20:%20Texto%3C/span%3E%3Cdiv%3E%20Descricao%20ocorr%C3%AAncia%20do%20boleto%20na%20remessa%3C/div%3E%3Cspan%3E%20-%20Data%20Ocorr%C3%AAncia%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20cobran%C3%A7a%20do%20boleto%20gerado%3C/div%3E%3Cspan%3E%20-%20Valor%20recebido%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20recebido%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20outros%20acr%C3%A9scimos%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20outros%20acr%C3%A9cimos%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20outras%20despesas%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20outras%20depesas%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20mora%20juros%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20mora%20dos%20juros%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20valor%20moeda%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20da%20moerda%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20IOF%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20IOF%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20despesa%20cobran%C3%A7a%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20despesa%20da%20combran%C3%A7a%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20desconto%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20desconto%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20abatimento%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20abatimento%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Primeita%20instru%C3%A7%C3%A3o%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20da%20primeira%20instru%C3%A7%C3%A3o%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Segunda%20instru%C3%A7%C3%A3o%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20da%20segunda%20instru%C3%A7%C3%A3o%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Esp%C3%A9cie%20moeda%20:%20Texto%3C/span%3E%3Cdiv%3E%20Esp%C3%A9cie%20da%20moeda%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Qtd%20moeda%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20quantidade%20de%20moeda%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20percetual%20multa%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20percentual%20de%20multa%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Valor%20%20outros%20descontos%20:%20Texto%3C/span%3E%3Cdiv%3E%20Valor%20de%20outros%20descontos%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Instru%C3%A7%C3%B5es%20:%20Texto%3C/span%3E%3Cdiv%3E%20Instru%C3%A7%C3%B5es%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Data%20protesto%20:%20Texto%3C/span%3E%3Cdiv%3E%20Data%20de%20protesto%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Data%20processamento%20:%20Texto%3C/span%3E%3Cdiv%3E%20Data%20de%20processamento%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Data%20Multa%20:%20Texto%3C/span%3E%3Cdiv%3E%20Data%20da%20multa%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Data%20desconto%20:%20Texto%3C/span%3E%3Cdiv%3E%20Data%20limite%20para%20desconto%20no%20boleto%3C/div%3E%3Cspan%3E%20-%20Data%20Cr%C3%A9dito%20:%20Texto%3C/span%3E%3Cdiv%3E%20Data%20de%20cr%C3%A9dito%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Data%20Abatimento%20:%20Texto%3C/span%3E%3Cdiv%3E%20Data%20de%20abatimento%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Mora%20juros%20:%20Texto%3C/span%3E%3Cdiv%3E%20Juros%20de%20mora%20boleto%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Texto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/br.com.mabilis.cronapi.boleto.Operations.criarBoleto%22%3Ehttps://docs.cronapp.io/display/CRON2/br.com.mabilis.cronapi.boleto.Operations.criarBoleto%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                    <mutation name="{{br.com.mabilis.cronapi.boleto.Operations.criarBoleto}}" return-raw-type="br.com.mabilis.boleto.models.Boleto">
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Aceite"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Carteira"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Seu número"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Número do documento"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Data de emissão"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Espécie de documento"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Data vencimento"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Nosso Número"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Mensagem"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor boleto"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Ocorrência"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Data Ocorrência"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor recebido"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor outros acréscimos"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor outras despesas"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor mora juros"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor valor moeda"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor IOF"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor despesa cobrança"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor desconto"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor abatimento"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Primeita instrução"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Segunda instrução"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Espécie moeda"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Qtd moeda"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor percetual multa"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Valor  outros descontos"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Instruções"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Data protesto"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Data processamento"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Data Multa"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Data desconto"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Data Crédito"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Data Abatimento"/>
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Mora juros"/>
+                    </mutation>
+                    <value name="ARG0">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="v053!h(v+1hG:(zAPg4b" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">false</field>
+                      </shadow>
+                    </value>
+                    <value name="ARG1">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="!{?72]:7^[v%Sy-UHoN^" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">101</field>
+                      </shadow>
+                    </value>
+                    <value name="ARG2">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="!_Sg,f.iJ,nH$bJVJSg6" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">773784</field>
+                      </shadow>
+                    </value>
+                    <value name="ARG3">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Yv@f3I!^qi`|eYL+/$fw" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">463474</field>
+                      </shadow>
+                    </value>
+                    <value name="ARG4">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="M/M[nM,Tno{GRt1d(D.(" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">2016-12-14</field>
+                      </shadow>
+                      <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="o+WZv+0ly.;YS|;77oix" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
+                        <mutation items="1"/>
+                        <value name="ADD0">
+                          <block colour="#7d9137" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="^PD1g9Z7SMfhDS6VI?B/" multilayer="false" namespace="cronapi.dateTime.Operations.getNowNoHour" origintype="procedures_callreturn" output="true" returntype="ObjectType.DATETIME" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20data%20atual%20sem%20hora%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20data%20atual%20sem%20hora%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Data%20%20%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.getNowNoHour%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.getNowNoHour%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                            <mutation name="{{cronapi.dateTime.Operations.getNowNoHour}}" return-raw-type="Var"/>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG5">
+                      <block colour="#E6C8F2" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="7y]XGn(nkN^X4:Fs:fG*" origintype="util_dropdown" output="true" type="util_dropdown">
+                        <mutation>
+                          <arg name="DUPLICATA_MERCANTIL" value="Duplicata Mercantil"/>
+                          <arg name="DUPLICATA_SERVICO" value="Duplicata de Serviço"/>
+                          <arg name="NOTA_PROMISSORIA" value="Nota Promissória"/>
+                          <arg name="RECIBO" value="Recibo"/>
+                          <arg name="LETRA_DE_CAMBIO" value="Letra de Câmbio"/>
+                          <arg name="NOTA_DE_SEGURO" value="Nota de Seguro"/>
+                        </mutation>
+                        <field name="SELECT">DUPLICATA_MERCANTIL</field>
+                      </block>
+                    </value>
+                    <value name="ARG6">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id=",P,_8:75!L8i0tZiTDDu" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">2016-12-26</field>
+                      </shadow>
+                      <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="b#PXd!{q:*xLcZ:g=+/t" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
+                        <mutation items="1"/>
+                        <value name="ADD0">
+                          <block colour="#7d9137" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="dY2zw8]cReB?lb{!r2{e" multilayer="false" namespace="cronapi.dateTime.Operations.incDay" origintype="procedures_callreturn" output="true" returntype="ObjectType.DATETIME" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EIncrementar%20dia%20na%20data%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20incrementar%20dia%20na%20data%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Data%20:%20Data%20%20%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Dias%20a%20incrementar%20:%20Inteiro%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Data%20%20%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.incDay%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.incDay%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                            <mutation name="{{cronapi.dateTime.Operations.incDay}}" return-raw-type="Var">
+                              <arg cronapi-raw-type="Var" cronapi-type="ObjectType.DATETIME" name="Data"/>
+                              <arg cronapi-raw-type="Var" cronapi-type="ObjectType.LONG" name="Dias a incrementar"/>
+                            </mutation>
+                            <value name="ARG0">
+                              <block colour="#7d9137" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="QxXQwxy%,pAdvgZKpOGL" multilayer="false" namespace="cronapi.dateTime.Operations.getNowNoHour" origintype="procedures_callreturn" output="true" returntype="ObjectType.DATETIME" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20data%20atual%20sem%20hora%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20data%20atual%20sem%20hora%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Data%20%20%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.getNowNoHour%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.getNowNoHour%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                                <mutation name="{{cronapi.dateTime.Operations.getNowNoHour}}" return-raw-type="Var"/>
+                              </block>
+                            </value>
+                            <value name="ARG1">
+                              <shadow colour="#5b67a5" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="wn@;#@X`mA5%k1mx#MmQ" origintype="math_number" output="true" tooltip="function () { [native code] }" type="math_number">
+                                <field name="NUM">5</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG7">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="y?]o;W405{U}F2{JQ~3(" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">626551</field>
+                      </shadow>
+                    </value>
+                    <value name="ARG8">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="]_E7p.OEfT=gWQEp4]a%" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">Não receber após o vencimento. Caso seja necessário prorrogar o boleto entre em contato com a nossa central de atendimento</field>
+                      </shadow>
+                    </value>
+                    <value name="ARG9">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="D4QP*m0Y6erkYNP}CK*j" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">1</field>
+                      </shadow>
+                      <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="xgY]fjMT4]9BeAt-D@5d" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
+                        <mutation items="1"/>
+                        <value name="ADD0">
+                          <block colour="#5b6da5" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="imGPtr?`NsJ+g1hMiHp=" origintype="math_arithmetic" output="true" tooltip="function () { [native code] }" type="math_arithmetic">
+                            <mutation items="2"/>
+                            <field name="OP1">MULTIPLY</field>
+                            <value name="ARG0">
+                              <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="nwgBTc~[SL87cq|=qjR=" multilayer="false" namespace="cronapi.database.Operations.getField" origintype="procedures_get_field" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20campo%20do%20registro%20do%20cursor%20atual%20da%20fonte%20de%20dados%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Fonte%20de%20dados%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Nome%20do%20campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_get_field">
+                                <mutation name="{{cronapi.database.Operations.getField}}">
+                                  <arg name="Fonte de dados"/>
+                                  <arg name="Nome do campo"/>
+                                </mutation>
+                                <value name="PARAM0">
+                                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="8u9bUzq2NzO)i33J@bjb" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                    <field name="VAR">consultaDB</field>
+                                  </block>
+                                </value>
+                                <value name="PARAM1">
+                                  <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="EYWJZ{{es4OKG|Z`Pc{w" origintype="procedures_get_field_datasource" output="true" type="procedures_get_field_datasource">
+                                    <mutation name="">
+                                      <arg label="v.data" value="this[0]"/>
+                                      <arg label="v.pedido.id" value="this[1]"/>
+                                      <arg label="v.quantidade" value="this[2]"/>
+                                      <arg label="v.produto.preco_venda" value="this[3]"/>
+                                    </mutation>
+                                    <field name="SELECT">this[3]</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="ARG1">
+                              <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="i$%6At?sCjs}Eq~(d:;X" multilayer="false" namespace="cronapi.database.Operations.getField" origintype="procedures_get_field" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20campo%20do%20registro%20do%20cursor%20atual%20da%20fonte%20de%20dados%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Fonte%20de%20dados%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Nome%20do%20campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_get_field">
+                                <mutation name="{{cronapi.database.Operations.getField}}">
+                                  <arg name="Fonte de dados"/>
+                                  <arg name="Nome do campo"/>
+                                </mutation>
+                                <value name="PARAM0">
+                                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="wKbp!E+rD3W^@bX(2zxs" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                    <field name="VAR">consultaDB</field>
+                                  </block>
+                                </value>
+                                <value name="PARAM1">
+                                  <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="xMugum2Acn!v5XI#|h@T" origintype="procedures_get_field_datasource" output="true" type="procedures_get_field_datasource">
+                                    <mutation name="">
+                                      <arg label="v.data" value="this[0]"/>
+                                      <arg label="v.pedido.id" value="this[1]"/>
+                                      <arg label="v.quantidade" value="this[2]"/>
+                                      <arg label="v.produto.preco_venda" value="this[3]"/>
+                                    </mutation>
+                                    <field name="SELECT">this[2]</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG10">
+                      <block colour="#E6C8F2" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="/SjN]y^9h@LLVTv%MLO2" origintype="util_dropdown" output="true" type="util_dropdown">
+                        <mutation>
+                          <arg name="REGISTRAR" value="Registrar"/>
+                          <arg name="BAIXAR" value="Baixar"/>
+                          <arg name="DEBITAR_EM_CONTA" value="Debitar em Conta"/>
+                          <arg name="CONCEDER_ABATIMENTO" value="Conceder Abatimento"/>
+                          <arg name="CANCELAR_ABATIMENTO" value="Cancelar Abatimento"/>
+                          <arg name="CONCEDER_DESCONTO" value="Conceder Desconto"/>
+                          <arg name="CANCELAR_DESCONTO" value="Cancelar Desconto"/>
+                          <arg name="ALTERAR_VENCIMENTO" value="Alterar Vencimento"/>
+                          <arg name="ALTERAR_VENCIMENTO_SUSTAR_PROTESTO" value="Alterar Vencimento e Sustar Protesto"/>
+                          <arg name="PROTESTAR" value="Protestar"/>
+                          <arg name="SUSTAR_PROTESTO" value="Sustar Protesto"/>
+                          <arg name="CANCELAR_INSTRUCAO_PROTESTO_BAIXA" value="Cancelar Instrução Protesto (Baixa)"/>
+                          <arg name="CANCELAR_INSTRUCAO_PROTESTO" value="Cancelar Instrução Protesto"/>
+                          <arg name="DISPENSAR_JUROS" value="Dispensar Juros"/>
+                          <arg name="ALTERAR_NOME_ENDERECO_SACADO" value="Alterar Nome / Endereço do Sacado"/>
+                          <arg name="ALTERAR_NUMERO_CONTROLE" value="Alterar Número de Controle"/>
+                          <arg name="OUTRAS_OCORRENCIAS" value="Outras Ocorrências"/>
+                          <arg name="ALTERAR_CONTROLE_PARTICIPANTE" value="Alterar Controle Participante"/>
+                          <arg name="ALTERAR_SEU_NUMERO" value="Alterar Seu Número"/>
+                          <arg name="TRANSFERENCIA_CESSAO_CREDITO" value="Transferência / Cessão de Crédito"/>
+                          <arg name="TRANSFERENCIA_CARTEIRA" value="Transferência de Carteira"/>
+                          <arg name="DEV_TRANSFERENCIA_CARTEIRA" value="Dev Transferência de Carteira"/>
+                          <arg name="DESAGENDAR_DEBITO_AUTOMATICO" value="Desagendar Débito Automático"/>
+                          <arg name="ACERTAR_RATEIO_CREDITO" value="Acertar Rateio Crédito"/>
+                          <arg name="CANCELAR_RATEIOCREDITO" value="Cancelar Rateio Crédito"/>
+                          <arg name="ALTERAR_USOEMPRESA" value="Alterar Uso Empresa"/>
+                          <arg name="NAO_PROTESTAR" value="Não Protestar"/>
+                          <arg name="PROTESTO_FINS_FALIMENTARES" value="Protesto Fins Falimentares"/>
+                          <arg name="BAIXA_POR_PAGTO_DIRETO_CEDENTE" value="Baixa Por Pagto Direto Cedente"/>
+                          <arg name="CANCELAR_INSTRUCAO" value="Cancelar Instrução"/>
+                          <arg name="ALTERAR_VENC_SUSTAR_PROTESTO" value="Alterar Venc Sustar Protesto"/>
+                          <arg name="CEDENTE_DISCORDA_SACADO" value="Cedente Discorda Sacado"/>
+                          <arg name="CEDENTE_SOLICITA_DISPENSA_JUROS" value="Cedente Solicita Dispensa Juros"/>
+                          <arg name="OUTRAS_ALTERACOES" value="Outras Alterações"/>
+                          <arg name="ALTERAR_MODALIDADE" value="Alterar Modalidade"/>
+                          <arg name="ALTERAR_EXCLUSIVO_CLIENTE" value="Alterar Exclusivo Cliente"/>
+                          <arg name="NAO_COBRAR_JUROS_MORA" value="Não Cobrar Juros Mora"/>
+                          <arg name="COBRAR_JUROS_MORA" value="Cobrar Juros Mora"/>
+                          <arg name="ALTERAR_VALOR_TITULO" value="Alterar Valor Título"/>
+                          <arg name="EXCLUIR_SACADOR_AVALISTA" value="Excluir Sacador Avalista"/>
+                          <arg name="ALTERAR_NUMERO_DE_DIAS_PARA_PROTESTO" value="Alterar Número de Dias para Protesto"/>
+                        </mutation>
+                        <field name="SELECT">REGISTRAR</field>
+                      </block>
+                    </value>
+                    <value name="ARG11">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="#T`2raH7Sb]kNCuxPNX?" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                      <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="q:{Idw{Qe_/,4rLl2L]K" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
+                        <mutation items="1"/>
+                        <value name="ADD0">
+                          <block colour="#7d9137" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="WfGmL2Z9l6=wf$O94@Bl" multilayer="false" namespace="cronapi.dateTime.Operations.getNowNoHour" origintype="procedures_callreturn" output="true" returntype="ObjectType.DATETIME" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20data%20atual%20sem%20hora%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20data%20atual%20sem%20hora%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Data%20%20%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.getNowNoHour%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.getNowNoHour%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                            <mutation name="{{cronapi.dateTime.Operations.getNowNoHour}}" return-raw-type="Var"/>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG12">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Y|c_,@nC5m:)(YgdSui%" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG13">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="hm@B^xdLrD}`a+Fs2Ie8" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG14">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="42Xs!8ZzDu@K$Kd6s%b3" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG15">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="*zp=3NxaPbk.XvL[2h]y" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG16">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="lSLCJxh`k?jq$t*)0oiu" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG17">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="p~3fYa$|@Y;BYVCoi]1]" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG18">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="uIgM0]f4;|XG(_)yK#c:" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG19">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="nzGhhLndp]%vBjV:5Kkr" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG20">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="tHB63|!vj2vbU$cM|8n5" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG21">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="KZfY0NOeCc0t=sk^PqBu" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG22">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="i#eh8Q-1n.cXI*{^b.:f" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG23">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="+u;D7`~v7(D:2pg#P7u!" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG24">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="d`j~=wYk8^L^2+{PPW:4" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG25">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="/N4%0Bf[Ek9Eg+H4QGM[" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG26">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id=".An$bZxaZW#Gre.]0}nx" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG27">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id=":168fSZuMO]PRMB$/s^v" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT">Texto de Responsabilidade do Beneficiario</field>
+                      </shadow>
+                    </value>
+                    <value name="ARG28">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="#Jji#hWjjCP^v8|(pdkz" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG29">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="3EgrEW2`3SnV*`]0#is(" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                      <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="lgG|2|8KC+7~-P$=co1p" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
+                        <mutation items="1"/>
+                        <value name="ADD0">
+                          <block colour="#7d9137" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="2MUYyS98I)[-HEHa1cHw" multilayer="false" namespace="cronapi.dateTime.Operations.getNowNoHour" origintype="procedures_callreturn" output="true" returntype="ObjectType.DATETIME" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20data%20atual%20sem%20hora%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20data%20atual%20sem%20hora%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Data%20%20%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.getNowNoHour%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.dateTime.Operations.getNowNoHour%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                            <mutation name="{{cronapi.dateTime.Operations.getNowNoHour}}" return-raw-type="Var"/>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG30">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="9cw5Z5Q?aX#i5iW03TbL" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG31">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Wb~ksfDA*1@vA|Kx;`l`" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG32">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="YVDL!^Yx,Eec=s_|fkWW" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG33">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="NW+vm-(H@}jvv/BR{W3D" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                    <value name="ARG34">
+                      <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="t4OJLZ~]BuCh/$X/-^Em" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                        <field name="TEXT"/>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="[T35y=ORweHp$P`GBzNG" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                    <field name="VAR">jsonBeneficiario</field>
+                    <value name="VALUE">
+                      <block colour="#E6C8F2" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Sc`V1}DM6lvYoXfhO.Yo" multilayer="false" namespace="br.com.mabilis.cronapi.boleto.Operations.criarBeneficiario" origintype="procedures_callreturn" output="true" returntype="ObjectType.STRING" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3ECriar%20Objeto%20Benefici%C3%A1rio%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20cria%20benefici%C3%A1rio%20para%20gera%C3%A7%C3%A3o%20de%20boleto%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Tipo%20de%20Cobran%C3%A7a%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Ag%C3%AAncia%20:%20Texto%3C/span%3E%3Cdiv%3E%20Ag%C3%AAncia%20banc%C3%A1ria%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20Digito%20ag%C3%AAncia%20:%20Texto%3C/span%3E%3Cdiv%3E%20Digito%20da%20ag%C3%AAncia%20banc%C3%A1ria%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20Conta%20corrente%20:%20Texto%3C/span%3E%3Cdiv%3E%20N%C3%BAmero%20da%20conta%20banc%C3%A1ria%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20D%C3%ADgito%20conta%20corrente%20:%20Texto%3C/span%3E%3Cdiv%3E%20D%C3%ADgito%20da%20conta%20corrente%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20Tipo%20de%20Pessoa%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Documento%20:%20Texto%3C/span%3E%3Cdiv%3E%20CPF%20ou%20CNPJ%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20Nome%20:%20Texto%3C/span%3E%3Cdiv%3E%20Nome%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20Cidade%20:%20Texto%3C/span%3E%3Cdiv%3E%20Cidade%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20UF%20:%20Texto%3C/span%3E%3Cdiv%3E%20Estado%20do%20endere%C3%A7o%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20CEP%20:%20Texto%3C/span%3E%3Cdiv%3E%20CEP%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20Logradouro%20:%20Texto%3C/span%3E%3Cdiv%3E%20Logradouro%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20Complemento%20:%20Texto%3C/span%3E%3Cdiv%3E%20Complemento%20do%20endere%C3%A7o%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20N%C3%BAmero%20:%20Texto%3C/span%3E%3Cdiv%3E%20N%C3%BAmero%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20Bairro%20:%20Texto%3C/span%3E%3Cdiv%3E%20Bairro%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20CIP%20:%20Texto%3C/span%3E%3Cdiv%3E%20Cip%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20Modalidade%20:%20Texto%3C/span%3E%3Cdiv%3E%3C/div%3E%3Cspan%3E%20-%20C%C3%B3digo%20benefici%C3%A1rio%20:%20Texto%3C/span%3E%3Cdiv%3E%20C%C3%B3digo%20do%20benefici%C3%A1rio%3C/div%3E%3Cspan%3E%20-%20C%C3%B3digo%20transmiss%C3%A3o%20:%20Texto%3C/span%3E%3Cdiv%3E%20C%C3%B3digo%20de%20transmiss%C3%A3o%20do%20benefici%C3%A1rio%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Texto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/br.com.mabilis.cronapi.boleto.Operations.criarBeneficiario%22%3Ehttps://docs.cronapp.io/display/CRON2/br.com.mabilis.cronapi.boleto.Operations.criarBeneficiario%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                        <mutation name="{{br.com.mabilis.cronapi.boleto.Operations.criarBeneficiario}}" return-raw-type="br.com.mabilis.boleto.models.Beneficiario">
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Tipo de Cobrança"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Agência"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Digito agência"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Conta corrente"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Dígito conta corrente"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Tipo de Pessoa"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Documento"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Nome"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Cidade"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="UF"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="CEP"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Logradouro"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Complemento"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Número"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Bairro"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="CIP"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Modalidade"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Código beneficiário"/>
+                          <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Código transmissão"/>
+                        </mutation>
+                        <value name="ARG0">
+                          <block colour="#E6C8F2" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Dj?pAfSr-mN|m7lUp$e+" origintype="util_dropdown" output="true" type="util_dropdown">
+                            <mutation>
+                              <arg name="BANCO_DO_BRASIL" value="Banco do Brasil"/>
+                              <arg name="BANCO_DO_BRASIL_SICOOB" value="Banco do Brasil (Sicoob)"/>
+                              <arg name="BANCO_DA_AMAZONIA" value="Banco da Amazônia"/>
+                              <arg name="BANCO_DO_NORDESTE" value="Banco do Nordeste"/>
+                              <arg name="BANESTES" value="Banestes"/>
+                              <arg name="SANTANDER" value="Santander"/>
+                              <arg name="BANRISUL" value="Banrisul"/>
+                              <arg name="BRB" value="BRB"/>
+                              <arg name="UNICRED_RS" value="Unicred RS"/>
+                              <arg name="BANCO_CECRED" value="Cecred"/>
+                              <arg name="UNIPRIME" value="Uniprime"/>
+                              <arg name="CAIXA_ECONOMICA" value="Caixa Econômica"/>
+                              <arg name="CAIXA_ECONOMICA_SICOB" value="Caixa Econômica (Sicoob)"/>
+                              <arg name="BRADESCO" value="Bradesco"/>
+                              <arg name="ITAU" value="Itaú"/>
+                              <arg name="BANCO_MERCANTIL" value="Banco Mercantil"/>
+                              <arg name="SICRED" value="Sicredi"/>
+                              <arg name="BANCOOB" value="Bancoob"/>
+                              <arg name="HSBC" value="HSBC"/>
+                              <arg name="BIC_BANCO" value="Banco Bic"/>
+                              <arg name="BRADESCO_SICOOB" value="Bradesco (Sicoob)"/>
+                              <arg name="BANCO_SAFRA" value="Banco Safra"/>
+                              <arg name="BRADESCO_SAFRA" value="Bradesco (Safra)"/>
+                            </mutation>
+                            <field name="SELECT">SANTANDER</field>
+                          </block>
+                        </value>
+                        <value name="ARG1">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="_x(:`mR0hW:hdsw~mv)Z" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">3822</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG2">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id=":AV*OgG-L/z89vvaqJ-~" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">0</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG3">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="c!SU`E!d+ya{0O5zW+HI" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">13005126</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG4">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="bjntt101pc$$2^:DmyC]" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">3</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG5">
+                          <block colour="#E6C8F2" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="FI^vmixs^z@G2$$2e1M9" origintype="util_dropdown" output="true" type="util_dropdown">
+                            <mutation>
+                              <arg name="FISICA" value="Física"/>
+                              <arg name="JURIDICA" value="Júridica"/>
+                            </mutation>
+                            <field name="SELECT">JURIDICA</field>
+                          </block>
+                        </value>
+                        <value name="ARG6">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="udBH*P(m`iT[R03bYi*@" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT"/>
+                          </shadow>
+                        </value>
+                        <value name="ARG7">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="#;ap4B#7^}_e#r:/.iK3" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">Cronapp</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG8">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Xu$XkU.[X@.1l.giw[vz" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">Salvador</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG9">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Mt][D2~c,@[~@sQc=n~P" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">Bahia</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG10">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="b1f$V4A[+K6.N-nTr|b^" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">41730101</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG11">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="OVKxqNrx7Kw`X*quBbCq" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">Itaigara</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG12">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="?*QQkX6,GhaL`GSjI`hG" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">Alto do Parque</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG13">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id=":xc_Y7C:zG2N|CI[b+*?" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">20</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG14">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id=".G=zQhm#^TRu@}+w[DK@" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">Itaigara</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG15">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="Uuml[ceJz1t5kTUef2Ct" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT"/>
+                          </shadow>
+                        </value>
+                        <value name="ARG16">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="y[})()C_juhK/M[GE|s:" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">101</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG17">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="o0iRe!d2m^iL8LnNx$Yi" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">5163285</field>
+                          </shadow>
+                        </value>
+                        <value name="ARG18">
+                          <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="EZEv0%f=2l[Zx7MxEQ10" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">38220516328501300512</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="t_b2j^2?e]%.$Y{Su)?b" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                        <field name="VAR">link</field>
+                        <value name="VALUE">
+                          <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="r?E)/u2DcQ5$/1vq;oZY" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
+                            <mutation items="3"/>
+                            <value name="ADD0">
+                              <block colour="#723333" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="0^k)6[nm51Rawl=D[|3c" multilayer="false" namespace="cronapi.io.Operations.fileAppReclycleDir" origintype="procedures_callreturn" output="true" returntype="ObjectType.STRING" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EPasta%20recicl%C3%A1vel%20da%20aplica%C3%A7%C3%A3o%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20retornar%20o%20caminho%20da%20pasta%20recicl%C3%A1vel%20da%20aplica%C3%A7%C3%A3o.%20Essa%20pasta%20tem%20seus%20arquivos%20apagados%20a%20cada%2010%20minutos.%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Texto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.io.Operations.fileAppReclycleDir%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.io.Operations.fileAppReclycleDir%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                                <mutation name="{{cronapi.io.Operations.fileAppReclycleDir}}" return-raw-type="Var"/>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block colour="#723333" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="i/79+JQU6y5{|ppdStU)" multilayer="false" namespace="cronapi.io.Operations.fileSeparator" origintype="procedures_callreturn" output="true" returntype="ObjectType.STRING" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3ESeparador%20de%20arquivos%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20retorna%20um%20separador%20de%20arquivos%20conforme%20o%20Sistema%20Operacional.%20Exemplo:'/'%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Texto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.io.Operations.fileSeparator%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.io.Operations.fileSeparator%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                                <mutation name="{{cronapi.io.Operations.fileSeparator}}" return-raw-type="Var"/>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="KK2=,E~z@lMSG[}JVh_D" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                                <field name="TEXT">boleto.pdf</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="|XOk9cLKRpOE_d=iYtmM" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
+                            <field name="VAR">boleto</field>
+                            <value name="VALUE">
+                              <block colour="#E6C8F2" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="(=TOo^4-B?2%)%H@O0]G" multilayer="false" namespace="br.com.mabilis.cronapi.boleto.Operations.gerarBoletoPDF" origintype="procedures_callreturn" output="true" returntype="ObjectType.STRING" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EGerar%20Boleto%20em%20PDF%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20gera%20boletos%20em%20formato%20PDF%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Arquivo%20:%20Texto%3C/span%3E%3Cdiv%3E%20Arquivo%20para%20cria%C3%A7%C3%A3o%20do%20boleto%3C/div%3E%3Cspan%3E%20-%20Benefici%C3%A1rio%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Lista%20de%20Boletos%20:%20Lista%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Modelo%20dos%20boletos%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Texto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/br.com.mabilis.cronapi.boleto.Operations.gerarBoletoPDF%22%3Ehttps://docs.cronapp.io/display/CRON2/br.com.mabilis.cronapi.boleto.Operations.gerarBoletoPDF%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                                <mutation name="{{br.com.mabilis.cronapi.boleto.Operations.gerarBoletoPDF}}" return-raw-type="cronapi.Var">
+                                  <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Arquivo"/>
+                                  <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.OBJECT" name="Beneficiário"/>
+                                  <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.LIST" name="Lista de Boletos"/>
+                                  <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Modelo dos boletos"/>
+                                </mutation>
+                                <value name="ARG0">
+                                  <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="):[%E:6Yc62S`ZL[GK29" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                                    <field name="TEXT">boleto.html</field>
+                                  </shadow>
+                                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id=".Sol)G^~{n)svXc`7f2|" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                    <field name="VAR">link</field>
+                                  </block>
+                                </value>
+                                <value name="ARG1">
+                                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="F?EC=oAGgPfFn$N-c6)%" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                    <field name="VAR">jsonBeneficiario</field>
+                                  </block>
+                                </value>
+                                <value name="ARG2">
+                                  <block colour="#745ba5" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="6@!!+1;_nNJY@:Bc:=O}" origintype="lists_create_with" output="true" tooltip="Cria uma lista com a quantidade de itens informada." type="lists_create_with">
+                                    <mutation items="1"/>
+                                    <value name="ADD0">
+                                      <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="eNIKjxx`hIAA}TI.#N[Q" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                        <field name="VAR">jsonBoletos</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="ARG3">
+                                  <block colour="#E6C8F2" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="^0D7@As7+h0v}S0wn{E8" origintype="util_dropdown" output="true" type="util_dropdown">
+                                    <mutation>
+                                      <arg name="BOLETO_NORMAL" value="Boleto Normal"/>
+                                      <arg name="BOLETO_UNICO_CORRERIOS" value="Boleto Único (Correios)"/>
+                                      <arg name="BOLETO_UNICO_FICHA_COMPENSACAO_RECIBO_PAGADOR" value="Boleto Único com Ficha de Compensação e Recibo do Pagador"/>
+                                      <arg name="BOLETO_UNICO_FICHA_COMPENSACAO" value="Boleto Único com Ficha de Compensação"/>
+                                      <arg name="BOLETO_DUPLO_RECIBO_PAGADOR" value="Boleto Duplo com Recibo do Pagador"/>
+                                      <arg name="BOLETO_DUPLO_SEM_RECIBO_PAGADOR" value="Boleto Duplo Simples"/>
+                                      <arg name="BOLETO_TRIPLO_RECIBO_PAGADOR_LATERAL" value="Boleto Triplo com Recibo do Pagador Lateral"/>
+                                      <arg name="BOLETO_TRIPLO_SIMPLES" value="Boleto Triplo Simples"/>
+                                    </mutation>
+                                    <field name="SELECT">BOLETO_NORMAL</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block colour="#723333" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="klufiHjO}XDH/oX6@QFv" multilayer="false" namespace="cronapi.io.Operations.fileDownload" origintype="procedures_callnoreturn" output="false" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EIniciar%20download%20de%20arquivo%20f%C3%ADsico%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20abre%20o%20processo%20de%20download%20do%20arquivo%20do%20par%C3%A2metro%20para%20o%20usu%C3%A1rio%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Arquivo%20:%20Objeto%3C/span%3E%3Cdiv%3E%20Arquivo%20que%20ser%C3%A1%20feito%20o%20download%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.io.Operations.fileDownload%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.io.Operations.fileDownload%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callnoreturn">
+                                <mutation name="{{cronapi.io.Operations.fileDownload}}" return-raw-type="void">
+                                  <arg cronapi-raw-type="Var" cronapi-type="ObjectType.OBJECT" name="Arquivo"/>
+                                </mutation>
+                                <value name="ARG0">
+                                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="c`jR7/+Og)]+BcAV/Hu5" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                    <field name="VAR">link</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</blockly>

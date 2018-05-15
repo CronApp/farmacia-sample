@@ -26,15 +26,17 @@ public class ObterCarrinho {
 				for (Iterator it_j = carrinho.iterator(); it_j.hasNext();) {
 					j = Var.valueOf(it_j.next());
 					System.out.println(
-							cronapi.object.Operations.getObjectField(j, Var.valueOf("produto.id")).getObjectAsString());
+							cronapi.object.Operations.getObjectField(j, Var.valueOf("pedido")).getObjectAsString());
 					cronapi.database.Operations.insert(Var.valueOf("app.entity.Venda"),
 							Var.valueOf("produto",
 									cronapi.object.Operations.getObjectField(j, Var.valueOf("produto.id"))),
-							Var.valueOf("data", cronapi.dateTime.Operations.getNow()), Var.valueOf("quantidade",
+							Var.valueOf("data", cronapi.dateTime.Operations.getNow()),
+							Var.valueOf("pedido", cronapi.object.Operations.getObjectField(j, Var.valueOf("pedido"))),
+							Var.valueOf("quantidade",
 									cronapi.object.Operations.getObjectField(j, Var.valueOf("quantidade"))));
 				} // end for
 				cronapi.util.Operations.callClientFunction(Var.valueOf("cronapi.screen.openUrl"),
-						Var.valueOf("/webapp/#/home/logged/venda"), Var.VAR_FALSE, Var.VAR_NULL, Var.VAR_NULL);
+						Var.valueOf("/webapp/#/home/logged/pedido"), Var.VAR_FALSE, Var.VAR_NULL, Var.VAR_NULL);
 				return Var.VAR_NULL;
 			}
 		}.call();

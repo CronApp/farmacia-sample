@@ -3,9 +3,15 @@
 <!-- div row para pesquisa -->
 <!--<div class="row">-->
 
+    <div ng-hide="Estoque.inserting || Estoque.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class="">
+        <div class="form-group">
+            <label for="textinput-filter" class="">{{"template.crud.search" | translate}}</label>
+            <input type="text" ng-model="vars.search" cronapp-filter="tipo;" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="Estoque" class="form-control" value="" placeholder="{{'template.crud.search' | translate}}">
+        </div>
+    </div>
 
 <div data-component="crn-button" id="crn-button-564202" class="">
-    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="Estoque.startInserting()" ng-hide="Estoque.inserting || Estoque.editing"><i class="glyphicon glyphicon-plus"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="Estoque.startInserting()" ng-hide="Estoque.inserting || Estoque.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
 </div>
 <!-- fim div row para pesquisa -->
 <!--</div>-->
@@ -16,8 +22,7 @@
         <table class="table  table-bordered table-hover table-striped">
             <thead>
             <tr class="table-header">
-                
-                <th class="active">
+                <th class="">
                     <div class="">Tipo</div>
                 </th>
                 <th class="">
@@ -39,17 +44,13 @@
                     <div class="">Produto</div>
                 </th>
                 <th class="">
-                    <div class="">Fornecedor</div>
-                </th>
-                <th class="">
                     <div class="">{{"template.crud.actions" | translate}}</div>
                 </th>
             </tr>
             </thead>
             <tbody>
             <tr class="table-content" ng-repeat="rowData in datasource.data">
-                
-                <td class="active">
+                <td class="">
                     <div class="">
                                 {{rowData.tipo  }}
                     </div>
@@ -86,11 +87,6 @@
                 </td>
                 <td class="">
                     <div class="">
-                            {{rowData.fornecedor.nome_fornecedor}}
-                    </div>
-                </td>
-                <td class="">
-                    <div class="">
                         <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
                         <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
                     </div>
@@ -117,14 +113,22 @@
                 <button class="btn btn-success" data-component="crn-button" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
                 <button class="btn btn-danger" data-component="crn-button" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
             </div>
-            <br>
+            <br/>
             <fieldset ng-disabled="!datasource.editing &amp;&amp; !datasource.inserting">
 
                 <div data-component="crn-textinput" id="crn-textinput-tipo" class="">
                     <div class="form-group">
                         <label for="textinput-tipo" class="">Tipo</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="text" ng-model="Estoque.active.tipo" class="form-control" id="textinput-tipo" placeholder="Tipo" mask="" mask-placeholder="" ng-required="false">
+                                <input
+                                            type="text"
+                                            ng-model="Estoque.active.tipo"
+                                            class="form-control"
+                                            id="textinput-tipo"
+                                            placeholder="Tipo"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
@@ -133,7 +137,15 @@
                     <div class="form-group">
                         <label for="textinput-quantidade" class="">Quantidade</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="integer" ng-model="Estoque.active.quantidade" class="form-control" id="textinput-quantidade" placeholder="Quantidade" mask="" mask-placeholder="" ng-required="false">
+                                <input
+                                            type="integer"
+                                            ng-model="Estoque.active.quantidade"
+                                            class="form-control"
+                                            id="textinput-quantidade"
+                                            placeholder="Quantidade"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
@@ -142,7 +154,15 @@
                     <div class="form-group">
                         <label for="textinput-data" class="">Data</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="date" ng-model="Estoque.active.data" class="form-control" id="textinput-data" placeholder="Data" mask="" mask-placeholder="" ng-required="false">
+                                <input
+                                            type="date"
+                                            ng-model="Estoque.active.data"
+                                            class="form-control"
+                                            id="textinput-data"
+                                            placeholder="Data"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
@@ -151,7 +171,15 @@
                     <div class="form-group">
                         <label for="textinput-observacoes" class="">Observações</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="text" ng-model="Estoque.active.observacoes" class="form-control" id="textinput-observacoes" placeholder="Observações" mask="" mask-placeholder="" ng-required="false">
+                                <input
+                                            type="text"
+                                            ng-model="Estoque.active.observacoes"
+                                            class="form-control"
+                                            id="textinput-observacoes"
+                                            placeholder="Observações"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
@@ -160,7 +188,15 @@
                     <div class="form-group">
                         <label for="textinput-lote" class="">Lote</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="text" ng-model="Estoque.active.lote" class="form-control" id="textinput-lote" placeholder="Lote" mask="" mask-placeholder="" ng-required="false">
+                                <input
+                                            type="text"
+                                            ng-model="Estoque.active.lote"
+                                            class="form-control"
+                                            id="textinput-lote"
+                                            placeholder="Lote"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
@@ -169,7 +205,15 @@
                     <div class="form-group">
                         <label for="textinput-validade" class="">Validade</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="date" ng-model="Estoque.active.validade" class="form-control" id="textinput-validade" placeholder="Validade" mask="" mask-placeholder="" ng-required="false">
+                                <input
+                                            type="date"
+                                            ng-model="Estoque.active.validade"
+                                            class="form-control"
+                                            id="textinput-validade"
+                                            placeholder="Validade"
+                                            mask=""
+                                            mask-placeholder=""
+                                            ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
@@ -183,28 +227,9 @@
                                     <ui-select-match class="" placeholder="Select...">
                                         {{$select.selected.nome}}
                                     </ui-select-match>
-                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
+                                    <ui-select-choices  repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
                                         <div class="" data-container="true">
                                             {{rowData.nome}}
-                                        </div>
-                                    </ui-select-choices>
-                                </ui-select>
-                         <!-- end if !model.hasCronappFramework() -->
-                    </div>
-                </div>
-                    <datasource name="Fornecedor" entity="api/cronapi/crud/app.entity.Fornecedor" keys="id" class="" dependent-by="{{Estoque}}"></datasource>
-
-                <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-fornecedor" class="">
-                    <div class="form-group">
-                        <label for="combobox-dynamic-fornecedor" class="">Fornecedor</label>
- <!-- else for if !model.hasCronappFramework() -->
-                                <ui-select ng-model="Estoque.active.fornecedor" crn-datasource="Fornecedor" class="crn-select" id="combobox-dynamic-fornecedor" ng-required="false" theme="bootstrap">
-                                    <ui-select-match class="" placeholder="Select...">
-                                        {{$select.selected.nome_fornecedor}}
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
-                                        <div class="" data-container="true">
-                                            {{rowData.nome_fornecedor}}
                                         </div>
                                     </ui-select-choices>
                                 </ui-select>

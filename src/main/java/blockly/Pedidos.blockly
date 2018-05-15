@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><blockly formTarget="" resourceType="JAVA" ruleDescription="Pedidos" ruleName="Pedidos" ruleSynchronous="false" ruleTimeout="" ruleType="I">
-  <metadata scale="1" scrollx="356.9999999999982" scrolly="-5.684341886080802e-14" target="XdGUIX!l{(:50u*5i=8!"/>
-  <block colour="#995ba5" id="XdGUIX!l{(:50u*5i=8!" origintype="procedures_defnoreturn" output="false" tooltip="Cria uma função que não tem retorno." type="procedures_defnoreturn" x="-322" y="203">
-    <field name="NAME">pedidos</field>
-    <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
-  </block>
-</blockly>

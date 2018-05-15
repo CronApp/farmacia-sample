@@ -106,5 +106,8 @@
   "Fornecedor": "Fornecedor",
   "Vendas": "Vendas",
   "Estoque": "Estoque",
-  "CadastroBase": "Cadastro Base"
+  "CadastroBase": "Cadastro Base",
+  "Pedidos": "Pedidos",
+  "Chat": "Chat",
+  "AssistentePessoal": "Assistente Pessoal"
 }

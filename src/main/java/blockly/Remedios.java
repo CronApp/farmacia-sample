@@ -24,10 +24,16 @@ public class Remedios {
 
 			public Var call() throws Exception {
 				remedios = cronapi.database.Operations.query(Var.valueOf("app.entity.Produto"),
-						Var.valueOf("select p.nome, p.preco_venda from Produto p"));
+						Var.valueOf("select p.nome from Produto p"));
+				System.out
+						.println(cronapi.text.Operations
+								.getLettersFromStartToFromStart(remedios,
+										Var.valueOf(2), (cronapi.math.Operations
+												.subtract(Var.valueOf(remedios.length()), Var.valueOf(1))))
+								.getObjectAsString());
 				cronapi.json.Operations.setJsonOrMapField(context, Var.valueOf("remedios"),
-						cronapi.json.Operations.toJson(remedios));
-				System.out.println(context.getObjectAsString());
+						cronapi.text.Operations.getLettersFromStartToFromStart(remedios, Var.valueOf(2),
+								(cronapi.math.Operations.subtract(Var.valueOf(remedios.length()), Var.valueOf(1)))));
 				return Var.VAR_NULL;
 			}
 		}.call();
