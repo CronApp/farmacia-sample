@@ -9,7 +9,7 @@ window.blockly.js.Chat.iniciar = function() {
 
 	var modelo, mensagem, remetente, msg, i, resposta, respostaWatson;
 	this.cronapi.screen.createScopeVariable('user', this.cronapi.util
-			.callServerBlockly('blockly.Chat:obter_login'));
+			.callServerBlockly('blockly.chatbot.Chat:obter_login'));
 	this.cronapi.screen.changeValueOfField("vars.chatMessages", []);
 	this.cronapi.screen.changeValueOfField('vars.pedidos', []);
 	this.blockly.js.Chat.iniciar_watson();
@@ -40,7 +40,7 @@ window.blockly.js.Chat.enviar_mensagem = function() {
 	msg.push(modelo);
 	this.cronapi.screen.changeValueOfField("vars.chatMessages", msg);
 	resposta = this.cronapi.util.callServerBlockly(
-			'blockly.Chat:recebe_mensagem', this.cronapi.screen
+			'blockly.chatbot.Chat:recebe_mensagem', this.cronapi.screen
 					.getValueOfField("vars.message"), this.cronapi.screen
 					.getScopeVariable('watsonContext'));
 	this.cronapi.screen.createScopeVariable('watsonContext',
@@ -74,7 +74,7 @@ window.blockly.js.Chat.iniciar_watson = function() {
 	var modelo, mensagem, remetente, msg, i, resposta, respostaWatson;
 	msg = this.cronapi.screen.getValueOfField("vars.chatMessages");
 	resposta = this.cronapi.util
-			.callServerBlockly('blockly.Chat:iniciar_watson');
+			.callServerBlockly('blockly.chatbot.Chat:iniciar_watson');
 	this.cronapi.screen.createScopeVariable('watsonContext',
 			this.cronapi.object.getProperty(resposta, 'context'));
 	respostaWatson = this.blockly.js.Chat.modelo_mensagem(this.cronapi.object

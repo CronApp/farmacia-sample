@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/webapp/views/logged/pedido.view.html" resourceType="JAVA" ruleDescription="gerarBoleto" ruleName="gerarBoleto" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="244.9999999999992" scrolly="-290.9999999999962" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="245.9999999999991" scrolly="-990.9999999999962" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-203" y="269">
     <mutation>
       <arg name="pedidoId"/>
@@ -159,63 +159,6 @@
                       <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="D4QP*m0Y6erkYNP}CK*j" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
                         <field name="TEXT">1</field>
                       </shadow>
-                      <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="xgY]fjMT4]9BeAt-D@5d" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
-                        <mutation items="1"/>
-                        <value name="ADD0">
-                          <block colour="#5b6da5" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="imGPtr?`NsJ+g1hMiHp=" origintype="math_arithmetic" output="true" tooltip="function () { [native code] }" type="math_arithmetic">
-                            <mutation items="2"/>
-                            <field name="OP1">MULTIPLY</field>
-                            <value name="ARG0">
-                              <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="nwgBTc~[SL87cq|=qjR=" multilayer="false" namespace="cronapi.database.Operations.getField" origintype="procedures_get_field" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20campo%20do%20registro%20do%20cursor%20atual%20da%20fonte%20de%20dados%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Fonte%20de%20dados%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Nome%20do%20campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_get_field">
-                                <mutation name="{{cronapi.database.Operations.getField}}">
-                                  <arg name="Fonte de dados"/>
-                                  <arg name="Nome do campo"/>
-                                </mutation>
-                                <value name="PARAM0">
-                                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="8u9bUzq2NzO)i33J@bjb" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                                    <field name="VAR">consultaDB</field>
-                                  </block>
-                                </value>
-                                <value name="PARAM1">
-                                  <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="EYWJZ{{es4OKG|Z`Pc{w" origintype="procedures_get_field_datasource" output="true" type="procedures_get_field_datasource">
-                                    <mutation name="">
-                                      <arg label="v.data" value="this[0]"/>
-                                      <arg label="v.pedido.id" value="this[1]"/>
-                                      <arg label="v.quantidade" value="this[2]"/>
-                                      <arg label="v.produto.preco_venda" value="this[3]"/>
-                                    </mutation>
-                                    <field name="SELECT">this[3]</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                            <value name="ARG1">
-                              <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="i$%6At?sCjs}Eq~(d:;X" multilayer="false" namespace="cronapi.database.Operations.getField" origintype="procedures_get_field" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20campo%20do%20registro%20do%20cursor%20atual%20da%20fonte%20de%20dados%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Fonte%20de%20dados%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Nome%20do%20campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_get_field">
-                                <mutation name="{{cronapi.database.Operations.getField}}">
-                                  <arg name="Fonte de dados"/>
-                                  <arg name="Nome do campo"/>
-                                </mutation>
-                                <value name="PARAM0">
-                                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="wKbp!E+rD3W^@bX(2zxs" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                                    <field name="VAR">consultaDB</field>
-                                  </block>
-                                </value>
-                                <value name="PARAM1">
-                                  <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="xMugum2Acn!v5XI#|h@T" origintype="procedures_get_field_datasource" output="true" type="procedures_get_field_datasource">
-                                    <mutation name="">
-                                      <arg label="v.data" value="this[0]"/>
-                                      <arg label="v.pedido.id" value="this[1]"/>
-                                      <arg label="v.quantidade" value="this[2]"/>
-                                      <arg label="v.produto.preco_venda" value="this[3]"/>
-                                    </mutation>
-                                    <field name="SELECT">this[2]</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                      </block>
                     </value>
                     <value name="ARG10">
                       <block colour="#E6C8F2" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="/SjN]y^9h@LLVTv%MLO2" origintype="util_dropdown" output="true" type="util_dropdown">
@@ -355,8 +298,70 @@
                     </value>
                     <value name="ARG27">
                       <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id=":168fSZuMO]PRMB$/s^v" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
-                        <field name="TEXT">Texto de Responsabilidade do Beneficiario</field>
+                        <field name="TEXT">Boleto de demonstração</field>
                       </shadow>
+                      <block colour="#5ba58c" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="]?:a@TfiuHZ[?ba=~GlC" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
+                        <mutation items="2"/>
+                        <value name="ADD0">
+                          <block colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="-(kc5{t|q4|60X7[y6Lm" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                            <field name="TEXT">Boleto de demonstração, o valor real seria: </field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block colour="#5b6da5" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="imGPtr?`NsJ+g1hMiHp=" origintype="math_arithmetic" output="true" tooltip="function () { [native code] }" type="math_arithmetic">
+                            <mutation items="2"/>
+                            <field name="OP1">MULTIPLY</field>
+                            <value name="ARG0">
+                              <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="nwgBTc~[SL87cq|=qjR=" multilayer="false" namespace="cronapi.database.Operations.getField" origintype="procedures_get_field" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20campo%20do%20registro%20do%20cursor%20atual%20da%20fonte%20de%20dados%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Fonte%20de%20dados%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Nome%20do%20campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_get_field">
+                                <mutation name="{{cronapi.database.Operations.getField}}">
+                                  <arg name="Fonte de dados"/>
+                                  <arg name="Nome do campo"/>
+                                </mutation>
+                                <value name="PARAM0">
+                                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="8u9bUzq2NzO)i33J@bjb" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                    <field name="VAR">consultaDB</field>
+                                  </block>
+                                </value>
+                                <value name="PARAM1">
+                                  <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="EYWJZ{{es4OKG|Z`Pc{w" origintype="procedures_get_field_datasource" output="true" type="procedures_get_field_datasource">
+                                    <mutation name="">
+                                      <arg label="v.data" value="this[0]"/>
+                                      <arg label="v.pedido.id" value="this[1]"/>
+                                      <arg label="v.quantidade" value="this[2]"/>
+                                      <arg label="v.produto.preco_venda" value="this[3]"/>
+                                    </mutation>
+                                    <field name="SELECT">this[3]</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="ARG1">
+                              <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="i$%6At?sCjs}Eq~(d:;X" multilayer="false" namespace="cronapi.database.Operations.getField" origintype="procedures_get_field" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20campo%20do%20registro%20do%20cursor%20atual%20da%20fonte%20de%20dados%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Fonte%20de%20dados%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Nome%20do%20campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.getField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_get_field">
+                                <mutation name="{{cronapi.database.Operations.getField}}">
+                                  <arg name="Fonte de dados"/>
+                                  <arg name="Nome do campo"/>
+                                </mutation>
+                                <value name="PARAM0">
+                                  <block colour="#a55b80" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="wKbp!E+rD3W^@bX(2zxs" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                    <field name="VAR">consultaDB</field>
+                                  </block>
+                                </value>
+                                <value name="PARAM1">
+                                  <block colour="#db802b" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="xMugum2Acn!v5XI#|h@T" origintype="procedures_get_field_datasource" output="true" type="procedures_get_field_datasource">
+                                    <mutation name="">
+                                      <arg label="v.data" value="this[0]"/>
+                                      <arg label="v.pedido.id" value="this[1]"/>
+                                      <arg label="v.quantidade" value="this[2]"/>
+                                      <arg label="v.produto.preco_venda" value="this[3]"/>
+                                    </mutation>
+                                    <field name="SELECT">this[2]</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
                     </value>
                     <value name="ARG28">
                       <shadow colour="#5ba593" dependencyby="Anb:u5+^,0vLkL9QIqn5" id="#Jji#hWjjCP^v8|(pdkz" origintype="text" output="true" tooltip="function () { [native code] }" type="text">

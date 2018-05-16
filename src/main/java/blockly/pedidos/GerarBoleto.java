@@ -46,19 +46,29 @@ public class GerarBoleto {
 												Var.valueOf("626551"),
 												Var.valueOf(
 														"Não receber após o vencimento. Caso seja necessário prorrogar o boleto entre em contato com a nossa central de atendimento"),
-												Var.valueOf(cronapi.math.Operations.multiply(
-														cronapi.database.Operations.getField(consultaDB,
-																Var.valueOf("this[3]")),
-														cronapi.database.Operations.getField(consultaDB,
-																Var.valueOf("this[2]")))
-														.toString()),
-												Var.valueOf("REGISTRAR"),
+												Var.valueOf("1"), Var.valueOf("REGISTRAR"),
 												Var.valueOf(Var.valueOf(cronapi.dateTime.Operations.getNowNoHour())
 														.toString()),
 												Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL,
 												Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL,
-												Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL,
-												Var.valueOf("Texto de Responsabilidade do Beneficiario"), Var.VAR_NULL,
+												Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL,
+												Var.VAR_NULL, Var
+														.valueOf(
+																Var.valueOf(
+																		"Boleto de demonstração, o valor real seria: ")
+																		.toString()
+																		+ cronapi.math.Operations
+																				.multiply(
+																						cronapi.database.Operations
+																								.getField(consultaDB,
+																										Var.valueOf(
+																												"this[3]")),
+																						cronapi.database.Operations
+																								.getField(consultaDB,
+																										Var.valueOf(
+																												"this[2]")))
+																				.toString()),
+												Var.VAR_NULL,
 												Var.valueOf(Var.valueOf(cronapi.dateTime.Operations.getNowNoHour())
 														.toString()),
 												Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL, Var.VAR_NULL));

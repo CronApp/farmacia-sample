@@ -6,7 +6,7 @@
     
 
 <div data-component="crn-button" id="crn-button-564202" class="">
-    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="blockly.js.blockly.AbrirVenda.novaVenda()"><i class="glyphicon glyphicon-plus"></i> <span class="">Novo Pedido</span></button><button class="btn component-holder btn-info pull-right" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.GerarRelatorio:gerar', null, null)" xattr-size="" xattr-fullsize="" xattr-theme="btn-info" data-component="crn-button" id="crn-button-923251"><i class="glyphicon glyphicon-list-alt"></i> <span>Imprimir relatório</span></button>
+    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="blockly.js.blockly.AbrirVenda.novaVenda()"><i class="glyphicon glyphicon-plus"></i> <span class="">Novo Pedido</span></button><button class="btn component-holder btn-info pull-right" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.pedidos.GerarRelatorio:gerar', null, null)" xattr-size="" xattr-fullsize="" xattr-theme="btn-info" data-component="crn-button" id="crn-button-923251"><i class="glyphicon glyphicon-list-alt"></i> <span>Imprimir relatório</span></button>
 </div><div data-component="crn-button" id="crn-button-564202" class="">
     
 </div>
@@ -43,7 +43,7 @@
                 <td class="">
                     <div class="">
                         
-                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="blockly.js.blockly.AbrirVenda.abrir(rowData[2])"><i class="glyphicon glyphicon-th-list"></i></button><button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.GerarBoleto:gerar', null, null, rowData[2])"><i class="glyphicon glyphicon-barcode"></i></button>
+                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="blockly.js.blockly.AbrirVenda.abrir(rowData[2])"><i class="glyphicon glyphicon-th-list"></i></button><button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.pedidos.GerarBoleto:gerar', null, null, rowData[2])"><i class="glyphicon glyphicon-barcode"></i></button>
                     </div>
                 </td>
             </tr>
