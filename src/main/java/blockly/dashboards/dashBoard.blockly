@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/webapp/views/logged/dashboard.view.html" resourceType="JAVA" ruleDescription="dashBoard" ruleName="dashBoard" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
-  <metadata scale="1" scrollx="360.99999999999966" scrolly="60.00000000000006" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="360.99999999999966" scrolly="-139.9999999999999" target="Anb:u5+^,0vLkL9QIqn5"/>
   <block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" origintype="procedures_defreturn" output="false" tooltip="Cria uma função que possui um valor de retorno." type="procedures_defreturn" x="-277" y="-22">
     <field name="NAME">vendas</field>
     <comment h="80" pinned="false" w="160">dashBoard</comment>

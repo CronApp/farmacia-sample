@@ -14,7 +14,7 @@
             </ul> </li><li class="dropdown component-holder" data-component="crn-menu-item" cronapp-security="visible : Administrators"> <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-th-list"></i> <span>{{'CadastroBase' | translate}}</span> <span class="caret"></span> </a>
             <ul class="dropdown-menu" style="">
               
-            <li class=""><a href="#/home/logged/cliente" class="component-holder" xattr-fullsize="display:inline;" data-component="crn-anchor">{{'Cliente' | translate}}</a></li><li class=""><a href="#/home/logged/fornecedor" class="component-holder" xattr-fullsize="display:inline;" data-component="crn-anchor">{{'Fornecedor' | translate}}</a></li><li class=""><a href="#/home/logged/produto" class="component-holder" xattr-fullsize="display:block;" style="display:block;" data-component="crn-anchor">{{'Produto' | translate}}</a></li><li class=""><a href="#/home/logged/pedido" class="component-holder" xattr-fullsize="display:block;" style="display:block;" data-component="crn-anchor">{{'Pedidos' | translate}}</a></li><li class=""><a href="#/home/logged/estoque" class="component-holder" xattr-fullsize="display:block;" style="display:block;" data-component="crn-anchor">{{'Estoque' | translate}}</a></li></ul> </li>
+            <li class=""><a href="#/home/logged/cliente" class="component-holder" xattr-fullsize="display:inline;" data-component="crn-anchor">{{'Cliente' | translate}}</a></li><li class=""><a href="#/home/logged/fornecedor" class="component-holder" xattr-fullsize="display:inline;" data-component="crn-anchor">{{'Fornecedor' | translate}}</a></li><li class=""><a href="#/home/logged/produto" class="component-holder" xattr-fullsize="display:block;" style="display:block;" data-component="crn-anchor">{{'Produto' | translate}}</a></li><li class=""><a href="#/home/logged/pedido" class="component-holder" xattr-fullsize="display:block;" style="display:block;" data-component="crn-anchor">{{'Pedidos' | translate}}</a></li></ul> </li>
           <li class="dropdown component-holder navbar-right" data-component="crn-menu-item"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-lg fa-gear"></i> <span>{{"ChooseTheme" | translate}}</span> <span class="caret"></span> </a>
             <ul class="dropdown-menu" style="">
               <li ng-repeat="theme in themes" ng-click="changeTheme(theme)"> <a href="javascript:void(0);" ng-class="{'bg-primary': myTheme==theme}">{{theme}} <i class="fa fa-lg fa-check pull-right" ng-if="myTheme==theme"></i></a></li>
@@ -30,7 +30,7 @@
   </nav>
 </div>
 <div ui-view="" class="container-fluid main-view" data-container="true">
-    <div id="starter" ng-destroy="" ng-click="" ng-init="cronapi.util.makeCallServerBlocklyAsync('blockly.DashBoard:vendas', null, null)">
+    <div id="starter" ng-destroy="" ng-click="" ng-init="cronapi.util.makeCallServerBlocklyAsync('blockly.dashboards.DashBoard:vendas', null, null)">
   <div class="page-header component-holder col-xs-12 col-sm-12 col-md-12 col-lg-12" data-component="crn-header" id="crn-header-479042">
     <h1 xattr-position="text-left" data-component="crn-title" id="crn-title7795">{{'Estatisticas' | translate}}</h1>
   </div>
