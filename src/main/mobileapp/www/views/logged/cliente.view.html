@@ -25,18 +25,19 @@
         </div> 
         <div crn-datasource="Cliente" class="" ng-hide="Cliente.editing || Cliente.inserting"> 
           <ion-list can-swipe="listCanSwipe"> 
-            <ion-item ng-repeat="rowData in datasource.data" class="item" ng-click="datasource.startEditing(rowData)"> 
+            <ion-item ng-repeat="rowData in datasource.data" class="item row-fornecedor-dados" ng-click="datasource.startEditing(rowData)"> 
               <div class="row"> 
-                <div class="col">
-                   {{rowData.nome_cliente}} 
-                </div> 
-                <div class="col">
-                   {{rowData.telefone}} 
-                </div> 
-                <div class="col">
-                   {{rowData.email}} 
-                </div> 
-              </div> 
+                <p><span>Nome: </span>{{rowData.nome_cliente}}</p>
+              </div>
+              
+              <div class="row ">               
+                <p><span>Telefone: </span>{{rowData.telefone}}</p>
+              </div>
+              
+              <div class="row">
+                <p><span>E-mail: </span>{{rowData.email}}</p>
+              </div>
+              
               <ion-option-button class="button-positive" ng-click="datasource.startEditing(rowData)"> 
                 <i class="icon ion-edit"></i> 
               </ion-option-button> 

@@ -25,20 +25,21 @@
         </div> 
         <div crn-datasource="Fornecedor" class="" ng-hide="Fornecedor.editing || Fornecedor.inserting"> 
           <ion-list can-swipe="listCanSwipe"> 
-            <ion-item ng-repeat="rowData in datasource.data" class="item" ng-click="datasource.startEditing(rowData)"> 
-              <div class="row"> 
-                <div class="col">
-                   {{rowData.nome_fornecedor}} 
-                </div> 
-                <div class="col">
-                   {{rowData.cnpj}} 
-                </div> 
-                <div class="col">
-                   {{rowData.telefone}} 
-                </div> 
-                <div class="col">
-                   {{rowData.email}} 
-                </div> 
+            <ion-item ng-repeat="rowData in datasource.data" class="item row-fornecedor-dados" ng-click="datasource.startEditing(rowData)"> 
+              <div class="row ">
+                  <p><span>Nome:</span> {{rowData.nome_fornecedor}}</p> 
+              </div>
+
+              <div class="row ">
+                  <p><span>CNPJ:</span> {{rowData.cnpj}}</p>
+              </div> 
+              
+              <div class="row ">
+                  <p><span>Telefone:</span> {{rowData.telefone}}</p>
+              </div> 
+              
+              <div class="row ">
+                  <p><span>Email:</span> {{rowData.email}}</p> 
               </div> 
               <ion-option-button class="button-positive" ng-click="datasource.startEditing(rowData)"> 
                 <i class="icon ion-edit"></i> 
