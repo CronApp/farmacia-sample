@@ -5,13 +5,12 @@
 
     <div ng-hide="Cliente.inserting || Cliente.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class="">
         <div class="form-group">
-            <label for="textinput-filter" class="">{{"template.crud.search" | translate}}</label>
-            <input type="text" ng-model="vars.search" cronapp-filter="nome_cliente;" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="Cliente" class="form-control" value="" placeholder="{{'template.crud.search' | translate}}">
+            <input type="text" ng-model="vars.search" cronapp-filter="nome_cliente;" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="Cliente" class="form-control" value="" placeholder="Pesquise um cliente pelo nome">
         </div>
     </div>
 
 <div data-component="crn-button" id="crn-button-564202" class="">
-    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="Cliente.startInserting()" ng-hide="Cliente.inserting || Cliente.editing"><i class="glyphicon glyphicon-plus"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+    <button class="botao-add" type="submit" onclick="" data-component="crn-button" ng-click="Cliente.startInserting()" ng-hide="Cliente.inserting || Cliente.editing"><i class="fas fa-plus"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
 </div>
 <!-- fim div row para pesquisa -->
 <!--</div>-->
@@ -23,56 +22,56 @@
             <thead>
             <tr class="table-header">
                 <th class="">
-                    <div class="">Nome Cliente</div>
+                    <div class="table-header-title">Nome Cliente</div>
                 </th>
                 <th class="">
-                    <div class="">Cpf</div>
+                    <div class="table-header-title">Cpf</div>
                 </th>
                 <th class="">
-                    <div class="">Telefone</div>
+                    <div class="table-header-title">Telefone</div>
                 </th>
                 <th class="">
-                    <div class="">Email</div>
+                    <div class="table-header-title">Email</div>
                 </th>
                 <th class="">
-                    <div class="">Cep</div>
+                    <div class="table-header-title">Cep</div>
                 </th>
                 <th class="">
-                    <div class="">{{"template.crud.actions" | translate}}</div>
+                    <div class="table-header-title">{{"template.crud.actions" | translate}}</div>
                 </th>
             </tr>
             </thead>
             <tbody>
             <tr class="table-content" ng-repeat="rowData in datasource.data">
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.nome_cliente  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.cpf | mask:'999.999.999-99;0' }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.telefone  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.email  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.cep  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
-                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+                    <div class="table-header-dado">
+                        <button class="botao-acao" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fas fa-edit"></i></button>
+                        <button class="botao-acao" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fas fa-times"></i></button>
                     </div>
                 </td>
             </tr>
@@ -93,6 +92,8 @@
                 <button class="btn btn-primary" data-component="crn-button" ng-disabled="!datasource.hasNext()" ng-click="datasource.next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
                 <button class="btn btn-primary" data-component="crn-button" ng-click="datasource.remove()"><i class="glyphicon glyphicon-trash"></i></button>
             </div>
+            
+            <!--editando / add cliente-->
             <div class="active-bar" ng-hide="!datasource.editing &amp;&amp; !datasource.inserting">
                 <button class="btn btn-success" data-component="crn-button" ng-click="datasource.post()"><i class="glyphicon glyphicon-ok"></i></button>
                 <button class="btn btn-danger" data-component="crn-button" ng-click="datasource.cancel()"><i class="glyphicon glyphicon-remove"></i></button>
@@ -102,7 +103,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-nome_cliente" class="">
                     <div class="form-group">
-                        <label for="textinput-nome_cliente" class="">Nome Cliente</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.nome_cliente" class="form-control" id="textinput-nome_cliente" placeholder="Nome Cliente" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -111,7 +111,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-cpf" class="">
                     <div class="form-group">
-                        <label for="textinput-cpf" class="">Cpf</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.cpf" class="form-control" id="textinput-cpf" placeholder="Cpf" mask="999.999.999-99;0" mask-placeholder="" valid="cpf" data-error-message="{{'invalid.cpf' | translate}}" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -120,7 +119,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-telefone" class="">
                     <div class="form-group">
-                        <label for="textinput-telefone" class="">Telefone</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.telefone" class="form-control" id="textinput-telefone" placeholder="Telefone" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -129,7 +127,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-email" class="">
                     <div class="form-group">
-                        <label for="textinput-email" class="">Email</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.email" class="form-control" id="textinput-email" placeholder="Email" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -138,7 +135,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-cep" class="">
                     <div class="form-group">
-                        <label for="textinput-cep" class="">Cep</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.cep" class="form-control" id="textinput-cep" placeholder="Cep" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -147,7 +143,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-endereco" class="">
                     <div class="form-group">
-                        <label for="textinput-endereco" class="">Endereco</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.endereco" class="form-control" id="textinput-endereco" placeholder="Endereco" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -156,7 +151,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-complemento" class="">
                     <div class="form-group">
-                        <label for="textinput-complemento" class="">Complemento</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.complemento" class="form-control" id="textinput-complemento" placeholder="Complemento" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -165,7 +159,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-bairro" class="">
                     <div class="form-group">
-                        <label for="textinput-bairro" class="">Bairro</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.bairro" class="form-control" id="textinput-bairro" placeholder="Bairro" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -174,7 +167,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-cidade" class="">
                     <div class="form-group">
-                        <label for="textinput-cidade" class="">Cidade</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.cidade" class="form-control" id="textinput-cidade" placeholder="Cidade" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -183,7 +175,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-uf" class="">
                     <div class="form-group">
-                        <label for="textinput-uf" class="">Uf</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Cliente.active.uf" class="form-control" id="textinput-uf" placeholder="Uf" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->

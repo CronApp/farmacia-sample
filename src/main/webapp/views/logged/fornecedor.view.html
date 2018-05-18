@@ -5,7 +5,7 @@
 
 
 <div data-component="crn-button" id="crn-button-564202" class="">
-    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="Fornecedor.startInserting()" ng-hide="Fornecedor.inserting || Fornecedor.editing"><i class="glyphicon glyphicon-plus"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+    <button class="botao-add" type="submit" onclick="" data-component="crn-button" ng-click="Fornecedor.startInserting()" ng-hide="Fornecedor.inserting || Fornecedor.editing"><i class="fas fa-plus"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
 </div>
 <!-- fim div row para pesquisa -->
 <!--</div>-->
@@ -18,19 +18,19 @@
             <tr class="table-header">
                 
                 <th class="active">
-                    <div class="">Nome</div>
+                    <div class="table-header-title">Nome</div>
                 </th>
                 <th class="">
-                    <div class="">Cnpj</div>
+                    <div class="table-header-title">Cnpj</div>
                 </th>
                 <th class="">
-                    <div class="">Telefone</div>
+                    <div class="table-header-title">Telefone</div>
                 </th>
                 <th class="">
-                    <div class="">Email</div>
+                    <div class="table-header-title">Email</div>
                 </th>
                 <th class="">
-                    <div class="">{{"template.crud.actions" | translate}}</div>
+                    <div class="table-header-title">{{"template.crud.actions" | translate}}</div>
                 </th>
             </tr>
             </thead>
@@ -38,29 +38,29 @@
             <tr class="table-content" ng-repeat="rowData in datasource.data">
                 
                 <td class="active">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.nome_fornecedor  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.cnpj | mask:'99.999.999/9999-99;0' }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.telefone  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.email  }}
                     </div>
                 </td>
                 <td class="">
                     <div class="">
-                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+                        <button class="botao-acao" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fas fa-edit"></i></button>
+                        <button class="botao-acao" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fas fa-times"></i></button>
                     </div>
                 </td>
             </tr>
@@ -90,7 +90,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-nome_fornecedor" class="">
                     <div class="form-group">
-                        <label for="textinput-nome_fornecedor" class="">Nome</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Fornecedor.active.nome_fornecedor" class="form-control" id="textinput-nome_fornecedor" placeholder="Nome" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -99,7 +98,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-cnpj" class="">
                     <div class="form-group">
-                        <label for="textinput-cnpj" class="">Cnpj</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Fornecedor.active.cnpj" class="form-control" id="textinput-cnpj" placeholder="Cnpj" mask="99.999.999/9999-99;0" mask-placeholder="" valid="cnpj" data-error-message="{{'invalid.cnpj' | translate}}" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -108,7 +106,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-telefone" class="">
                     <div class="form-group">
-                        <label for="textinput-telefone" class="">Telefone</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Fornecedor.active.telefone" class="form-control" id="textinput-telefone" placeholder="Telefone" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -117,7 +114,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-email" class="">
                     <div class="form-group">
-                        <label for="textinput-email" class="">Email</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Fornecedor.active.email" class="form-control" id="textinput-email" placeholder="Email" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
