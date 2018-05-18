@@ -1,4 +1,4 @@
-package blockly.chat;
+package blockly.chatbot;
 
 import cronapi.*;
 import cronapi.rest.security.CronappSecurity;
@@ -52,7 +52,7 @@ public class Chat {
 		new Callable<Var>() {
 
 			public Var call() throws Exception {
-				blockly.chat.Remedios.remedios(entities, intents, context);
+				blockly.chatbot.Remedios.remedios(entities, intents, context);
 				return Var.VAR_NULL;
 			}
 		}.call();
