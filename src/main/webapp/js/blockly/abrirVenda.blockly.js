@@ -9,7 +9,7 @@ window.blockly.js.blockly.AbrirVenda = window.blockly.js.blockly.AbrirVenda
  */
 window.blockly.js.blockly.AbrirVenda.novaVenda = function() {
 
-	var item, pedidoId;
+	var item, objeto, pedidoId;
 	this.cronapi.screen.openUrl('/webapp/#/home/logged/novaVenda', false, 800,
 			600);
 }
@@ -19,7 +19,7 @@ window.blockly.js.blockly.AbrirVenda.novaVenda = function() {
  */
 window.blockly.js.blockly.AbrirVenda.abrir = function(pedidoId) {
 
-	var item, pedidoId;
+	var item, objeto, pedidoId;
 	this.cronapi.screen.changeView("#/home/logged/venda", [{
 		pedidoId : pedidoId
 	}]);

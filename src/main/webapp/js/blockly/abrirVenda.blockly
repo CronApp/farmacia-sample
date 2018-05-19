@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="" resourceType="JS" ruleDescription="abrirVenda" ruleName="abrirVenda" ruleSynchronous="false" ruleTimeout="" ruleType="I">
-  <metadata scale="1" scrollx="365.9999999999993" scrolly="178.00000000000045" target="Anb:u5+^,0vLkL9QIqn5"/>
+  <metadata scale="1" scrollx="365.9999999999993" scrolly="178.0000000000005" target="o:OHFN@c^PRMdb=qW;+`"/>
   <block colour="#995ba5" id="o:OHFN@c^PRMdb=qW;+`" origintype="procedures_defnoreturn" output="false" tooltip="Cria uma função que não tem retorno." type="procedures_defnoreturn" x="-277" y="-52">
     <field name="NAME">novaVenda</field>
     <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
