@@ -5,7 +5,7 @@
 
 
 <div data-component="crn-button" id="crn-button-564202" class="">
-    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="Produto.startInserting()" ng-hide="Produto.inserting || Produto.editing"><i class="glyphicon glyphicon-plus"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+    <button class="botao-add" type="submit" onclick="" data-component="crn-button" ng-click="Produto.startInserting()" ng-hide="Produto.inserting || Produto.editing"><i class="fas fa-plus"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
 </div>
 <!-- fim div row para pesquisa -->
 <!--</div>-->
@@ -18,28 +18,28 @@
             <tr class="table-header">
                 
                 <th class="active">
-                    <div class="">Nome</div>
+                    <div class="table-header-title">Nome</div>
                 </th>
-                <th class="">
+                <th class="table-header-title">
                     <div class="">Código do produto</div>
                 </th>
                 <th class="">
-                    <div class="">Categoria</div>
+                    <div class="table-header-title">Categoria</div>
                 </th>
                 <th class="">
-                    <div class="">Marca</div>
+                    <div class="table-header-title">Marca</div>
                 </th>
                 <th class="">
-                    <div class="">Preço de custo</div>
+                    <div class="table-header-title">Preço de custo</div>
                 </th>
                 <th class="">
-                    <div class="">Preço de Venda</div>
+                    <div class="table-header-title">Preço de Venda</div>
                 </th>
                 <th class="">
-                    <div class="">Fornecedor</div>
+                    <div class="table-header-title">Fornecedor</div>
                 </th>
                 <th class="">
-                    <div class="">{{"template.crud.actions" | translate}}</div>
+                    <div class="table-header-title">{{"template.crud.actions" | translate}}</div>
                 </th>
             </tr>
             </thead>
@@ -47,44 +47,44 @@
             <tr class="table-content" ng-repeat="rowData in datasource.data">
                 
                 <td class="active">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.nome  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.codigo_produto  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.categoria  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.marca  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.preco_custo  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                                 {{rowData.preco_venda  }}
                     </div>
                 </td>
                 <td class="">
-                    <div class="">
+                    <div class="table-header-dado">
                             {{rowData.fornecedor.nome_fornecedor}}
                     </div>
                 </td>
                 <td class="">
                     <div class="">
-                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-default btn-sm" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fa fa-times"></i></button>
+                        <button class="botao-acao" data-component="crn-button" type="submit" ng-click="datasource.startEditing(rowData)"><i class="fas fa-edit"></i></button>
+                        <button class="botao-acao" data-component="crn-button" type="submit" ng-click="datasource.remove(rowData)"><i class="fas fa-times"></i></button>
                     </div>
                 </td>
             </tr>
@@ -114,7 +114,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-nome" class="">
                     <div class="form-group">
-                        <label for="textinput-nome" class="">Nome</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Produto.active.nome" class="form-control" id="textinput-nome" placeholder="Nome" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -123,7 +122,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-codigo_produto" class="">
                     <div class="form-group">
-                        <label for="textinput-codigo_produto" class="">Código do produto</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Produto.active.codigo_produto" class="form-control" id="textinput-codigo_produto" placeholder="Código do produto" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -132,7 +130,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-categoria" class="">
                     <div class="form-group">
-                        <label for="textinput-categoria" class="">Categoria</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Produto.active.categoria" class="form-control" id="textinput-categoria" placeholder="Categoria" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -141,7 +138,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-marca" class="">
                     <div class="form-group">
-                        <label for="textinput-marca" class="">Marca</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="text" ng-model="Produto.active.marca" class="form-control" id="textinput-marca" placeholder="Marca" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -150,7 +146,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-preco_custo" class="">
                     <div class="form-group">
-                        <label for="textinput-preco_custo" class="">Preço de custo</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="number" ng-model="Produto.active.preco_custo" class="form-control" id="textinput-preco_custo" placeholder="Preço de custo" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -159,7 +154,6 @@
 
                 <div data-component="crn-textinput" id="crn-textinput-preco_venda" class="">
                     <div class="form-group">
-                        <label for="textinput-preco_venda" class="">Preço de Venda</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <input type="number" ng-model="Produto.active.preco_venda" class="form-control" id="textinput-preco_venda" placeholder="Preço de Venda" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
@@ -169,7 +163,6 @@
 
                 <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-fornecedor" class="">
                     <div class="form-group">
-                        <label for="combobox-dynamic-fornecedor" class="">Fornecedor</label>
  <!-- else for if !model.hasCronappFramework() -->
                                 <ui-select ng-model="Produto.active.fornecedor" crn-datasource="Fornecedor" class="crn-select" id="combobox-dynamic-fornecedor" ng-required="false" theme="bootstrap">
                                     <ui-select-match class="" placeholder="Select...">
