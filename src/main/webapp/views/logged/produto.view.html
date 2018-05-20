@@ -159,6 +159,17 @@
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
+                <div data-component="crn-dynamic-image" id="crn-textinput-picture" class="">
+                    <div class="form-group">
+                        <label for="textinput-picture" class="">Foto</label>
+ <!-- else for if !model.hasCronappFramework() -->
+                                <div dynamic-image ng-model="Produto.active.foto" max-file-size="5MB" class="dynamic-image-container" ng-required="false">
+                                  {{"template.crud.clickOrDragAnImage" | translate}} 
+                                </div>
+                         <!-- end if !model.hasCronappFramework() -->
+                    </div>
+                </div>
+
                     <datasource name="Fornecedor" entity="api/cronapi/crud/app.entity.Fornecedor" keys="id" class="" dependent-by="{{Produto}}"></datasource>
 
                 <div data-component="crn-combobox-dynamic" id="crn-combobox-dynamic-fornecedor" class="">

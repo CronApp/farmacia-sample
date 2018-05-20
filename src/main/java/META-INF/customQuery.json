@@ -898,44 +898,9 @@
 		"entitySimpleName": "Produto",
 		"entityFullName": "app.entity.Produto",
 		"query": {
-			"isValid": true,
-			"isEmpty": false,
-			"operationType": "object",
-			"type": "select",
-			"rulesEntity": [
-				{
-					"entity": "Produto",
-					"namespace": "app.entity.Produto",
-					"alias": "p"
-				}
-			],
-			"rulesSelect": [
-				{
-					"func": "get",
-					"field": "p.nome",
-					"type": "string"
-				},
-				{
-					"func": "get",
-					"field": "p.preco_venda",
-					"type": "double"
-				},
-				{
-					"func": "get",
-					"field": "p.id",
-					"type": "string"
-				}
-			],
-			"rulesGroupBy": [],
-			"rulesHaving": [],
-			"rulesOrderBy": [],
-			"rules": {
-				"condition": "AND",
-				"rules": [],
-				"not": false,
-				"valid": true
-			},
-			"isRawSql": false,
+			"isEmpty": true,
+			"isRawSql": true,
+			"sqlContent": "select p.nome, p.preco_venda, p.id, p.foto from Produto p",
 			"multiTenant": true,
 			"paginatorAutomatic": false
 		},
@@ -970,7 +935,8 @@
 			"marca": null,
 			"preco_custo": null,
 			"preco_venda": null,
-			"fornecedor": null
+			"fornecedor": null,
+			"foto": null
 		},
 		"security": {
 			"id": null,
@@ -980,7 +946,8 @@
 			"marca": null,
 			"preco_custo": null,
 			"preco_venda": null,
-			"fornecedor": null
+			"fornecedor": null,
+			"foto": null
 		},
 		"calcFields": {},
 		"calcFieldsSecurity": {},

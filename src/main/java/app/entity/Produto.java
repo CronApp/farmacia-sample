@@ -84,6 +84,13 @@ public class Produto implements Serializable {
   private Fornecedor fornecedor;
 
   /**
+  * @generated
+  */
+  @Column(name = "foto", nullable = true, unique = false, insertable=true, updatable=true)
+  
+  private byte[] foto;
+
+  /**
    * Construtor
    * @generated
    */
@@ -248,6 +255,26 @@ public class Produto implements Serializable {
    */
   public Produto setFornecedor(Fornecedor fornecedor){
     this.fornecedor = fornecedor;
+    return this;
+  }
+
+  /**
+   * Obtém foto
+   * return foto
+   * @generated
+   */
+  
+  public byte[] getFoto(){
+    return this.foto;
+  }
+
+  /**
+   * Define foto
+   * @param foto foto
+   * @generated
+   */
+  public Produto setFoto(byte[] foto){
+    this.foto = foto;
     return this;
   }
 

@@ -2,6 +2,7 @@
   <ion-view cache-view="false" view-title="" hide-back-button="true"> 
     <ion-content data-replace="false"> 
     
+    
     <div class="row">
         <div class="title-pages">
             <span><img src="img/pharma-manager-prototype-pedido-color.png" data-component="crn-image" id="carrinho-imagem"></span><h3>Pedido</h3>
@@ -9,7 +10,6 @@
     </div>    
     
     
-      <!--<button class="button component-holder button-large button-full button-balanced" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.ObterCarrinhoMobile:inserir', null, null)" data-component="crn-button" id="crn-button-272456" xattr-size="button-large" xattr-type="" xattr-fullsize="button-full" xattr-theme="button-balanced"><i class="ion ion-android-cart"></i> <span>Finalizar</span></button>-->
       <div class="component-holder ng-binding ng-scope" data-component="crn-datasource" id="crn-datasource-306237"> 
         <datasource name="Produto" entity="api/cronapi/query/1ib8qn0k2em2a/" keys="id" rows-per-page="100" on-before-create="" on-after-create="" on-before-update="" on-after-update="" on-before-delete="" on-after-delete="" on-after-fill=""></datasource> 
       </div> 
@@ -19,7 +19,7 @@
               <div class="container">
                     <div class="col-xs-4">
                         <a class="item item-thumbnail-left component-holder" data-component="crn-list-item-thumbnail" id="crn-list-item-thumbnail-344590">
-                            <img src="img/{{rowData[0]}}.jpg" class="component-holder" xattr-position="" data-component="crn-image" id="crn-image-1002213">
+                            <img src="data:image/png;base64,{{rowData[3]}}" class="component-holder" xattr-position="" data-component="crn-image" id="crn-image-1002213">
                         </a>
                     </div>
                     
@@ -39,7 +39,8 @@
               </div>
 
         
-          </div> 
+          </div>
+          <button class="button component-holder button-full button-balanced button-large" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.pedidos.ObterCarrinhoMobile:inserir', null, null)" data-component="crn-button" id="crn-button-396893" xattr-size="button-large" xattr-fullsize="button-full" xattr-theme="button-balanced"><i class=""></i> <span>Finalizar</span></button>
         </div> 
       </div> 
       

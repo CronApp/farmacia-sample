@@ -1,3 +1,5 @@
+<h3>Pedidos</h3>
+
 <div id="starter" ng-init="" ng-destroy=""><h3></h3>
 
 <!-- div row para pesquisa -->
@@ -6,7 +8,7 @@
     
 
 <div data-component="crn-button" id="crn-button-564202" class="">
-    <button class="botao-add" type="submit" onclick="" data-component="crn-button" ng-click="blockly.js.blockly.AbrirVenda.novaVenda()"><i class="fas fa-plus"></i> <span class="">Novo Pedido</span></button><button class="btn component-holder btn-info pull-right" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.GerarRelatorio:gerar', null, null)" xattr-size="" xattr-fullsize="" xattr-theme="btn-info" data-component="crn-button" id="crn-button-923251"><i class="fas fa-file-alt"></i> <span>Imprimir relatório</span></button>
+    <button class="botao-add" type="submit" onclick="" data-component="crn-button" ng-click="blockly.js.blockly.AbrirVenda.novaVenda()"><i class="fas fa-plus"></i> <span class="">Novo Pedido</span></button><button class="btn component-holder btn-info pull-right" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.pedidos.GerarRelatorio:gerar', null, null)" xattr-size="" xattr-fullsize="" xattr-theme="btn-info" data-component="crn-button" id="crn-button-923251"><i class="fas fa-file-alt"></i> <span>Imprimir relatório</span></button>
 </div><div data-component="crn-button" id="crn-button-564202" class="">
     
 </div>
@@ -38,11 +40,11 @@
                     <div class="table-header-dado">{{rowData[0] | mask:'date'}}</div>
                 </td>
                 <td class="">
-                    <div class="table-header-dado">{{rowData[1]}}</div>
+                    <div class="table-header-dado">R$ {{rowData[1]}}</div>
                 </td>
                 <td class="">
                     <div class="table-header-dado">
-                        <button class="botao-acao" data-component="crn-button" type="submit" ng-click="blockly.js.blockly.AbrirVenda.abrir(rowData[2])"><i class="glyphicon glyphicon-th-list"></i></button><button class="botao-acao" data-component="crn-button" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.GerarBoleto:gerar', null, null, rowData[2])"><i class="fas fa-barcode"></i></button>
+                        <button class="botao-acao" data-component="crn-button" type="submit" ng-click="blockly.js.blockly.AbrirVenda.abrir(rowData[2])"><i class="glyphicon glyphicon-th-list"></i></button><button class="botao-acao" data-component="crn-button" type="submit" ng-click="cronapi.util.makeCallServerBlocklyAsync('blockly.pedidos.GerarBoleto:gerar', null, null, rowData[2])"><i class="fas fa-barcode"></i></button>
                     </div>
                 </td>
             </tr>
