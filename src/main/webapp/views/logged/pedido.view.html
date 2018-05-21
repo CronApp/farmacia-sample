@@ -1,4 +1,4 @@
-<h3>Pedidos</h3>
+<div class="component-holder ng-binding ng-scope" data-component="crn-textinput" id="crn-textinput-1003738"><div class="form-group"><label for="exampleInputEmail1">Label</label><input type="text" mask="" mask-placeholder="" ng-required="false" ng-model="vars.input5903" class="form-control" id="input5903" placeholder="Placeholder text"></div></div><h3>Pedidos</h3>
 
 <div id="starter" ng-init="" ng-destroy=""><h3></h3>
 
@@ -40,7 +40,7 @@
                     <div class="table-header-dado">{{rowData[0] | mask:'date'}}</div>
                 </td>
                 <td class="">
-                    <div class="table-header-dado">R$ {{rowData[1]}}</div>
+                    <div class="table-header-dado">R$ {{rowData[1] | mask:'money'}}</div>
                 </td>
                 <td class="">
                     <div class="table-header-dado">
