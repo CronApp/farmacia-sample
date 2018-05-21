@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blockly formTarget="" resourceType="JAVA" ruleDescription="AddItemPedido" ruleName="AddItemPedido" ruleSynchronous="false" ruleTimeout="" ruleType="I">
-  <metadata scale="1" scrollx="463.3476562499999" scrolly="-1297.4999999999995" target="LTfgg2)|!bYN{hXV.O5M"/>
+  <metadata scale="1" scrollx="110.99999999999977" scrolly="-391.4999999999998" target="LTfgg2)|!bYN{hXV.O5M"/>
   <block colour="#995ba5" id="LTfgg2)|!bYN{hXV.O5M" origintype="procedures_defnoreturn" output="false" tooltip="Cria uma função que não tem retorno." type="procedures_defnoreturn" x="-187" y="188">
     <mutation>
       <arg name="context"/>
@@ -72,7 +72,7 @@
                 </value>
                 <next>
                   <block colour="#a55b80" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="~1wg.hUUPZwz3]*T0_FR" origintype="variables_set" output="false" tooltip="Define esta variável para o valor da entrada." type="variables_set">
-                    <field name="VAR">entradaUsuario</field>
+                    <field name="VAR">entityValue</field>
                     <value name="VALUE">
                       <block colour="#4f7ba8" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="x`=Dt8,SAHCm$9EQhg!$" multilayer="false" namespace="cronapi.json.Operations.getJsonOrMapField" origintype="procedures_callreturn" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20campo%20do%20Json%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20campo%20do%20Json%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Json%20:%20Objeto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Caminho%20a%20percorrer%20:%20Texto%3C/span%3E%3Cdiv%3E%20Exemplo:%20estado%5B3%5D.uf%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.json.Operations.getJsonOrMapField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.json.Operations.getJsonOrMapField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
                         <mutation name="{{cronapi.json.Operations.getJsonOrMapField}}" return-raw-type="cronapi.Var">
@@ -86,7 +86,7 @@
                         </value>
                         <value name="ARG1">
                           <shadow colour="#5ba593" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="h$71IC@]H9@$L9`{HWV_" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
-                            <field name="TEXT">input.text</field>
+                            <field name="TEXT">$.entities[0].value</field>
                           </shadow>
                         </value>
                       </block>
@@ -96,7 +96,7 @@
                         <field name="VAR">consultaDb</field>
                         <value name="VALUE">
                           <block colour="#db802b" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="^*T?CSudR@HcUD%B[U+u" multilayer="false" namespace="cronapi.database.Operations.query" origintype="procedures_sql_callreturn" output="true" returntype="ObjectType.DATASET" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EAbrir%20consulta%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20realizar%20consultas%20no%20banco%20de%20dados%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Entidade%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Consulta%20SQL%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Par%C3%A2metros%20para%20consulta%20:%20Lista%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Tabela%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.database.Operations.query%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_sql_callreturn">
-                            <mutation data="%7B%22queryBuilderJson%22:%7B%22isValid%22:true,%22isEmpty%22:false,%22operationType%22:%22object%22,%22type%22:%22select%22,%22rulesEntity%22:%5B%7B%22entity%22:%22Produto%22,%22alias%22:%22p%22%7D%5D,%22rulesSelect%22:%5B%7B%22func%22:%22get%22,%22field%22:%22p.nome%22,%22type%22:%22string%22%7D,%7B%22func%22:%22get%22,%22field%22:%22p.preco_venda%22,%22type%22:%22double%22%7D,%7B%22func%22:%22get%22,%22field%22:%22p.id%22,%22type%22:%22string%22%7D%5D,%22rulesGroupBy%22:%5B%5D,%22rulesHaving%22:%5B%5D,%22rulesOrderBy%22:%5B%5D,%22rules%22:%7B%22condition%22:%22AND%22,%22rules%22:%5B%7B%22id%22:%22upper(p.nome)%22,%22field%22:%22upper(p.nome)%22,%22type%22:%22string%22,%22input%22:%22text%22,%22operator%22:%22equal%22,%22value%22:%22:upper%22,%22valueIsField%22:false%7D%5D,%22not%22:false,%22valid%22:true%7D,%22isRawSql%22:false,%22multiTenant%22:true,%22paginatorAutomatic%22:false%7D,%22entity%22:%22Produto%22,%22entityFullName%22:%22app.entity.Produto%22,%22filter%22:%22select%20p.nome,%20p.preco_venda,%20p.id%20from%20Produto%20p%20where%20upper(p.nome)%20=%20:upper%22,%22params%22:%22%5B%5C%22upper%5C%22%5D%22%7D" name="{{cronapi.database.Operations.query}}">
+                            <mutation data="%7B%22queryBuilderJson%22:%7B%22isValid%22:true,%22isEmpty%22:false,%22operationType%22:%22object%22,%22type%22:%22select%22,%22rulesEntity%22:%5B%7B%22entity%22:%22Produto%22,%22alias%22:%22p%22%7D%5D,%22rulesSelect%22:%5B%7B%22func%22:%22get%22,%22field%22:%22p.nome%22,%22type%22:%22string%22%7D,%7B%22func%22:%22get%22,%22field%22:%22p.preco_venda%22,%22type%22:%22double%22%7D,%7B%22func%22:%22get%22,%22field%22:%22p.id%22,%22type%22:%22string%22%7D%5D,%22rulesGroupBy%22:%5B%5D,%22rulesHaving%22:%5B%5D,%22rulesOrderBy%22:%5B%5D,%22rules%22:%7B%22condition%22:%22AND%22,%22rules%22:%5B%7B%22id%22:%22upper(p.nome)%22,%22field%22:%22upper(p.nome)%22,%22type%22:%22string%22,%22input%22:%22text%22,%22operator%22:%22equal%22,%22value%22:%22:upper%22,%22valueIsField%22:false%7D%5D,%22not%22:false,%22valid%22:true%7D,%22isRawSql%22:false,%22multiTenant%22:true,%22paginatorAutomatic%22:false%7D,%22entity%22:%22Produto%22,%22entityFullName%22:%22app.entity.Produto%22,%22filter%22:%22select%20p.nome,%20p.preco_venda,%20p.id%20from%20Produto%20p%20where%20upper(p.nome)%20=%20:upper%22,%22params%22:%22%5B%5C%22upper%5C%22%5D%22,%22wizardType%22:%22SELECT%22%7D" name="{{cronapi.database.Operations.query}}">
                               <arg name="upper"/>
                             </mutation>
                             <value name="ARG0">
@@ -107,7 +107,7 @@
                                     <field name="TEXT">abc</field>
                                   </shadow>
                                   <block colour="#a55b80" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="?FYZ6VdT4kfdXu(@p1n." origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
-                                    <field name="VAR">entradaUsuario</field>
+                                    <field name="VAR">entityValue</field>
                                   </block>
                                 </value>
                               </block>
@@ -404,6 +404,11 @@
                                                     </value>
                                                   </block>
                                                 </value>
+                                                <value name="ARG2">
+                                                  <block colour="#a55b80" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="rxbl!::nk6=HxhllfG@]" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                                    <field name="VAR">idPedido</field>
+                                                  </block>
+                                                </value>
                                                 <next>
                                                   <block colour="#5ba58c" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="Fw}YZE]F53hFcAB%:H:q" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
                                                     <value name="TEXT">
@@ -424,6 +429,28 @@
                                                         </value>
                                                       </block>
                                                     </value>
+                                                    <next>
+                                                      <block colour="#5ba58c" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="_;-?4%Hhe6]$p5Uw`9$K" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
+                                                        <value name="TEXT">
+                                                          <shadow colour="#5ba593" dependencyby="$9;,([m#hWTinl4Jk|GJ" id="V^/ssZVh3l]s[Bp+:[26" origintype="text" output="true" tooltip="function () { [native code] }" type="text" xmlns="">
+                                                            <field name="TEXT">abc</field>
+                                                          </shadow>
+                                                          <block colour="#5ba58c" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="mxGE~s%sh`T..[c:Ju|}" origintype="text_join" output="true" tooltip="Criar um pedaço de texto juntando qualquer número de itens." type="text_join">
+                                                            <mutation items="2"/>
+                                                            <value name="ADD0">
+                                                              <block colour="#5ba593" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="/nY*X)l_}MClRG#j3sJj" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                                                                <field name="TEXT">WatsonMsg addItemPedido: </field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="ADD1">
+                                                              <block colour="#a55b80" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="+$u,tOB77[VO3`dGi=]S" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get">
+                                                                <field name="VAR">watsonMsg</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
                                                   </block>
                                                 </next>
                                               </block>
@@ -448,8 +475,5 @@
         </next>
       </block>
     </statement>
-  </block>
-  <block colour="#a55b80" dependencyby="LTfgg2)|!bYN{hXV.O5M" id="rxbl!::nk6=HxhllfG@]" origintype="variables_get" output="true" tooltip="Retorna o valor desta variável." type="variables_get" x="353" y="1283">
-    <field name="VAR">idPedido</field>
   </block>
 </blockly>

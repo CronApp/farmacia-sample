@@ -67,14 +67,10 @@
                     </div>
                 </td>
                 <td class="">
-                    <div class="table-header-dado">
-                                {{rowData.preco_custo  }}
-                    </div>
+                    <div class="table-header-dado">R$ {{rowData.preco_custo | mask:'money' }}</div>
                 </td>
                 <td class="">
-                    <div class="table-header-dado">
-                                {{rowData.preco_venda  }}
-                    </div>
+                    <div class="table-header-dado">R$ {{ rowData.preco_venda | mask:'money' }}</div>
                 </td>
                 <td class="">
                     <div class="table-header-dado">
@@ -163,7 +159,7 @@
                     <div class="form-group">
                         <label for="textinput-picture" class="">Foto</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <div dynamic-image ng-model="Produto.active.foto" max-file-size="5MB" class="dynamic-image-container" ng-required="false">
+                                <div dynamic-image="" ng-model="Produto.active.foto" max-file-size="5MB" class="dynamic-image-container" ng-required="false">
                                   {{"template.crud.clickOrDragAnImage" | translate}} 
                                 </div>
                          <!-- end if !model.hasCronappFramework() -->
@@ -238,11 +234,11 @@
                                                 <label for="combobox-venda" class="">Venda</label>
                                                 <ui-select ng-model="VendaProdutoGrid.active.venda" crn-datasource="VendaGridForUiSelect" class="crn-select" id="combobox-venda" ng-required="false" ng-disabled="disabled" theme="bootstrap">
                                                     <ui-select-match placeholder="Select..." class="">
-                                                        {{$select.selected.valor_venda}}
+                                                        {{$select.selected.valor_venda | mask:'money'}}
                                                     </ui-select-match>
                                                     <ui-select-choices repeat="rowData in datasource.data | filter : $select.search" class="" refresh="" refresh-deplay="">
                                                         <div class="">
-                                                            {{rowData.valor_venda}}
+                                                            {{rowData.valor_venda | mask:'money'}}
                                                         </div>
                                                     </ui-select-choices>
                                                 </ui-select>

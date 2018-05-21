@@ -22,17 +22,17 @@ public class AddItemPedido {
 			private Var idPedido = Var.VAR_NULL;
 			private Var valorPedido = Var.VAR_NULL;
 			private Var numItem = Var.VAR_NULL;
-			private Var entradaUsuario = Var.VAR_NULL;
+			private Var entityValue = Var.VAR_NULL;
 			private Var consultaDb = Var.VAR_NULL;
 
 			public Var call() throws Exception {
 				idPedido = cronapi.json.Operations.getJsonOrMapField(context, Var.valueOf("idPedido"));
 				valorPedido = cronapi.json.Operations.getJsonOrMapField(context, Var.valueOf("valorPedido"));
 				numItem = cronapi.json.Operations.getJsonOrMapField(context, Var.valueOf("numItem"));
-				entradaUsuario = cronapi.json.Operations.getJsonOrMapField(watsonMsg, Var.valueOf("input.text"));
+				entityValue = cronapi.json.Operations.getJsonOrMapField(watsonMsg, Var.valueOf("$.entities[0].value"));
 				consultaDb = cronapi.database.Operations.query(Var.valueOf("app.entity.Produto"),
 						Var.valueOf("select p.nome, p.preco_venda, p.id from Produto p where upper(p.nome) = :upper"),
-						Var.valueOf("upper", Var.valueOf(entradaUsuario.getObjectAsString().toUpperCase())));
+						Var.valueOf("upper", Var.valueOf(entityValue.getObjectAsString().toUpperCase())));
 				cronapi.json.Operations.setJsonOrMapField(context, Var.valueOf("produtoAtual"),
 						cronapi.database.Operations.getField(consultaDb, Var.valueOf("this[0]")));
 				cronapi.json.Operations.setJsonOrMapField(context, Var.valueOf("valorPedido"), cronapi.math.Operations
@@ -60,6 +60,9 @@ public class AddItemPedido {
 						Var.valueOf("id", idPedido));
 				System.out.println(Var.valueOf(Var.valueOf("Context addItemPedido: ").toString() + context.toString())
 						.getObjectAsString());
+				System.out
+						.println(Var.valueOf(Var.valueOf("WatsonMsg addItemPedido: ").toString() + watsonMsg.toString())
+								.getObjectAsString());
 				return Var.VAR_NULL;
 			}
 		}.call();
