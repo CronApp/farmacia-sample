@@ -28,8 +28,8 @@
                     <target>https://api.cronapp.io</target>
                     <org>ricardo.moreira@cronapp.io</org>
                     <space>develop</space>
-                    <appname>Pharma</appname>
-                    <url>pharma1.cronapp.io</url>
+                    <appname>Pharmacron</appname>
+                    <url>pharmacron.cronapp.io</url>
                     <instances>1</instances>
                     <memory>384</memory>
                     <username/>

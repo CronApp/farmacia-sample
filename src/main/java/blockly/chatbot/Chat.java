@@ -109,7 +109,7 @@ public class Chat {
 			private Var blockly = Var.VAR_NULL;
 
 			public Var call() throws Exception {
-				return cronapi.util.Operations.getCurrentUserName();
+				return Var.valueOf(cronapi.text.Operations.titleCase((cronapi.util.Operations.getCurrentUserName())));
 			}
 		}.call();
 	}
