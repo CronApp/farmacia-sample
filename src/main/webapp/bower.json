@@ -22,8 +22,8 @@
 		"src"
 	],
 	"dependencies": {
-		"cronapp-framework-js": "0.0.183-d-s-b",
-		"cronapi-js": "0.0.118-d-s-b",
+		"cronapp-framework-js": "0.0.209-d",
+		"cronapi-js": "0.0.120-d-s-b",
 		"cronapi-firebase": "0.0.5"
 	}
 }

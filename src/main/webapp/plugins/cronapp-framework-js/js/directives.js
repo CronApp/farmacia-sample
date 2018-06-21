@@ -541,7 +541,7 @@
 
       .directive('mask', maskDirectiveMask)
 
-      .directive('cronappFilter', function() {
+      .directive('cronappFilter', function($compile) {
         return {
           restrict: 'A',
           require: '?ngModel',
@@ -702,15 +702,51 @@
               }
             }
           },
+          forceDisableDatasource: function(datasourceName, scope) {
+            var disableDatasource = setInterval(function() {
+              try {
+                var datasourceInstance = eval(datasourceName);
+                if (datasourceInstance) {
+                  $(document).ready(function() {
+                    var time = 0;
+                    var intervalForceDisable = setInterval(function() {
+                      if (time < 10) {
+                        scope.$apply(function () {
+                          datasourceInstance.enabled = false;
+                          datasourceInstance.data = [];  
+                        });
+                        time++;
+                      }
+                      else
+                        clearInterval(intervalForceDisable);
+                    }, 20);
+                  });
+                  clearInterval(disableDatasource);
+                }
+              }
+              catch(e) {
+                //try again, until render
+              }
+            },10);
+          },
           buttonBehavior: function(scope, element, attrs, ngModelCtrl, $element, typeElement, operator, autopost) {
+            var datasourceName = '';
+            if (attrs.crnDatasource)
+              datasourceName = attrs.crnDatasource;
+            else
+              datasourceName = $element.parent().attr('crn-datasource')
+            debugger;
+            var requiredFilter = attrs.requiredFilter && attrs.requiredFilter.toString() == "true";
+            if (requiredFilter) {
+              this.forceDisableDatasource(datasourceName, scope);
+              // var $datasource = $('datasource[name="'+datasourceName+'"]');
+              // $datasource.attr('enabled','false');
+              // var x = angular.element($datasource);
+              // $compile(x)(scope);
+            }
+            
             $element.on('click', function() {
               var $this = $(this);
-              var datasourceName = '';
-              if (attrs.crnDatasource)
-                datasourceName = attrs.crnDatasource;
-              else
-                datasourceName = $element.parent().attr('crn-datasource')
-
               var filters = $this.data('filters');
               if (datasourceName && datasourceName.length > 0 && filters) {
                 var bindedFilter = '';
@@ -719,7 +755,20 @@
                 });
 
                 var datasourceToFilter = eval(datasourceName);
-                datasourceToFilter.search(bindedFilter, (attrs.cronappFilterCaseinsensitive=="true"));
+                
+                if (requiredFilter) {
+                  datasourceToFilter.enabled = bindedFilter.length > 0;
+                  if (datasourceToFilter.enabled) {
+                    datasourceToFilter.search(bindedFilter, (attrs.cronappFilterCaseinsensitive=="true"));
+                  }
+                  else {
+                    scope.$apply(function () {
+                      datasourceToFilter.data = [];
+                    });
+                  }
+                }
+                else
+                  datasourceToFilter.search(bindedFilter, (attrs.cronappFilterCaseinsensitive=="true"));
               }
             });
           },
@@ -744,6 +793,274 @@
           }
         }
       })
+      .directive('cronRichEditor', function ($compile) {
+        return {
+          restrict: 'E',
+          replace: true,
+          require: 'ngModel',
+          parseToTinyMCEOptions: function(optionsSelected) {
+
+            var toolbarGroup = {};
+            toolbarGroup["allowFullScreen"] = "fullscreen |";
+            toolbarGroup["allowPage"] = "fullpage newdocument code pagebreak |";
+            toolbarGroup["allowPrint"] = "preview print |";
+            toolbarGroup["allowTransferArea"] = "cut copy paste |";
+            toolbarGroup["allowDoUndo"] = "undo redo |";
+            toolbarGroup["allowSymbol"] = "charmap |";
+            toolbarGroup["allowEmbeddedImage"] = "bdesk_photo |";
+            toolbarGroup["allowFont"] = "formatselect fontselect fontsizeselect strikethrough bold italic underline removeformat |";
+            toolbarGroup["allowLinks"] = "link unlink anchor |";
+            toolbarGroup["allowParagraph"] = "alignleft aligncenter alignright alignjustify numlist bullist outdent indent blockquote hr |";
+            toolbarGroup["allowFormulas"] = "tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry tiny_mce_wiris_CAS |";
+
+
+            var tinyMCEOptions = {
+              menubar: false,
+              statusbar: false,
+              plugins: "bdesk_photo advlist anchor autolink autoresize autosave charmap code colorpicker contextmenu directionality emoticons fullpage fullscreen hr image imagetools importcss insertdatetime legacyoutput link lists media nonbreaking noneditable pagebreak paste preview print save searchreplace tabfocus table template toc visualblocks visualchars wordcount tiny_mce_wiris",
+              toolbar: "",
+              content_style: ""
+            };
+
+            for (var key in optionsSelected) {
+              if (key.startsWith("allow")) {
+                if (optionsSelected[key])
+                  tinyMCEOptions.toolbar += " " + toolbarGroup[key];
+              }
+            }
+            tinyMCEOptions.menubar = optionsSelected.showMenuBar;
+            tinyMCEOptions.statusbar = optionsSelected.showStatusBar;
+            tinyMCEOptions.content_style = optionsSelected.contentStyle;
+
+            return JSON.stringify(tinyMCEOptions);
+          },
+          link: function (scope, element, attrs, ngModelCtrl) {
+
+            var optionsSelected = JSON.parse(attrs.options);
+            var tinyMCEOptions = this.parseToTinyMCEOptions(optionsSelected);
+
+            var templateDyn    = '\
+                  <textarea \
+                    ui-tinymce="$options$" \
+                    ng-model="$ngModel$"> \
+                  </textarea> \
+                ';
+            templateDyn = $(templateDyn
+                .split('$ngModel$').join(attrs.ngModel)
+                .split('$options$').join(escape(tinyMCEOptions))
+            );
+
+            var x = angular.element(templateDyn);
+            element.html('');
+            element.append(x);
+            $compile(x)(scope);
+          }
+        };
+      })
+      .directive('cronGrid', ['$compile', '$translate', function($compile, $translate) {
+        return {
+          restrict: 'E',
+          replace: true,
+          getColumns: function(options) {
+            var columns = [];
+            if (options.columns) {
+              options.columns.forEach(function(column)  {
+                if (column.visible) {
+                  if (column.dataType == "Database") {
+
+                    var addColumn = {
+                      field: column.field,
+                      title: column.headerText,
+                      type: column.type,
+                      width: column.width,
+                      sortable: column.sortable,
+                      filterable: column.filterable,
+                    };
+                    if (column.format)
+                      addColumn.format = column.format;
+                    columns.push(addColumn);
+
+                  }
+                  else if (column.dataType == "Command") {
+                    //Se não for editavel, não adiciona colunas de comando
+                    if (options.editable != 'no') {
+                      var command = column.command.split('|');
+                      var addColumn = {
+                        command: command,
+                        title: column.headerText,
+                        width: column.width
+                      };
+                      columns.push(addColumn);
+                    }
+
+                  }
+
+
+                }
+              });
+            }
+
+            // var commandToEditDestroy = {
+            //   command: [],
+            //   title: "&nbsp;",
+            //   width: "250px"
+            // };
+            // if (options.allowInsert || options.allowUpdate)
+            //   commandToEditDestroy.command.push("edit");
+            // if (options.allowDelete)
+            //   commandToEditDestroy.command.push("destroy");
+            // if (commandToEditDestroy.command.length > 0)
+            //   columns.push(commandToEditDestroy);
+
+            return columns;
+          },
+          getPageAble: function(options) {
+            var pageable = {
+              refresh:  options.allowRefreshGrid,
+              pageSizes: options.allowSelectionTotalPageToShow,
+              buttonCount: 5
+            };
+
+            if (!options.allowPaging)
+              pageable = options.allowPaging;
+
+            return pageable;
+          },
+          getToolbar: function(options) {
+            var toolbar = [];
+
+            options.toolBarButtons.forEach(function(toolbarButton) {
+              if (toolbarButton.type == "Native") {
+                //Se a grade for editavel, adiciona todos os commands
+                if (options.editable != 'no') {
+                  if (toolbarButton.title == "save" || toolbarButton.title == "cancel") {
+                    //O Salvar e cancelar na toolbar só é possível no batch mode
+                    if (options.editable == 'batch')
+                      toolbar.push(toolbarButton.title);
+                  }
+                  else
+                    toolbar.push(toolbarButton.title);
+                }
+                //Senão, adiciona somente commands que não sejam de crud
+                else {
+                  if (toolbarButton.title == "pdf" || toolbarButton.title == "excel") {
+                    toolbar.push(toolbarButton.title);
+                  }
+                }
+
+
+              }
+
+            });
+
+            // if (options.exportExcel)
+            //   toolbar.push("excel");
+            // if (options.exportPDF)
+            //   toolbar.push("pdf");
+            // if (options.allowInsert)
+            //   toolbar.push("create");
+
+            if (toolbar.length == 0)
+              toolbar = undefined;
+            return toolbar;
+          },
+          getEditable: function(options) {
+
+            var editable = options.editable;
+            if (options.editable == 'batch') {
+              editable = true;
+            }
+            else if (options.editable == 'no') {
+              editable = false;
+            }
+            return editable;
+          },
+          generateKendoGridInit: function(options) {
+
+            var helperDirective = this;
+            function detailInit(e) {
+              e.sender.options.listCurrentOptions.forEach(function(currentOptions) {
+                var currentKendoGridInit = helperDirective.generateKendoGridInit(currentOptions);
+                currentKendoGridInit.dataSource.filter = [];
+                currentOptions.columns.forEach( function(c) {
+                  if (c.linkParentField && c.linkParentField.length > 0) {
+                    var filter = { field: c.field, operator: "eq", value: e.data[c.linkParentField] };
+                    currentKendoGridInit.dataSource.filter.push(filter);
+                  }
+                });
+                var grid = $("<div/>").appendTo(e.detailCell).kendoGrid(currentKendoGridInit).data('kendoGrid');
+                grid.dataSource.transport.options.grid = grid;
+              });
+            }
+
+            var datasource = app.kendoHelper.getDataSource(options.dataSource, options.allowPaging, options.pageCount);
+            var columns = this.getColumns(options);
+            var pageAble = this.getPageAble(options);
+            var toolbar = this.getToolbar(options);
+            var editable = this.getEditable(options);
+
+            var kendoGridInit = {
+              toolbar: toolbar,
+              pdf: {
+                allPages: true,
+                avoidLinks: true,
+                paperSize: "A4",
+                margin: { top: "2cm", left: "1cm", right: "1cm", bottom: "1cm" },
+                landscape: true,
+                repeatHeaders: true,
+                // template: $("#page-template").html(),
+                scale: 0.8
+              },
+              dataSource: datasource,
+              editable: editable,
+              height: options.height,
+              groupable: options.allowGrouping,
+              sortable: options.allowSorting,
+              filterable: true,
+              // dataBound: function() {
+              //   if (!options.allowUpdate) {
+              //       this.table.find(".k-grid-edit").hide();
+              //   }
+              // },
+              pageable: pageAble,
+              columns: columns,
+            };
+            if (options.details && options.details.length > 0) {
+              kendoGridInit.detailInit = detailInit;
+              kendoGridInit.listCurrentOptions = options.details;
+            }
+
+            return kendoGridInit;
+
+          },
+          link: function (scope, element, attrs, ngModelCtrl) {
+            var $templateDyn = $('<div></div>');
+            var baseUrl = 'plugins/cronapp-framework-js/dist/js/kendo-ui/js/messages/kendo.messages.';
+            if ($translate.use() == 'pt_br')
+              baseUrl += "pt-BR.min.js";
+            else
+              baseUrl += "en-US.min.js";
+
+            var helperDirective = this;
+
+            $.getScript(baseUrl, function () {
+              console.log('loaded language');
+
+              var options = JSON.parse(attrs.options || "{}");
+              var kendoGridInit = helperDirective.generateKendoGridInit(options);
+
+              var grid = $templateDyn.kendoGrid(kendoGridInit).data('kendoGrid');
+              grid.dataSource.transport.options.grid = grid;
+
+
+            });
+
+            element.html($templateDyn);
+            $compile($templateDyn)(element.scope());
+
+          }
+        };
+      }])
 }(app));
 
 function maskDirectiveAsDate($compile, $translate) {
