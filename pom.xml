@@ -3,8 +3,8 @@
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <version>2.0.1.RELEASE</version>
-        <relativePath>../pom.xml</relativePath>
+        <version>2.0.4.RELEASE</version>
+        <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mycompany.app</groupId>
@@ -14,11 +14,6 @@
     <version>1.0-SNAPSHOT</version>
     <url>http://maven.apache.org</url>
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.cloudfoundry</groupId>
@@ -61,31 +56,46 @@
                     </webResources>
                 </configuration>
             </plugin>
+            <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <id>libs-release</id>
-            <name>artifactory-cronapp-release</name>
-            <url>https://artifactory.cronapp.io/libs-release</url>
-        </repository>
-        <repository>
-            <id>libs-snapshot</id>
-            <name>artifactory-cronapp-snapshot</name>
-            <url>https://artifactory.cronapp.io/libs-snapshot</url>
-        </repository>
-        <repository>
-            <id>repository-io.cronapp</id>
-            <name>repository-cronapi-watson-conversation</name>
-            <url>https://artifactory.cronapp.io/libs-release</url>
-        </repository>
-        <repository>
-            <id>repository-mabilis</id>
-            <name>repository-mabilis-boleto-cronapp</name>
-            <url>https://repo.mabilis.com.br/repository/maven-releases</url>
-        </repository>
-    </repositories>
+
     <dependencies>
+        <!--#region Tomcat Dependencies-->        
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-el</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-websocket</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-dbcp</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--#endregion-->
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa</artifactId>
@@ -140,18 +150,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.0.1.RELEASE</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-            <version>2.0.1.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>2.0.1.RELEASE</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -163,17 +170,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <version>2.0.1.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>2.0.1.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <version>2.0.1.RELEASE</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -205,8 +209,24 @@
             <groupId>io.cronapp</groupId>
             <artifactId>cronapp-reports-exec</artifactId>
             <version>1.23.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>cronapp.libs.release</id>
+            <url>https://artifactory.cronapp.io/libs-release</url>
+        </repository>
+        <repository>
+            <id>cronapp.plugins.release</id>
+            <url>https://artifactory.cronapp.io/libs-snapshot</url>
+        </repository>
+    </repositories>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
