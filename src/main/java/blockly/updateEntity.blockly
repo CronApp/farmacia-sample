@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><blockly formTarget="src/main/webapp/views/logged/produto.view.html" resourceType="JAVA" ruleDescription="updateEntity" ruleName="updateEntity" ruleSynchronous="false" ruleTimeout="300" ruleType="I">
+  <metadata scale="1" scrollx="36.98325290226808" scrolly="-266.1372510872635" target="-a+O}HBctAR2-Z5Okxsp"/>
+  <block colour="#995ba5" id="-a+O}HBctAR2-Z5Okxsp" origintype="procedures_defnoreturn" output="false" tooltip="Cria uma função que não tem retorno." type="procedures_defnoreturn" x="-187" y="233">
+    <field name="NAME">updateRemedio</field>
+    <comment h="80" pinned="false" w="160">Descreva esta função...</comment>
+    <statement name="STACK">
+      <block colour="#5ba58c" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="V}_aSpjzo]g@mnQ3;:)9" origintype="text_print" output="false" tooltip="Imprime o texto, número ou valor especificado." type="text_print">
+        <value name="TEXT">
+          <shadow colour="#5ba593" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="XGa@a-2}LhiJi{4yx|@P" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+          <block colour="#995ba5" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="2Xg_brzV)CT;BJlr5(7L" multilayer="false" namespace="cronapi.watson.conversation.ConversationOperations.createValue" origintype="procedures_callreturn" output="true" returntype="ObjectType.VOID" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EAdicionar%20'value'%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EAdicionar%20um%20novo%20'value'%20a%20uma%20'entity'.%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Data%20da%20vers%C3%A3o%20da%20API%20:%20Texto%3C/span%3E%3Cdiv%3E%20A%20vers%C3%A3o%20da%20API%20deve%20seguir%20o%20formato%20(AAAA-MM-DD).%20Saiba%20mais%20em%20%3Ca%20href=%22https://www.ibm.com/watson/developercloud/conversation/api/v1/java.html?java#versioning%22%20target=%22_blank%22%20style=%22color:#0066ff%22%3Eversionamento%3C/a%3E.%3C/div%3E%3Cspan%3E%20-%20Nome%20do%20usu%C3%A1rio%20do%20servi%C3%A7o%20:%20Texto%3C/span%3E%3Cdiv%3E%20Nome%20do%20usu%C3%A1rio%20obtido%20ao%20gerar%20a%20credencial%20do%20servi%C3%A7o.%20%3C/div%3E%3Cspan%3E%20-%20Senha%20do%20servi%C3%A7o%20:%20Texto%3C/span%3E%3Cdiv%3E%20Senha%20obtida%20ao%20gerar%20a%20credencial%20do%20servi%C3%A7o.%20%3C/div%3E%3Cspan%3E%20-%20URL%20do%20EndPoint%20:%20Texto%3C/span%3E%3Cdiv%3E%20Necess%C3%A1rio%20quando%20o%20endere%C3%A7o%20do%20servi%C3%A7o%20for%20diferente%20do%20padr%C3%A3o.%20Saiba%20mais%20em%20%3Ca%20href=%22https://www.ibm.com/watson/developercloud/conversation/api/v1/java.html?java#authentication%22%20target=%22_blank%22%20style=%22color:#0066ff%22%3Eautentica%C3%A7%C3%A3o%3C/a%3E.%3C/div%3E%3Cspan%3E%20-%20Cabe%C3%A7alho%20HTTP%20:%20Mapa%3C/span%3E%3Cdiv%3E%20%C3%89%20poss%C3%ADvel%20definir%20algumas%20propriedades%20sobre%20limita%C3%A7%C3%A3o%20de%20acesso%20ao%20servi%C3%A7o%20e%20a%20cole%C3%A7%C3%A3o%20de%20dados%20via%20estrutura%20de%20mapa.%20Saiba%20mais%20em%20%3Ca%20href=%22https://www.ibm.com/watson/developercloud/conversation/api/v1/java.html?java#rate-limiting%22%20target=%22_blank%22%20style=%22color:#0066ff%22%3Erate%20limits%3C/a%3E%20e%20%3Ca%20href=%22https://www.ibm.com/watson/developercloud/conversation/api/v1/java.html?java#data-collection%22%20target=%22_blank%22%20style=%22color:#0066ff%22%3Edata%20collection%3C/a%3E.%3C/div%3E%3Cspan%3E%20-%20Objeto%20com%20par%C3%A2metros%20:%20Objeto%3C/span%3E%3Cdiv%3E%20Veja%20as%20op%C3%A7%C3%B5es%20de%20par%C3%A2metro%20desse%20bloco%20na%20%3Ca%20href=%22https://www.ibm.com/watson/developercloud/conversation/api/v1/java.html?java#create-entity%22%20target=%22_blank%22%20style=%22color:#0066ff%22%3Edocumenta%C3%A7%C3%A3o%3C/a%3E.%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Sem%20retorno%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.watson.conversation.ConversationOperations.createValue%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.watson.conversation.ConversationOperations.createValue%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+            <mutation name="{{cronapi.watson.conversation.ConversationOperations.createValue}}" return-raw-type="com.ibm.watson.developer_cloud.conversation.v1.model.Value">
+              <arg cronapi-raw-type="java.lang.String" cronapi-type="ObjectType.STRING" name="Data da versão da API"/>
+              <arg cronapi-raw-type="java.lang.String" cronapi-type="ObjectType.STRING" name="Nome do usuário do serviço"/>
+              <arg cronapi-raw-type="java.lang.String" cronapi-type="ObjectType.STRING" name="Senha do serviço"/>
+              <arg cronapi-raw-type="java.lang.String" cronapi-type="ObjectType.STRING" name="URL do EndPoint"/>
+              <arg cronapi-raw-type="java.util.Map" cronapi-type="ObjectType.MAP" name="Cabeçalho HTTP"/>
+              <arg cronapi-raw-type="com.ibm.watson.developer_cloud.conversation.v1.model.CreateValueOptions" cronapi-type="ObjectType.OBJECT" name="Objeto com parâmetros"/>
+            </mutation>
+            <value name="ARG0">
+              <shadow colour="#5ba593" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="dYE:KNxxL#A;T0sPxpp$" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                <field name="TEXT">2018-02-16</field>
+              </shadow>
+            </value>
+            <value name="ARG1">
+              <shadow colour="#5ba593" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="{UcIK_NuIJjk|L8Ww#ot" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                <field name="TEXT">131f7036-21b9-4e60-89de-4fd8baad44ab
+
+</field>
+              </shadow>
+            </value>
+            <value name="ARG2">
+              <shadow colour="#5ba593" dependencyby="-a+O}HBctAR2-Z5Okxsp" id=".F1VXOg+qQv%q#vadhS}" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                <field name="TEXT">4ibq5pkzpFbr</field>
+              </shadow>
+            </value>
+            <value name="ARG3">
+              <shadow colour="#5ba593" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="/3_CeY%d|f?kO78-7ST_" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                <field name="TEXT"/>
+              </shadow>
+            </value>
+            <value name="ARG5">
+              <block colour="#404340" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="KZ,y~=*v9$dvluYLh/Ky" multilayer="false" namespace="cronapi.object.Operations.newObject" origintype="procedures_createnewobject_callreturn" output="true" returntype="ObjectType.OBJECT" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3ECriar%20novo%20objeto%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20que%20cria%20um%20novo%20objeto%20%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%20:%20Texto%3C/span%3E%3Cbr%3E%3Cspan%3E%20-%20Par%C3%A2metros%20:%20Mapa%3C/span%3E%3Cdiv%3E%20Par%C3%A2metros%20a%20serem%20passados%3C/div%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Objeto%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.object.Operations.newObject%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.object.Operations.newObject%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_createnewobject_callreturn">
+                <mutation data="%7B%22entity%22:%22com.ibm.watson.developer_cloud.conversation.v1.model.CreateValueOptions%22,%22entityFullName%22:%22com.ibm.watson.developer_cloud.conversation.v1.model.CreateValueOptions%22,%22params%22:%22%5B%5C%22workspaceId%5C%22,%5C%22entity%5C%22,%5C%22value%5C%22,%5C%22NOTSELECTED%5C%22,%5C%22NOTSELECTED%5C%22,%5C%22NOTSELECTED%5C%22,%5C%22NOTSELECTED%5C%22%5D%22,%22paramTypes%22:%22%5B%5C%22java.lang.String%5C%22,%5C%22java.lang.String%5C%22,%5C%22java.lang.String%5C%22,%5C%22NOTSELECTED%5C%22,%5C%22NOTSELECTED%5C%22,%5C%22NOTSELECTED%5C%22,%5C%22NOTSELECTED%5C%22%5D%22,%22type%22:%22F%22%7D" name="{{cronapi.object.Operations.newObject}}">
+                  <arg name="workspaceId"/>
+                  <arg name="entity"/>
+                  <arg name="value"/>
+                  <arg name="NOTSELECTED"/>
+                  <arg name="NOTSELECTED"/>
+                  <arg name="NOTSELECTED"/>
+                  <arg name="NOTSELECTED"/>
+                </mutation>
+                <value name="ARG0">
+                  <block colour="#5ba593" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="7d[x/Svgdtgp;[[U[~Aj" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                    <field name="TEXT">13830c02-870a-4ca8-8beb-2275d2c20a9e</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block colour="#5ba593" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="p(T/YV9F5hFd_Z^Ejj1k" origintype="text" output="true" tooltip="function () { [native code] }" type="text">
+                    <field name="TEXT">remedios</field>
+                  </block>
+                </value>
+                <value name="ARG2">
+                  <block colour="#934848" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="W^Wo[#GHODf@wnEOV^Uz" multilayer="false" namespace="cronapi.screen.Operations.getValueOfField" origintype="procedures_callreturn" output="true" returntype="ObjectType.JSON" tooltip="%3Cdiv%20class=%22name%22%3E%3Cstrong%3ENome:%3C/strong%3E%3Cdiv%3EObter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22description%22%3E%3Cstrong%3EDescri%C3%A7%C3%A3o:%3C/strong%3E%3Cdiv%3EFun%C3%A7%C3%A3o%20para%20obter%20valor%20do%20campo%3C/div%3E%3C/div%3E%3Cdiv%20class=%22params%22%3E%3Cstrong%3EParam%C3%AAtro:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Campo%20:%20Texto%3C/span%3E%3Cbr%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22return%22%3E%3Cstrong%3ERetorno:%3C/strong%3E%3Cdiv%3E%3Cspan%3E%20-%20Json%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22link%22%3E%3Cstrong%3EAjuda:%3C/strong%3E%3Cdiv%20class=%22tooltip-link%22%3E%3Ca%20target=%22_blank%22%20href=%22https://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%22%3Ehttps://docs.cronapp.io/display/CRON2/cronapi.screen.Operations.getValueOfField%3C/a%3E%3C/div%3E%3C/div%3E" type="procedures_callreturn">
+                    <mutation name="{{cronapi.screen.Operations.getValueOfField}}" return-raw-type="cronapi.Var">
+                      <arg cronapi-raw-type="cronapi.Var" cronapi-type="ObjectType.STRING" name="Campo"/>
+                    </mutation>
+                    <value name="ARG0">
+                      <block colour="#934848" dependencyby="-a+O}HBctAR2-Z5Okxsp" id="Bq9^Z?f?9E`Ky+!@/=cE" origintype="form_fieldscreen_callreturn" output="true" type="form_fieldscreen_callreturn">
+                        <field name="SELECT">Produto.active.nome</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</blockly>
