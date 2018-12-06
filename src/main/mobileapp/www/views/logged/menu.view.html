@@ -1,61 +1,42 @@
-<!--<ion-side-menus enable-menu-with-back-views="false"> -->
-<!--  <div class="row" data-container="true"> -->
-<!--    <ion-side-menu-content> -->
-<!--      <ion-nav-bar class="bar-stable"> -->
-<!--        <ion-nav-back-button> -->
-<!--        </ion-nav-back-button> -->
-<!--        <ion-nav-buttons side="left"> -->
-<!--          <button class="button button-icon button-clear btn-menu" menu-toggle="left"><i class="fas fa-bars"></i> </button> -->
-<!--        </ion-nav-buttons> -->
-<!--      </ion-nav-bar> -->
-<!--      <ion-nav-view name="menuContent"> -->
-<!--      </ion-nav-view> -->
-<!--      <ion-header-bar> -->
-<!--        <div class="header"> -->
-<!--          <img src="img/pharma-manager-logo.png"> -->
-<!--        </div> -->
-<!--      </ion-header-bar> -->
-<!--    </ion-side-menu-content> -->
-<!--    <ion-side-menu side="left"> -->
-<!--      <ion-content data-container="true"> -->
 <ion-view class="pane">
     <ion-content data-container="true" data-component="crn-ion-content" class="scroll-content menu-view">
-        <ion-list> 
-          <!-- Menu --> 
-          <div class="component-holder" data-component="crn-navbar" id="crn-navbar-986427"> 
-            <div class="nav navbar-nav"> 
-                <div class="menu-pharma">
-                  <div menu-close="" class="item-icon-left item item-complex" data-component="crn-anchor"> 
-                    <a class="component-holder item-content ng-binding" href="#/app/home"> <i class="icon-pharma"><img src="img/pharma-manager-prototype-dashboard.png"><p>Dashboard</p></i></a> 
-                  </div> 
-                  <div menu-close="" class="item-icon-left item item-complex" data-component="crn-anchor"> 
-                    <a class="item-content ng-binding" href="#/app/logged/user"> <i class="icon-pharma"><img src="img/pharma-manager-prototype-usuario.png"><p>Usuários</p></i></a> 
-                  </div> 
-                  <div menu-close="" class="item-icon-left item item-complex" data-component="crn-anchor"> 
-                    <a class="item-content ng-binding" href="#/app/logged/cliente"> <i class="icon-pharma"><img src="img/pharma-manager-prototype-cliente.png"><p>Cliente</p></i></a> 
-                  </div> 
-                  <div menu-close="" class="item-icon-left item item-complex" data-component="crn-anchor"> 
-                    <a class="item-content ng-binding" href="#/app/logged/fornecedor"> <i class="icon-pharma"><img src="img/pharma-manager-prototype-fornecedor.png"><p>Fornecedor</p></i></a> 
-                  </div>
-                  <div menu-close="" class="item-icon-left item item-complex" data-component="crn-anchor"> 
-                    <a class="item-content ng-binding" href="#/app/logged/pedido"> <i class="icon-pharma"><img src="img/pharma-manager-prototype-pedido.png"><p>Pedido de Venda</p></i></a> 
-                  </div>
-                  <div menu-close="" class="item-icon-left item item-complex" data-component="crn-anchor"> 
-                    <a class="item-content ng-binding" href="#/app/logged/produto"> <i class="icon-pharma"><img src="img/pharma-manager-prototype-produto.png"><p>Produto</p></i></a> 
-                  </div>
-                  <div menu-close="" class="item-icon-left item item-complex" data-component="crn-anchor"> 
-                    <a class="item-content ng-binding" href="#/app/logged/chat"> <i class="icon-pharma"><img src="img/pharma-manager-prototype-usuario.png"><p>Assistente Pessoal</p></i></a> 
-                  </div>                      
-                  <div menu-close="" class="item-icon-left item item-complex" data-component="crn-anchor"> 
-                    <a class="component-holder item-content ng-binding" ng-click="logout()" href="#"> <i class="icon-pharma"><img src="img/pharma-manager-prototype-sair.png"><p>Sair</p></i></a> 
-                  </div> 
-              </div>
-            </div> 
-          </div> 
-          <!-- Menu --> 
-        </ion-list> 
-      </ion-content> 
-      </ion-view>
-<!--    </ion-side-menu> -->
-<!--  </div> -->
-<!--</ion-side-menus>-->
+        <ion-list class=" disable-user-behavior list">
+            <!-- Menu -->
+            <div class="component-holder" data-component="crn-navbar" id="menu-blue">
+                <div class="nav navbar-nav">
+                    <a menu-close="" class="item item-avatar-left component-holder" xattr-position="item-avatar-left" href="" data-component="crn-list-item-avatar" id="crn-list-item-avatar-119775">
+                        <div class="user-avatar">
+                            <i class="icon ion-person"></i>
+                        </div>
+                        <div class="item-content text-left" xattr-text-position="text-left">
+                            <h2 class="" xattr-theme="dark">{{session.user.name}}</h2>
+                            <h3 class="" xattr-theme="dark">{{session.user.username}}</h3>
+                        </div> </a>
+                    <a menu-close="" class="item item-icon-left component-holder" xattr-position="item-icon-left" href="#/app/logged/home" data-component="crn-list-item-icon" id="crn-list-item-icon29401"><i class="icon ion-home" xattr-theme="dark" style="font-size: 150%;" xattr-icon-size="font-size:150%;"></i>
+                        <div class="item-content text-left" xattr-text-position="text-left">
+                            <h2 class="" xattr-theme="dark">{{ "Home.view.Home" | translate }}</h2>
+                        </div> </a>
+                    <a menu-close="" class="item item-icon-left component-holder" xattr-position="item-icon-left" href="#/app/logged/user" data-component="crn-list-item-icon" id="crn-list-item-icon30011"><i class="icon ion-person" xattr-theme="dark" style="font-size: 150%;" xattr-icon-size="font-size:150%;"></i>
+                        <div class="item-content text-left" xattr-text-position="text-left">
+                            <h2 class="" xattr-theme="dark">{{ "Users.view.Users" | translate }}</h2>
+                        </div> </a><a menu-close="" class="item item-icon-left component-holder" xattr-position="item-icon-left" href="#/app/logged/produto" data-component="crn-list-item-icon" id="crn-list-item-icon66781"><i class="icon ion-person" xattr-theme="dark" style="font-size: 150%;" xattr-icon-size="font-size:150%;"></i>
+                        <div class="item-content text-left" xattr-text-position="text-left">
+                            <h2 class="" xattr-theme="dark">{{'Produto' | translate}}</h2>
+                        </div> </a><a menu-close="" class="item item-icon-left component-holder" xattr-position="item-icon-left" href="#/app/logged/cliente" data-component="crn-list-item-icon" id="crn-list-item-icon23551"><i class="icon ion-person" xattr-theme="dark" style="font-size: 150%;" xattr-icon-size="font-size:150%;"></i>
+                        <div class="item-content text-left" xattr-text-position="text-left">
+                            <h2 class="" xattr-theme="dark">{{'Cliente' | translate}}</h2>
+                        </div> </a>
+                    <a menu-close="" class="item item-icon-left component-holder" xattr-position="item-icon-left" href="" data-component="crn-list-item-icon" id="crn-list-item-icon45041" ng-click="cronapi.client('js.blockly.auth.ChangePassword.openModal').run()"><i class="icon dark ion-locked" xattr-theme="dark" style="font-size: 150%;" xattr-icon-size="font-size:150%;"></i>
+                        <div class="item-content text-left" xattr-text-position="text-left">
+                            <h2 class="" xattr-theme="dark">{{"Home.view.ChangePassword" | translate}}</h2>
+                        </div> </a>
+                    <a menu-close="" class="item item-icon-left component-holder" xattr-position="item-icon-left" href="#" data-component="crn-list-item-icon" id="crn-list-item-icon46721" ng-click="logout()"><i class="icon ion-log-out" xattr-theme="dark" style="font-size: 150%;" xattr-icon-size="font-size:150%;"></i>
+                        <div class="item-content text-left" xattr-text-position="text-left">
+                            <h2 class="" xattr-theme="dark">{{"Home.view.Sair" | translate}}</h2>
+                        </div> </a>
+                </div>
+            </div>
+            <!-- Menu -->
+        </ion-list>
+    </ion-content>
+</ion-view>

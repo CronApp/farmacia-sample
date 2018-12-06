@@ -101,7 +101,6 @@
   "": "Nova venda",
   "VendaDeProduto": "Venda de Produto",
   "Estatisticas": "Estatísticas",
-  "Cliente": "Cliente",
   "Fornecedor": "Fornecedor",
   "Vendas": "Vendas",
   "Estoque": "Estoque",
@@ -126,12 +125,13 @@
   "PedidoDeVenda": "Pedido de venda",
   "ValorVenda": "Valor venda",
   "Data": "Data",
-  "Produto": "Produto",
   "Quantidade": "Quantidade",
   "Pedido": "Pedido",
   "Nome": "Nome",
   "CodigoProduto": "Codigo Produto",
   "Venda": "Venda",
   "ValorDeVenda": "Valor de venda",
-  "Email": "Email"
+  "Email": "Email",
+  "Produto": "Produto",
+  "Cliente": "Cliente"
 }

@@ -101,7 +101,6 @@
   "": "New sale",
   "VendaDeProduto": "Product Sale",
   "Estatisticas": "Statistics",
-  "Cliente": "Client",
   "Fornecedor": "Supplier",
   "Vendas": "Sales",
   "Estoque": "Stock",
@@ -126,12 +125,13 @@
   "PedidoDeVenda": "Sales order",
   "ValorVenda": "Sales value",
   "Data": "Date",
-  "Produto": "Product",
   "Quantidade": "Amount",
   "Pedido": "Request",
   "Nome": "Name",
   "CodigoProduto": "Product Code",
   "Venda": "Sale",
   "ValorDeVenda": "Sales value",
-  "Email": "E-mail"
+  "Email": "E-mail",
+  "Produto": "Product",
+  "Cliente": "Client"
 }
