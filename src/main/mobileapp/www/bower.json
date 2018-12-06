@@ -23,10 +23,10 @@
     "src"
   ],
   "dependencies": {
-    "cronapp-framework-mobile-js": "757d1e774991d95b85566ade32698b0e721b9a3f",
-    "cronapi-js": "e445b5fd3e0918952e9b996272a346914bacbaa7",
+    "cronapp-framework-mobile-js": "2.0.0",
+    "cronapi-js": "2.0.0",
     "cronapi-firebase": "0.0.5",
-    "cronapp-common-js": "912fa06be0fc3bc452d74ab94d4699f9e36fa2f4"
+    "cronapp-common-js": "2.0.0"
   },
   "resolutions": {
     "angular": "\u003e1.2.0"
