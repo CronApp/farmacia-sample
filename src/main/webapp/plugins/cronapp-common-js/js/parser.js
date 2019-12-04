@@ -1,7 +1,7 @@
 (function() {
 
-  var ISO_PATTERN  = new RegExp("(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d\\.\\d+([+-][0-2]\\d:[0-5]\\d|Z))|(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z))|(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z))");
-  var TIME_PATTERN  = new RegExp("PT(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)(?:\\.(\\d+)?)?S)?");
+  var ISO_PATTERN  = new RegExp("^(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d\\.\\d+([+-][0-2]\\d:[0-5]\\d|Z))|(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z))|(\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z))$");
+  var TIME_PATTERN  = new RegExp("^PT(?:(\\d\\d?)H)?(?:(\\d\\d?)M)?(?:(\\d\\d?)(?:\\.(\\d\\d?\\d?)?)?S)?$");
 
   window.stringToJs = function(value) {
     var formated = "";
@@ -51,9 +51,19 @@
       if (value.length >= 10 && value.match(ISO_PATTERN) && value.length < 100) {
         return new Date(value);
       }
-      else if (value.length >= 8 && value.match(TIME_PATTERN) && value.length < 100) {
-        var g = TIME_PATTERN.exec(value);
-        return new Date(Date.UTC(1970, 0, 1, g[1], g[2], g[3]));
+      else if (value.length >= 4 && value.match(TIME_PATTERN) && value.length < 100) {
+        try {
+          var momentDate = moment().utcOffset(window.systemTimeZoneOffset, true);
+
+          var g = TIME_PATTERN.exec(value);
+
+          momentDate = momentDate.hour(g[1]).minute(g[2]).second(g[3]).year(1970).dayOfYear(1).month(0);
+
+          return momentDate.toDate();
+        }
+        catch (e) {
+          return value;
+        }
       }
       else if (value.length >= 10 && value.substring(0, 6) == '/Date(' && value.substring(value.length - 2, value.length) == ")/") {
         var r = value.substring(6, value.length-2);
@@ -448,19 +458,21 @@
     throw new Error("Unable to copy obj! Its type isn't supported.");
   }
 
-  window.getOperatorODATA = function(operator) {
-    if (operator == '=') {
-      return ' eq ';
+  window.getOperatorODATA = function(left, operator, right) {
+    if (operator == '%') {
+      return 'substringof(' + right + ', ' + left + ')';
+    } else if (operator == '=') {
+      return left + ' eq ' + right;
     } else if (operator == '!=') {
-      return ' ne ';
+      return left + ' ne ' + right;
     } else if (operator == '>') {
-      return ' gt ';
+      return left + ' gt ' + right;
     } else if (operator == '>=') {
-      return ' ge ';
+      return left + ' ge ' + right;
     } else if (operator == '<') {
-      return ' lt ';
+      return left + ' lt ' + right;
     } else if (operator == '<=') {
-      return ' le ';
+      return left + ' le ' + right;
     }
   }
 
@@ -501,7 +513,7 @@
         if (arg.args && arg.args.length > 0) {
           result = result + ' ' + oper.toLowerCase() + ' ( ' + parserOdata(arg) + ' ) ';
         } else {
-          result = result + ' ' + oper.toLowerCase() + ' ' + arg.left + getOperatorODATA(arg.type) + executeRight(arg.right);
+          result = result + ' ' + oper.toLowerCase() + ' ' + getOperatorODATA(arg.left, arg.type, executeRight(arg.right));
         }
       }
     }

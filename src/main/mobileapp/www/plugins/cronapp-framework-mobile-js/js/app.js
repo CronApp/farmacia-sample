@@ -70,6 +70,12 @@ var app = (function() {
         $httpProvider.interceptors.push(interceptor);
       }
     ])
+    .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+      $ionicConfigProvider.navBar.alignTitle('center');
+      if(ionic.Platform.isIOS()) {
+        $ionicConfigProvider.scrolling.jsScrolling(false);
+      }
+    })
     .config(function($stateProvider, $urlRouterProvider, NotificationProvider) {
       NotificationProvider.setOptions({
         delay: 5000,
@@ -257,6 +263,7 @@ var app = (function() {
         }, 300);
           
       });
+      setInterval(() => $('ion-nav-view[name="menuContent"] .button.button-clear.hide').removeClass('hide'), 300);
       
     });
 
@@ -275,7 +282,7 @@ app.bindScope = function($scope, obj) {
   for (var x in obj) {
     // var name = parentName+'.'+x;
     // console.log(name);
-    if (typeof obj[x] == 'string')
+    if (typeof obj[x] == 'string' || typeof obj[x] == 'boolean')
       newObj[x] = obj[x];
     else if (typeof obj[x] == 'function')
       newObj[x] = obj[x].bind($scope);
@@ -292,6 +299,7 @@ app.registerEventsCronapi = function($scope, $translate,$ionicModal) {
     $scope[x] = app.userEvents[x].bind($scope);
 
   $scope.vars = {};
+  $scope.$evt = $evt;
 
   try {
     if (cronapi) {
@@ -308,8 +316,10 @@ app.registerEventsCronapi = function($scope, $translate,$ionicModal) {
     console.info(e);
   }
   try {
-    if (blockly)
+    if (blockly) {
+      blockly.cronapi = cronapi;
       $scope['blockly'] = app.bindScope($scope, blockly);
+    }
   } catch (e) {
     console.info('Not loaded blockly functions');
     console.info(e);

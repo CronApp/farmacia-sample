@@ -23,6 +23,11 @@ if (window.customModules) {
   cronappModules = cronappModules.concat(window.customModules);
 }
 
+var onloadCallback = function() {
+  window.grecaptcha.render('loginRecaptcha');
+  window.grecaptcha.reset();
+};
+
 var app = (function() {
 
   return angular.module('MyApp', cronappModules)
@@ -125,7 +130,12 @@ var app = (function() {
               .state('home', {
                 url: "/home",
                 controller: 'HomeController',
-                templateUrl: 'views/logged/home.view.html'
+                templateUrl: 'views/logged/home.view.html',
+                resolve: {
+                  data: function ($translate) {
+                    $translate.refresh();
+                  }
+                }
               })
 
               .state('home.pages', {
@@ -172,9 +182,8 @@ var app = (function() {
 
         $translateProvider.useMissingTranslationHandlerLog();
 
-        $translateProvider.useStaticFilesLoader({
-          files: [
-            {
+        $translateProvider.useLoader('customTranslateLoader', {
+            files: [{
               prefix: 'i18n/locale_',
               suffix: '.json'
             },
@@ -185,11 +194,8 @@ var app = (function() {
         });
 
         $translateProvider.registerAvailableLanguageKeys(
-            ['pt_br', 'en_us'], {
-              'en*': 'en_us',
-              'pt*': 'pt_br',
-              '*': 'pt_br'
-            }
+            window.translations.localesKeys,
+            window.translations.localesRef
         );
 
         var locale = (window.navigator.userLanguage || window.navigator.language || 'pt_br').replace('-', '_');
@@ -202,27 +208,48 @@ var app = (function() {
         if (moment)
           moment.locale(locale);
       })
+      .config(function($sceProvider) {
+        $sceProvider.enabled(false);
+      })
 
       .directive('crnValue', ['$parse', function($parse) {
         return {
           restrict: 'A',
           require: '^ngModel',
-          link: function(scope, element, attr, ngModel) {
+          link: function(scope, element, attr, ngModelCtrl) {
             var evaluatedValue;
             if (attr.value) {
               evaluatedValue = attr.value;
             } else {
               evaluatedValue = $parse(attr.crnValue)(scope);
             }
+
             element.attr("data-evaluated", JSON.stringify(evaluatedValue));
             element.bind("click", function(event) {
               scope.$apply(function() {
-                ngModel.$setViewValue(evaluatedValue);
+                ngModelCtrl.$setViewValue(evaluatedValue);
+                $(element).data('changed', true);
               }.bind(element));
             });
+
+            scope.$watch(function(){return ngModelCtrl.$modelValue}, function(value, old){
+              if (value !== old) {
+                var dataEvaluated = element.attr("data-evaluated");
+                var changed = $(element).data('changed');
+                $(element).data('changed', false);
+                if (!changed) {
+                  if (value && JSON.stringify(''+value) === dataEvaluated) {
+                    $(element)[0].checked = true
+                  } else {
+                    $(element)[0].checked = false;
+                  }
+                }
+              }
+            });           
           }
         };
       }])
+	  
       .decorator("$xhrFactory", [
         "$delegate", "$injector",
         function($delegate, $injector) {
@@ -237,12 +264,13 @@ var app = (function() {
         }
       ])
       // General controller
-      .controller('PageController', function($controller, $scope, $stateParams, $location, $http, $rootScope, $translate, Notification, UploadService) {
+      .controller('PageController', function($controller, $scope, $stateParams, $location, $http, $rootScope, $translate, Notification, UploadService, $timeout, $state) {
         // save state params into scope
         $scope.params = $stateParams;
         $scope.$http = $http;
         $scope.Notification = Notification;
         $scope.UploadService = UploadService;
+        $scope.$state = $state;
 
         app.registerEventsCronapi($scope, $translate);
         
@@ -254,14 +282,6 @@ var app = (function() {
           }
         }
 
-        var screenParams = eval($('#starter[data-component="crn-start"]').attr('screen-params'));
-        if (screenParams && screenParams.length) {
-          screenParams.forEach(function(screenParam) {
-            if (!$scope.params[screenParam.key])
-              $scope.params[screenParam.key] = screenParam.value;
-          });
-        }
-
         //Components personalization jquery
         $scope.registerComponentScripts = function() {
           //carousel slider
@@ -270,15 +290,22 @@ var app = (function() {
             var index = $(currentCarousel + ' .carousel-indicators li').index(this);
             $(currentCarousel + ' #carousel-example-generic').carousel(index);
           });
-        }
+        };
 
         $scope.registerComponentScripts();
 
         try {
           var contextAfterPageController = $controller('AfterPageController', { $scope: $scope });
           app.copyContext(contextAfterPageController, this, 'AfterPageController');
-        } catch(e) {};
-        try { if ($scope.blockly.events.afterPageRender) $scope.blockly.events.afterPageRender(); } catch(e) {};
+        } catch(e) {}
+
+        $timeout(function () {
+          // Verify if the 'afterPageRender' event is defined and it is a function (it can be a string pointing to a non project blockly) and run it.
+          if ($scope.blockly && $scope.blockly.events && $scope.blockly.events.afterPageRender && $scope.blockly.events.afterPageRender instanceof Function) {
+            $scope.blockly.events.afterPageRender();
+          }
+        });
+
       })
 
       .run(function($rootScope, $state) {
@@ -307,7 +334,7 @@ app.bindScope = function($scope, obj) {
   var newObj = {};
 
   for (var x in obj) {
-    if (typeof obj[x] == 'string')
+    if (typeof obj[x] == 'string' || typeof obj[x] == 'boolean')
       newObj[x] = obj[x];
     else if (typeof obj[x] == 'function')
       newObj[x] = obj[x].bind($scope);
@@ -324,6 +351,7 @@ app.registerEventsCronapi = function($scope, $translate) {
     $scope[x] = app.userEvents[x].bind($scope);
 
   $scope.vars = {};
+  $scope.$evt = $evt;
 
   try {
     if (cronapi) {
@@ -339,8 +367,10 @@ app.registerEventsCronapi = function($scope, $translate) {
     console.info(e);
   }
   try {
-    if (blockly)
+    if (blockly) {
+      blockly.cronapi = cronapi;
       $scope['blockly'] = app.bindScope($scope, blockly);
+    }
   } catch (e) {
     console.info('Not loaded blockly functions');
     console.info(e);
@@ -358,9 +388,81 @@ app.copyContext = function(fromContext, toContext, controllerName) {
   }
 };
 
+app.factory('customTranslateLoader', function ($http, $q) {
+
+  return function (options) {
+
+    if (!options || (!angular.isArray(options.files) && (!angular.isString(options.prefix) || !angular.isString(options.suffix)))) {
+      throw new Error('Couldn\'t load static files, no files and prefix or suffix specified!');
+    }
+
+    if (!options.files) {
+      options.files = [{
+        prefix: options.prefix,
+        suffix: options.suffix
+      }];
+    }
+
+    var load = function (file) {
+      if (!file || (!angular.isString(file.prefix) || !angular.isString(file.suffix))) {
+        throw new Error('Couldn\'t load static file, no prefix or suffix specified!');
+      }
+
+      var deferred = $q.defer();
+
+      $http(angular.extend({
+        url: [
+          file.prefix,
+          options.key,
+          file.suffix
+        ].join(''),
+        method: 'GET',
+        params: ''
+      }, options.$http)).success(function (data) {
+        deferred.resolve(data);
+      }).error(function () {
+        deferred.resolve({});
+      });
+
+      return deferred.promise;
+    };
+
+    var deferred = $q.defer(),
+        promises = [],
+        length = options.files.length;
+
+    for (var i = 0; i < length; i++) {
+      promises.push(load({
+        prefix: options.files[i].prefix,
+        key: options.key,
+        suffix: options.files[i].suffix
+      }));
+    }
+
+    $q.all(promises).then(function (data) {
+      var length = data.length,
+          mergedData = {};
+
+      for (var i = 0; i < length; i++) {
+        for (var key in data[i]) {
+          mergedData[key] = data[i][key];
+        }
+      }
+
+      deferred.resolve(mergedData);
+
+    }, function (data) {
+      deferred.reject(data);
+    });
+
+    return deferred.promise;
+  };
+
+});
+
 window.safeApply = function(fn) {
   var phase = this.$root.$$phase;
-  if (phase == '$apply' || phase == '$digest') {
+  if (phase === '$apply' || phase === '$digest') {
     if (fn && (typeof(fn) === 'function')) {
       fn();
     }

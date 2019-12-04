@@ -23,10 +23,10 @@
     "src"
   ],
   "dependencies": {
-    "cronapp-framework-mobile-js": "2.0.0",
-    "cronapi-js": "2.0.0",
+    "cronapp-framework-mobile-js": "2.3.4",
+    "cronapi-js": "2.3.0",
     "cronapi-firebase": "0.0.5",
-    "cronapp-common-js": "2.0.0"
+    "cronapp-common-js": "2.3.2"
   },
   "resolutions": {
     "angular": "\u003e1.2.0"

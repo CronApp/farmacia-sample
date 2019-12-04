@@ -10,23 +10,33 @@ var cronappModules = [
     'tmh.dynamicLocale',
     'ui-notification',
     'ngFileUpload',
-    'angularMoment'
-]
+    'angularMoment',
+    'upload.services',
+];
 
 if (window.customModules) {
     cronappModules = cronappModules.concat(window.customModules);
 }
 
+window.paceOptions = {
+  document: true,
+  eventLag: true,
+  restartOnPushState: true,
+  restartOnRequestAfter: true,
+  ajax: {
+    trackMethods: [ "PUT", "POST" , "GET"]
+  }
+};
 
 var app = (function() {
 
     return angular.module('MyApp', cronappModules)
         .constant('LOCALES', {
-            'locales': {
-                'pt_br': 'Portugues (Brasil)',
-                'en_us': 'English'
-            },
-            'preferredLocale': 'pt_br'
+          'locales': {
+            'pt_br': 'Portugues (Brasil)',
+            'en_us': 'English'
+          },
+          'preferredLocale': 'pt_br'
         })
         .run(function($ionicPlatform) {
             $ionicPlatform.ready(function() {
@@ -49,6 +59,18 @@ var app = (function() {
                     // org.apache.cordova.statusbar required
                     StatusBar.styleDefault();
                 }
+
+              // Fix for iPhone X/XS screen rotation issue
+              // https://stackoverflow.com/questions/53290178/cordova-iphone-x-safe-area-after-layout-orientation-changes
+              if(ionic.Platform.is('ios')){
+                window.addEventListener("orientationchange", function() {
+                  var originalMarginTop = document.body.style.marginTop;
+                  document.body.style.marginTop = "1px";
+                  setTimeout(function () {
+                    document.body.style.marginTop = originalMarginTop;
+                  }, 100);
+                }, false);
+              }
             });
         })
         .config([
@@ -57,15 +79,29 @@ var app = (function() {
                 var interceptor = [
                     '$q',
                     '$rootScope',
-                    function($q, $rootScope) {
+                    '$injector',
+                    function($q, $rootScope, $injector) {
                         var service = {
-                            'request': function(config) {
+                            request: function(config) {
                                 var _u = JSON.parse(localStorage.getItem('_u'));
                                 if (_u && _u.token) {
                                     config.headers['X-AUTH-TOKEN'] = _u.token;
                                     window.uToken = _u.token;
                                 }
                                 return config;
+                            },
+                            responseError: function(error) {
+                                if (error.status === 500) {
+                                    // Verify if token is still valid
+                                    let $state = $injector.get('$state');
+                                    let $http = $injector.get('$http');
+                                    let Notification = $injector.get('Notification');
+                                    $rootScope.refreshToken(Notification, $http, ()=>{}, ()=>{
+                                        localStorage.removeItem("_u")
+                                        $state.go("login");
+                                    });
+                                }
+                                return $q.reject(error);
                             }
                         };
                         return service;
@@ -75,7 +111,11 @@ var app = (function() {
             }
         ])
         .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-            $ionicConfigProvider.navBar.alignTitle('center')
+            $ionicConfigProvider.navBar.alignTitle('center');
+            $ionicConfigProvider.tabs.position('bottom');
+            if(ionic.Platform.isIOS()) {
+              $ionicConfigProvider.scrolling.jsScrolling(false);
+            }
         })
         .config(function($stateProvider, $urlRouterProvider, NotificationProvider) {
             NotificationProvider.setOptions({
@@ -87,7 +127,6 @@ var app = (function() {
                 positionX: 'right',
                 positionY: 'top'
             });
-
             if (window.customStateProvider) {
                 window.customStateProvider($stateProvider);
             }
@@ -99,7 +138,13 @@ var app = (function() {
                         url: "",
                         cache: false,
                         controller: 'InitialController',
-                        templateUrl: ''
+                        templateUrl: function (urlattr) {
+                            if(navigator.app){
+                                // The code bellow is causing force close on devices running chromium WebView
+                                // navigator.app.exitApp();
+                            }
+                            return '';
+                        }
                     })
 
                     .state('login', {
@@ -121,20 +166,10 @@ var app = (function() {
                     .state('public', {
                         url: "/app/public",
                         cache: false,
-                        controller: 'PublicController',
-                        templateUrl: 'plugins/cronapp-framework-mobile-js/dist/components/templates/publicMenu.template.html'
+                        controller: 'PublicMenuController',
+                        templateUrl: 'plugins/cronapp-framework-mobile-js/components/templates/publicMenu.template.html'
                     })
 
-                    .state('public.home', {
-                        url: "/home",
-                        cache: false,
-                        views: {
-                            'menuContent': {
-                                controller: 'PublicController',
-                                templateUrl: 'views/public/home.view.html'
-                            }
-                        }
-                    })
                     .state('public.pages', {
                         url: "/{name:.*}",
                         cache: false,
@@ -151,8 +186,8 @@ var app = (function() {
                     .state('app', {
                         url: "/app/logged",
                         cache: false,
-                        controller: 'HomeController',
-                        templateUrl: 'plugins/cronapp-framework-mobile-js/dist/components/templates/menu.template.html'
+                        controller: 'MenuController',
+                        templateUrl: 'plugins/cronapp-framework-mobile-js/components/templates/menu.template.html'
                     })
 
                     .state('app.home', {
@@ -160,9 +195,14 @@ var app = (function() {
                         cache: false,
                         views: {
                             'menuContent': {
-                                controller: 'HomeController',
+                                controller: 'PageController',
                                 templateUrl: 'views/logged/home.view.html'
                             }
+                        },
+                        resolve: {
+                          data: function ($translate) {
+                            $translate.refresh();
+                          }
                         }
                     })
 
@@ -205,18 +245,18 @@ var app = (function() {
 
             $translateProvider.useMissingTranslationHandlerLog();
 
-            $translateProvider.useStaticFilesLoader({
-                prefix: 'i18n/locale_',
-                suffix: '.json'
+            $translateProvider.useLoader('customTranslateLoader', {
+                files: [
+                    {
+                      prefix: 'i18n/locale_',
+                      suffix: '.json'
+                    },
+                    {
+                        prefix: 'plugins/cronapp-framework-mobile-js/i18n/locale_',
+                        suffix: '.json'
+                    }
+                ]
             });
-
-            $translateProvider.registerAvailableLanguageKeys(
-                ['pt_br', 'en_us'], {
-                    'en*': 'en_us',
-                    'pt*': 'pt_br',
-                    '*': 'pt_br'
-                }
-            );
 
             var locale = (window.navigator.userLanguage || window.navigator.language || 'pt_br').replace('-', '_');
 
@@ -224,6 +264,9 @@ var app = (function() {
             $translateProvider.useSanitizeValueStrategy('escaped');
 
             tmhDynamicLocaleProvider.localeLocationPattern('plugins/angular-i18n/angular-locale_{{locale}}.js');
+        })
+        .config(function($sceProvider) {
+          $sceProvider.enabled(false);
         })
 
         .directive('crnValue', ['$parse', function($parse) {
@@ -284,7 +327,9 @@ var app = (function() {
                     var requestObj = arguments[5];
                     if (requestObj.status === 404 || requestObj.status === 403) {
                         localStorage.removeItem('_u');
-                        $state.go('login');
+                        $state.go('login').catch(function(){
+                            $state.go('404');
+                        });
                     }
                 } else {
                     $state.go('404');
@@ -313,6 +358,7 @@ var app = (function() {
                 }, 300);
 
             });
+            setInterval(() => $('ion-nav-view[name="menuContent"] .button.button-clear.hide').removeClass('hide'), 300);
         });
 
 }(window));
@@ -330,7 +376,7 @@ app.bindScope = function($scope, obj) {
     for (var x in obj) {
         // var name = parentName+'.'+x;
         // console.log(name);
-        if (typeof obj[x] == 'string')
+        if (typeof obj[x] == 'string' || typeof obj[x] == 'boolean')
             newObj[x] = obj[x];
         else if (typeof obj[x] == 'function')
             newObj[x] = obj[x].bind($scope);
@@ -347,6 +393,7 @@ app.registerEventsCronapi = function($scope, $translate, $ionicModal, $ionicLoad
         $scope[x] = app.userEvents[x].bind($scope);
 
     $scope.vars = {};
+    $scope.$evt = $evt;
 
     try {
         if (cronapi) {
@@ -365,13 +412,97 @@ app.registerEventsCronapi = function($scope, $translate, $ionicModal, $ionicLoad
         console.info(e);
     }
     try {
-        if (blockly)
-            $scope['blockly'] = app.bindScope($scope, blockly);
+      if (blockly) {
+        blockly.cronapi = cronapi;
+        $scope['blockly'] = app.bindScope($scope, blockly);
+      }
     } catch (e) {
         console.info('Not loaded blockly functions');
         console.info(e);
     }
 };
+
+app.copyContext = function(fromContext, toContext, controllerName) {
+  if (fromContext) {
+    for (var item in fromContext) {
+      if (!toContext[item])
+        toContext[item] = fromContext[item];
+      else
+        toContext[item+controllerName] = fromContext[item];
+    }
+  }
+};
+
+app.factory('customTranslateLoader', function ($http, $q) {
+
+  return function (options) {
+
+    if (!options || (!angular.isArray(options.files) && (!angular.isString(options.prefix) || !angular.isString(options.suffix)))) {
+      throw new Error('Couldn\'t load static files, no files and prefix or suffix specified!');
+    }
+
+    if (!options.files) {
+      options.files = [{
+        prefix: options.prefix,
+        suffix: options.suffix
+      }];
+    }
+
+    var load = function (file) {
+      if (!file || (!angular.isString(file.prefix) || !angular.isString(file.suffix))) {
+        throw new Error('Couldn\'t load static file, no prefix or suffix specified!');
+      }
+
+      var deferred = $q.defer();
+
+      $http(angular.extend({
+        url: [
+          file.prefix,
+          options.key,
+          file.suffix
+        ].join(''),
+        method: 'GET',
+        params: ''
+      }, options.$http)).success(function (data) {
+        deferred.resolve(data);
+      }).error(function () {
+        deferred.resolve({});
+      });
+
+      return deferred.promise;
+    };
+
+    var deferred = $q.defer(),
+        promises = [],
+        length = options.files.length;
+
+    for (var i = 0; i < length; i++) {
+      promises.push(load({
+        prefix: options.files[i].prefix,
+        key: options.key,
+        suffix: options.files[i].suffix
+      }));
+    }
+
+    $q.all(promises).then(function (data) {
+      var length = data.length,
+          mergedData = {};
+
+      for (var i = 0; i < length; i++) {
+        for (var key in data[i]) {
+          mergedData[key] = data[i][key];
+        }
+      }
+
+      deferred.resolve(mergedData);
+    }, function (data) {
+      deferred.reject(data);
+    });
+
+    return deferred.promise;
+  };
+
+});
 
 window.safeApply = function(fn) {
     var phase = this.$root.$$phase;

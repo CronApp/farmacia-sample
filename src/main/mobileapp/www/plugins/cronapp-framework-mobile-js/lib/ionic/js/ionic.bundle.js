@@ -3122,7 +3122,9 @@ function tapHandleFocus(ele) {
   if (ele.tagName == 'SELECT') {
     // trick to force Android options to show up
     triggerMouseEvent('mousedown', ele, 0, 0);
-    ele.focus && ele.focus();
+    if (!ionic.Platform.isIOS()) {
+      ele.focus && ele.focus();
+    }
     triggerFocusIn = true;
 
   } else if (tapActiveElement() === ele) {
@@ -3131,7 +3133,9 @@ function tapHandleFocus(ele) {
 
   } else if ((/^(input|textarea|ion-label)$/i).test(ele.tagName) || ele.isContentEditable) {
     triggerFocusIn = true;
-    ele.focus && ele.focus();
+    if (!ionic.Platform.isIOS()) {
+      ele.focus && ele.focus();
+    }
     ele.value = ele.value;
     if (tapEnabledTouchEvents) {
       tapTouchFocusedInput = ele;
@@ -8360,6 +8364,11 @@ ionic.views.Slider = ionic.views.View.inherit({
       // cache slides
       slides = element.children;
       length = slides.length;
+
+      //[QAIBT-2102] - Item de slide com ng-repeat inicialmente possui 0 slides, o ionic não prevê este comportamento
+      if(slides.length === 0){
+        return;
+      }
 
       // set continuous to false if only one slide
       if (slides.length < 2) options.continuous = false;
@@ -63079,7 +63088,15 @@ function($timeout, $controller, $ionicBind, $ionicConfig) {
       var innerElement;
       var scrollCtrl;
 
-      element.addClass('scroll-content ionic-scroll');
+      if($(element).find(".login-mobile").length > 0 && (ionic.Platform.isIOS() || window.cordova.platformId === "ios")){
+        element.addClass("cron-margin-top-ios");
+      }
+      if(!ionic.Platform.isIOS() && window.cordova.platformId !== "ios"){
+        element.addClass('scroll-content ionic-scroll');
+        if($(element).find(".login-mobile").length > 0){
+          attr.scroll = 'false';
+        }
+      }
 
       if (attr.scroll != 'false') {
         //We cannot use normal transclude here because it breaks element.data()
@@ -64060,9 +64077,17 @@ IonicModule
           }
         }
 
+        var checkbox = '';
+
+        if($element.find('ul').length > 0){
+          checkbox = $element.find('ul');
+          $element.find('ul').remove();
+        }
+
         innerElement.append($element.contents());
 
         $element.addClass('item item-complex')
+                .append(checkbox)
                 .append(innerElement);
       } else {
         $element.addClass('item');
@@ -67553,7 +67578,7 @@ function($timeout, $ionicConfig) {
 IonicModule
 .directive('ionView', function() {
   return {
-    restrict: 'A',
+    restrict: 'EA',
     priority: 1000,
     controller: '$ionicView',
     compile: function(tElement) {

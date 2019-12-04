@@ -1,4 +1,82 @@
+@import 'custom-ionic.css';
+
 /* Empty. Add your own CSS if you like */
+
+/*Set CSS Properties to Iphone x^ devices*/
+:root {
+    --safe-area-inset-top : env(safe-area-inset-top);
+    --safe-area-inset-right : env(safe-area-inset-right);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    --safe-area-inset-left : env(safe-area-inset-left);
+
+
+    /* //portrait orientation, status bar is shown */
+    /*
+    additionalSafeAreaInsets.top = 24.0
+    additionalSafeAreaInsets.bottom = 34.0
+    */
+
+    /* //portrait orientation, status bar is hidden */
+    /*
+    additionalSafeAreaInsets.top = 44.0
+    additionalSafeAreaInsets.bottom = 34.0
+    */
+
+    /* //landscape orientation */
+    /*
+    additionalSafeAreaInsets.top = 0.0
+    additionalSafeAreaInsets.left = 44.0
+    additionalSafeAreaInsets.bottom = 21.0
+    additionalSafeAreaInsets.right = 44.0
+    */
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .has-header,
+.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: calc(64px + var(--safe-area-inset-top));
+    padding-left: calc(0px + var(--safe-area-inset-left));
+    padding-right: calc(0px + var(--safe-area-inset-right));
+    padding-bottom: calc(0px + var(--safe-area-inset-bottom));
+}
+
+@media (orientation : portrait){
+
+    .tabs {
+        height: calc(30px + var(--safe-area-inset-bottom, 19px)) !important;
+        min-height: 49px;
+    }
+
+    .bar-header:not(.bar-subheader) {
+        height: calc(45px + var(--safe-area-inset-top, 19px)) !important;
+    }
+
+    .bar-header:not(.bar-subheader) > * {
+        margin-top: var(--safe-area-inset-top, 20px) !important;
+    }
+
+    .platform-ios.platform-cordova:not(.fullscreen) .has-header,
+    .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+        padding-top: calc(45px + var(--safe-area-inset-top) - 64px);
+        padding-bottom: var(--safe-area-inset-bottom);
+    }
+
+}
+
+
+@media (orientation : landscape) {
+
+    .tabs {
+        height: calc(45px + var(--safe-area-inset-bottom, 19px)) !important;
+        min-height: 49px;
+    }
+
+    .platform-ios.platform-cordova:not(.fullscreen) .has-header,
+    .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+        padding-left: var(--safe-area-inset-left);
+        padding-right: var(--safe-area-inset-right);
+        padding-bottom: var(--safe-area-inset-bottom);
+    }
+}
 
 body {
     background-color: #fff;
@@ -28,11 +106,7 @@ body {
 .list .item.item-accordion.ng-hide-remove {
     display: block !important;
 }
-.button.button-block,
-.button.button-full {
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-}
+
 .col-xs-1,
 .col-sm-1,
 .col-md-1,
@@ -818,12 +892,21 @@ body {
 
 .login-bg {
     background: -webkit-linear-gradient(45deg,#2767e6 0,#34b3f7 76%,#34b3f7 95%);
-    margin: 0 auto;
-    padding: 90px 5px;
+}
+
+.center-content-vertically{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .menu-view {
     background-color: #0087d4;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.safe-top {
+    padding-top: env(safe-area-inset-top);
 }
 #menu-blue .item {
     border-color: transparent;
@@ -853,34 +936,35 @@ body {
     margin: 0 0 2px 0;
     font-size: 14px;
     font-weight: normal;
-    color: #fff;
 }
+
 
 .menu-view .item h3, .login-bg .item h3 {
     margin: 0 0 2px 0;
     font-size: 13px;
     font-weight: normal;
-    color: #fff;
 }
 
 .menu-view .item-icon-left .icon, .login-bg .item-icon-left .icon {
     left: 20px;
-    color: #ffffff;
     border-radius: 100%;
-    border: 1px solid #ffffff;
+    border: 1px solid ;
     width: 35px;
     height: 35px;
     top: 6px;
 }
 
-.menu-view .item-icon-left, .item-icon-left .item-content, .login-bg .item-icon-left, .item-icon-left .item-content {
+.menu-view .item-icon-left, .login-bg .item-icon-left, ul.nav > a > div, ul.nav > li > a > div, div.nav > a > div {
     padding-left: 26px;
     margin-left: 20px;
     min-height: auto;
 }
 
+div.nav > a.item-avatar-left > div.item-content {
+    padding: 16px;
+}
+
 .menu-view [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar, .login-bg [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
-    background: #0083d8;
     color:#ffffff;
 }
 
@@ -929,13 +1013,13 @@ body {
     border: 0px solid #c0c0c0;
 }
 
-.menu-view input[type="text"],input[type="email"],input[type="password"], .login-bg input[type="text"],input[type="email"],input[type="password"] {
+/* .menu-view input[type="text"],input[type="email"],input[type="password"], .login-bg input[type="text"],input[type="email"],input[type="password"] {
     border-bottom: 1px solid #aaaaaa;
 }
 
 .menu-view input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus, .login-bg input[type="text"]:focus,input[type="email"]:focus,input[type="password"]:focus {
     border-bottom: 1px solid #0083d8;
-}
+} */
 
 .menu-view .bar-header button i, .login-bg .bar-header button i {
     font-size:10px;
@@ -954,13 +1038,6 @@ body {
     width: 45px;
     height: auto;
     padding: 0px;
-}
-
-.menu-view .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content, .login-bg .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
-    padding-left: 10px;
-    padding-top: 8px;
-    min-height: auto;
-    text-transform: capitalize;
 }
 
 .menu-view .input-default input, .login-bg .input-default input {
@@ -1056,9 +1133,9 @@ body {
 }
 
 .login-mobile input:focus {
-    border-bottom: 1px solid #142354;
+    border-bottom: 1px solid #2b71c0 !important;
     transition: 700ms;
-    color: #142354;
+    /*color: #142354;*/
     background-color: transparent!important;
 }
 
@@ -1072,10 +1149,10 @@ body {
 }
 
 .menu-view .button.button-positive, .login-bg .button.button-positive {
-    border-color: #008ad0;
-    background-color: #008ad0;
-    color: #ffffff;
-    border-radius: 2px;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #008ad0;
+    border-radius: 7px;
     transition: 400ms;
 }
 
@@ -1083,7 +1160,7 @@ body {
     border-color: #0f1e55!important;
     background-color: #122153;
     color: #ffffff;
-    border-radius: 2px;
+    border-radius: 7px;
     transition: 400ms;
 }
 
@@ -1118,5 +1195,112 @@ body {
 
 .login-bg label.item.item-input {
     padding: 10px;
-    border: 1px solid #d7d7d7;
+    /*border: 1px solid #d7d7d7;*/
+}
+
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.right-block {
+    display: block;
+    margin-left: auto;
+}
+
+.left-block {
+    display: block;
+    margin-right: auto;
+}
+
+.item-list-detail {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.custom-item-avatar-imagem{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+
+.checkbox input[indeterminate="true"]:after, .checkbox-icon:after{
+    -webkit-transition: opacity 0.05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(0deg);
+    position: absolute;
+    top: 33%;
+    left: 25%;
+    display: table;
+    width: 14px;
+    height: 6px;
+    border: 1px solid #fff;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    content: ' ';
+    opacity: 1;
+}
+
+.checkbox input[indeterminate="true"]:not(:checked):before{
+    background: #387ef5;
+    border-color: #387ef5;
+}
+
+.checkbox-light input[indeterminate="true"]:not(:checked):before{
+    background: #ddd;
+    border-color: #ddd;
+}
+
+.checkbox-stable input[indeterminate="true"]:not(:checked):before{
+    background: #b2b2b2;
+    border-color: #b2b2b2;
+}
+
+.checkbox-positive input[indeterminate="true"]:not(:checked):before{
+    background: #387ef5;
+    border-color: #387ef5;
+}
+
+.checkbox-calm input[indeterminate="true"]:not(:checked):before{
+    background: #11c1f3;
+    border-color: #11c1f3;
+}
+
+.checkbox-assertive input[indeterminate="true"]:not(:checked):before{
+    background: #ef473a;
+    border-color: #ef473a;
+}
+
+.checkbox-balanced input[indeterminate="true"]:not(:checked):before{
+    background: #33cd5f;
+    border-color: #33cd5f;
+}
+
+.checkbox-energized input[indeterminate="true"]:not(:checked):before{
+    background: #ffc900;
+    border-color: #ffc900;
+}
+
+.checkbox-royal input[indeterminate="true"]:not(:checked):before{
+    background: #886aea;
+    border-color: #886aea;
+}
+
+.checkbox-dark input[indeterminate="true"]:not(:checked):before{
+    background: #444;
+    border-color: #444;
+}
+
+.checkbox-dark input[indeterminate="true"]:disabled:not(:checked):before{
+    background: #ddd;
+    border-color: #ddd;
 }

@@ -11,8 +11,11 @@
   <link href="plugins/cronapp-framework-mobile-js/dist/css/app.css" rel="stylesheet"> 
   <link href="plugins/cronapp-framework-mobile-js/dist/css/cronos.css" rel="stylesheet"> 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"> 
-  <!-- <link href="css/app.css" rel="stylesheet">  -->
+  <!-- <link href="css/app.css" rel="stylesheet">  --> 
   <script src="plugins/cronapp-framework-mobile-js/lib/ionic/js/ionic.bundle.js"></script> 
+  <script src="js/customModules.js"></script>
+  <script src="js/customStateProvider.js"></script>
+  <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
  </head> 
  <body ng-app="MyApp"> 
   <ion-nav-view> 
@@ -46,7 +49,7 @@
   <script src="plugins/cronapp-framework-mobile-js/dist/js/LocaleService.js"></script> 
   <script src="plugins/cronapp-framework-mobile-js/dist/js/LanguageSelectDirective.js"></script> 
   <script src="plugins/cronapp-framework-mobile-js/dist/js/directives.js"></script> 
-  <script src="plugins/cronapp-framework-mobile-js/dist/js/filters.js"></script>  
+  <script src="plugins/cronapp-framework-mobile-js/dist/js/filters.js"></script> 
   <script src="plugins/cronapp-framework-mobile-js/dist/components/js/jquery.mask.min.js"></script> 
   <script src="plugins/cronapp-framework-mobile-js/dist/components/js/jquery.inputmask.bundle.js"></script> 
   <script src="plugins/cronapp-framework-mobile-js/dist/components/js/format.min.js"></script> 
@@ -60,8 +63,14 @@
   <script src="plugins/angular-moment/angular-moment.js"></script> 
   <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script> 
   <script src="plugins/cronapi-firebase/firebase.cronapi.js"></script> 
-  <script src="js/dataSourceMap.js"></script>  
-  <script src="plugins/cronapp-common-js/dist/js/parser.js"></script>
-  <script src="plugins/cronapp-common-js/dist/js/datasource/datasource.js"></script>
+  <script src="js/dataSourceMap.js"></script> 
+  <script src="plugins/cronapp-common-js/dist/js/parser.js"></script> 
+  <script src="plugins/cronapp-common-js/dist/js/datasource/datasource.js"></script> 
+  <script src="plugins/cronapp-common-js/dist/js/odata-filter-parser.js"></script> 
+  <script src="plugins/cronapp-common-js/dist/js/pouchdb.min.js"></script> 
+  <script src="plugins/cronapp-common-js/dist/js/pouchdb.find.min.js"></script>  
+  <script src="js/custom.controllers.js"></script>
+  <script src="plugins/cronapp-framework-mobile-js/dist/js/upload.service.js"></script>
+  <script src="plugins/pace/pace.min.js"></script>
  </body>
 </html>

@@ -99,5 +99,19 @@
   "Roles.view.Salvar": "Save",
   "Roles.view.Voltar": "Cancel",
   "Permission.view.Salvar": "Save",
-  "Permission.view.Voltar": "Cancel"
+  "Permission.view.Voltar": "Cancel",
+  "primary": "",
+  "error": "Error",
+  "success": "",
+  "info": "",
+  "warning": "",
+  "keyboardDecimalChar": ".",
+  "FieldIsInvalid": "Field '{0}' is invalid!",
+  "FieldIsRequired": "Field '{0}' is required!",
+  "Upload.title": "File upload",
+  "Upload.sending": "Uploading...",
+  "Upload.oneFile": "Select or drop one file",
+  "Upload.multipleFile": "Select or drop files",
+  "Upload.errorValidation": "Invalid selection: Max size %s and Allowed types: %s",
+  "Cancel": "Cancel"
 }
