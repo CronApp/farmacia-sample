@@ -50,29 +50,15 @@ public interface VendaDAO extends JpaRepository<Venda, java.lang.String> {
    * OneToMany Relation
    * @generated
    */
-  @Query("SELECT entity FROM Pedido entity WHERE entity.venda.id = :id")
-  public Page<Pedido> findPedido(@Param(value="id") java.lang.String id, Pageable pageable);
+  @Query("SELECT entity FROM ClienteVenda entity WHERE entity.venda.id = :id")
+  public Page<ClienteVenda> findClienteVenda(@Param(value="id") java.lang.String id, Pageable pageable);
 
   /**
    * OneToMany Relation
    * @generated
    */
-  @Query("SELECT entity FROM ClienteVenda entity WHERE entity.venda.id = :id")
-  public Page<ClienteVenda> findClienteVenda(@Param(value="id") java.lang.String id, Pageable pageable);
-  /**
-   * ManyToOne Relation
-   * @generated
-   */
-  @Query("SELECT entity.produto FROM Pedido entity WHERE entity.venda.id = :id")
-  public Page<Produto> listProduto(@Param(value="id") java.lang.String id, Pageable pageable);
-
-  /**
-   * ManyToOne Relation Delete
-   * @generated
-   */
-  @Modifying
-  @Query("DELETE FROM Pedido entity WHERE entity.venda.id = :instanceId AND entity.produto.id = :relationId")
-  public int deleteProduto(@Param(value="instanceId") java.lang.String instanceId, @Param(value="relationId") java.lang.String relationId);
+  @Query("SELECT entity FROM Pedido entity WHERE entity.venda.id = :id")
+  public Page<Pedido> findPedido(@Param(value="id") java.lang.String id, Pageable pageable);
   /**
    * ManyToOne Relation
    * @generated
@@ -87,5 +73,19 @@ public interface VendaDAO extends JpaRepository<Venda, java.lang.String> {
   @Modifying
   @Query("DELETE FROM ClienteVenda entity WHERE entity.venda.id = :instanceId AND entity.cliente.id = :relationId")
   public int deleteCliente(@Param(value="instanceId") java.lang.String instanceId, @Param(value="relationId") java.lang.String relationId);
+  /**
+   * ManyToOne Relation
+   * @generated
+   */
+  @Query("SELECT entity.produto FROM Pedido entity WHERE entity.venda.id = :id")
+  public Page<Produto> listProduto(@Param(value="id") java.lang.String id, Pageable pageable);
+
+  /**
+   * ManyToOne Relation Delete
+   * @generated
+   */
+  @Modifying
+  @Query("DELETE FROM Pedido entity WHERE entity.venda.id = :instanceId AND entity.produto.id = :relationId")
+  public int deleteProduto(@Param(value="instanceId") java.lang.String instanceId, @Param(value="relationId") java.lang.String relationId);
 
 }

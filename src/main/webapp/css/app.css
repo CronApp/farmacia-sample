@@ -333,10 +333,30 @@ div.k-grid-header {
 }
 
 
+.k-edit-field .k-widget {
+    font-size: inherit;
+    width: 250px;
+}
+
+.k-widget.k-window .k-window-titlebar .k-window-title {
+    color: #000;
+}
 
 
+/*web - menu*/
 
-
+.navbar-container {
+  height: 100px;
+}
+.navbar-brand img {
+    height: 70px;
+    padding: 0;
+    margin: -8px 10px 0px 10px;
+}
+.m-t-m {
+  margin-top: 30px;
+  padding-right: 33px;
+}
 
 
 
