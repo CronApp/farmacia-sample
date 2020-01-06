@@ -3,11 +3,12 @@
 Estilos Pharma Manager by CronApp
 =========================
 */
-
+/*
 @font-face {
     font-family: Roboto;
     src: url(fontes/Roboto-Medium_0.ttf);
-}
+}*/
+@import url ('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 .bar {
   background-image: none;
@@ -17,7 +18,7 @@ Estilos Pharma Manager by CronApp
 
 .logo {
   width: 300px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 131px auto;
   position: relative;
   -webkit-filter: none; 
   filter: none;
@@ -30,7 +31,7 @@ Estilos Pharma Manager by CronApp
 }
 
 .login-view-content {
-  background-color: #d5ffbf;
+  background-color: #fff;
   margin: 0 auto;
   padding-top: 40%;
   padding-bottom: 50%;
@@ -39,7 +40,7 @@ Estilos Pharma Manager by CronApp
 
 input, textarea, input[type="text"], input[type="password"], input[type="month"], input[type="number"], input[type="email"], input[type="tel"] {
   background-color: transparent;
-  border-bottom: 1px solid #6fb0e1;
+  border: 1px solid #DEEAE8;
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -93,15 +94,26 @@ button.add-produto i {
   color: #ccc;
 }
 
+label, input, button, select, textarea {
+    font-weight: normal;
+    font-size: 14px;
+    margin: 0 auto;
+}
 button.btn-principal {
-  background-color: #3eb2e4;
+  background-color: #95C67B;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 50px;
   border: none;
-  font-family: 'Roboto';
-  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  padding: 5px;
   text-align: center;
-  width: 100%;
+  width: 40%;
+  height: 31px;
+
+  display: flex;
+  justify-content: center;
 }
 
 button.btn-principal:hover {
@@ -187,24 +199,28 @@ button i {
 .item {
   border-color:transparent;
   background-color: transparent;
-  color: #000;
+  color: #fff;
   position: relative;
   z-index: 2;
   display: block;
   margin: -1px;
-  padding: 10px 0px;
-  border-width: 0px;
+  padding: 15px 0px;
+  /* border-width: 0px;*/
+  border-bottom: 1px solid #DEEAE8; 
   border-style: solid;
   font-size: 16px;
+  height: 70px;
 }
 
 .item-complex .item-content {
   position: relative;
   z-index: 2;
   padding: 0px 20px;
-  border: none;
+  border-bottom: 1px solid #DEEAE8;
+  /* border: none; */
   background-color: transparent;
   color: #000;
+  height: 60px;
 }
 
 .icon-pharma img {
@@ -341,7 +357,7 @@ button i {
     font-size: 16px;
 }
 .dark, a.dark {
-    color: #fff;
+    color: #000;
 }
 .menu-view .item h3, .login-bg .item h3 {
     margin: 0 0 2px 0;
@@ -355,6 +371,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
     line-height: 1.2;
 }
+.signup {
+  text-align: center;
+  padding-top: 40px;
+  color: #95C67B;
+}
 .input-label {
     display: table;
     padding: 7px 10px 7px 0px;
@@ -366,4 +387,31 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .bar.bar-positive .title {
     color: #fff;
     margin-left: 26px;
+}
+
+.dark, a.dark {
+    color: #1B1B1B; 
+    font-size: 12px;
+} 
+
+.button.button-positive {
+    border-color: transparent;
+    background-color: #3eb2e4;
+    color: #fff;
+}
+.item-options {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+}
+.bar.bar-positive {
+    border: none;
+  }
+
+  .item h2 {
+    margin: 13px 0 2px 0;
+    font-size: 16px;
+    font-weight: normal;
 }

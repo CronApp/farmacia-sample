@@ -10,13 +10,12 @@
                     <div class="row component-holder">
                         <div class="col-xs-12 col-sm-12 col-lg-12" data-container="true">
                             
-                            
-                            
                             <div class="col-xs-12 col-md-12 col-md-push-1" data-container="true">
                                 <input type="text" class="form-control" ng-model="user.username" id="username" placeholder="{{'Login.view.Username' | translate}}">                                
                                 <input type="password" class="form-control" ng-model="user.password" id="password" placeholder="{{'Login.view.Password' | translate}}">
                                 <button type="submit" class="btn-principal" ng-disabled="form.$invalid || vm.dataLoading">{{"Login.view.Login" | translate}}</button>  
                             </div>
+                            
                             
                             <div class="col-xs-12 col-md-12 col-md-push-1" data-container="true">
                                 <div class="form-group" data-container="true">
@@ -24,6 +23,7 @@
                                       <div ng-show="message.error" class="help-block">{{message.error}}</div> 
                                     </div>
                                 </div>
+                                <h4 class="signup">Sign up</h4>
                             </div>
                         </div>
                     </div>
