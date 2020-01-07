@@ -1,1 +1,16 @@
-window.blockly = window.blockly || {};window.blockly.js = window.blockly.js || {};window.blockly.js.blockly = window.blockly.js.blockly || {};document.write("<script src='js/abrirPedidos.blockly.js?1543410508040'></script>");document.write("<script src='js/blockly/auth/ChangePassword.blockly.js?1543361867000'></script>");document.write("<script src='js/blockly/auth/Home.blockly.js?1543781191783'></script>");document.write("<script src='js/blockly/auth/Login.blockly.js?1543361867000'></script>");document.write("<script src='js/chat.blockly.js?1543410513631'></script>");document.write("<script src='js/criarCarrinho.blockly.js?1543410482891'></script>");
+window.fixedTimeZone = true;
+window.timeZone = 'UTC';
+window.timeZoneOffset = 0;
+window.blockly = window.blockly || {};
+window.blockly.js = window.blockly.js || {};
+window.blockly.js.blockly = window.blockly.js.blockly || {};
+window.translations = window.translations || {};
+window.translations.localesKeys = ['en_us','pt_br'];
+window.translations.localesRef =  {"en*":"en_us","*":"pt_br","pt*":"pt_br"};
+document.write("<script src='js/criarCarrinho.blockly.js?1578337156974'></script>");
+document.write("<script src='js/chat.blockly.js?1578337156964'></script>");
+document.write("<script src='js/abrirPedidos.blockly.js?1578337156957'></script>");
+document.write("<script src='js/blockly/auth/Home.blockly.js?1578337156951'></script>");
+document.write("<script src='js/blockly/auth/ChangePassword.blockly.js?1578337156944'></script>");
+document.write("<script src='js/blockly/auth/Login.blockly.js?1578337156938'></script>");
+document.write("<script src='js/blockly/LoginFormas.blockly.js?1578427203155'></script>");

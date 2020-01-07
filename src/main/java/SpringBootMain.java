@@ -10,18 +10,18 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 @ComponentScan(basePackages = {
-
-"cronapp.framework.authentication.token",
+	"cronapp.framework.authentication.social",
+	"cronapp.framework.authentication.normal",
 	"cronapp.framework.authentication.security",
 	"cronapp.framework.rest",
-	"cronapp.framework.scheduler",
+    "cronapp.framework.scheduler",
 	"auth.permission",
 	"api.rest.events",
 	"api.rest.webservices",
 	"reports",
 	"cronapi",
 	"blockly",
-"app"
+	"app"
 })
 @EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
 public class SpringBootMain extends SpringBootServletInitializer {
